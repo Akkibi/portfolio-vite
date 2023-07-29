@@ -1,7 +1,10 @@
 @font-face {
+  font-family: 'Helvetica-CE';
+  src: url('/public/Helvetica-CE-Bold.otf');
+}
+@font-face {
   font-family: 'Helvetica';
   src: url('/public/HelveticaInseratLTStd-Roman.otf');
-  font-weight: 400;
 }
 
 @tailwind base;
@@ -11,13 +14,11 @@
 #root,
 html,
 body {
-  font-family: 'Helvetica';
   font-size: 16px;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   @apply m-0 leading-[normal];
-  font-family: 'Helvetica';
   height: 100%;
   width: 100%;
 }

@@ -16,7 +16,7 @@ export default {
       },
       fontFamily: {
         primaryFont: 'Helvetica',
-        secondaryFont: 'Helvetica',
+        secondaryFont: 'Helvetica-CE, sans-serif',
         terdiaryFont: 'Helvetica',
       },
     },

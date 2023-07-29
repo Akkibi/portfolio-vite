@@ -35,7 +35,7 @@ function App() {
 
   // Return the main component structure.
   return (
-    <div className="h-full w-full overflow-hidden border border-solid border-black p-0">
+    <div className="h-full w-full overflow-hidden border border-solid border-black p-0 font-secondaryFont">
       <Navbar />
       <Outlet />
     </div>
