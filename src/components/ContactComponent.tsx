@@ -1,11 +1,4 @@
-import { FunctionComponent } from 'react'
-
-const ContactComponent: FunctionComponent = () => {
-  return (
-    <div className="">
-      <h1>Contact</h1>
-    </div>
-  )
+export const ContactComponent = (a: number, b: number): number => {
+  console.log('ContactComponent')
+  return a + b
 }
-
-export default ContactComponent

@@ -1,11 +1,5 @@
-import { FunctionComponent } from 'react'
+export const HomeComponent = (a: number, b: number): number => {
+  console.log('HomeComponent')
 
-const HomeComponent: FunctionComponent = () => {
-  return (
-    <div className="">
-      <h1>Home</h1>
-    </div>
-  )
+  return a + b
 }
-
-export default HomeComponent
