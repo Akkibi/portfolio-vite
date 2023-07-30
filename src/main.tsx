@@ -13,6 +13,7 @@ import reportWebVitals from './reportWebVitals'
 import { AboutComponent } from './components/AboutComponent'
 import { ContactComponent } from './components/ContactComponent'
 import { HomeComponent } from './components/HomeComponent'
+import LoadAnimation from './components/LoadAnimation'
 import App from './App'
 import './index.css'
 
@@ -27,6 +28,21 @@ import './index.css'
 //     </div>
 //   )
 // }
+// const a = 10
+// const b = 20
+
+// if (navigationType === null) {
+//   return <div>Loading...</div>
+// }
+// const action: string = navigationType
+
+// const location = useLocation()
+// const pathname = location.pathname // Extract the pathname from the location.
+// useEffect(() => {
+//   if (action !== 'POP') {
+//     window.scrollTo(0, 0) // Scroll to the top of the page.
+//   }
+// }, [action, pathname]) // Run this effect when action or pathname changes.
 
 const router = createBrowserRouter([
   {
@@ -35,24 +51,18 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        loader: async () => {
-          return HomeComponent(1, 2)
-        },
-        element: <h1>Home</h1>,
+        // loader: async () => {
+        //   return HomeComponent(navigationType)
+        // },
+        element: <LoadAnimation anim={HomeComponent} />,
       },
       {
         path: 'about',
-        loader: async () => {
-          return AboutComponent(1, 2)
-        },
-        element: <h1>About</h1>,
+        element: <LoadAnimation anim={AboutComponent} />,
       },
       {
         path: 'contact',
-        loader: async () => {
-          return ContactComponent(1, 2)
-        },
-        element: <h1>Contact</h1>,
+        element: <LoadAnimation anim={ContactComponent} />,
       },
       // Add more routes for other components if needed
     ],
@@ -61,7 +71,7 @@ const router = createBrowserRouter([
 
 let container: HTMLElement | null = null
 
-document.addEventListener('DOMContentLoaded', function (event) {
+document.addEventListener('DOMContentLoaded', function () {
   if (!container) {
     container = document.getElementById('root') as HTMLElement
     const root = createRoot(container)

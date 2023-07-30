@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom'
 const Navbar: FunctionComponent = () => {
   return (
     <div className="w-full bg-black p-2 text-white">
-      <h1 className="text-11xl font-primaryFont">NAV ELEMENTS</h1>
+      <h1 id="nav" className="text-11xl relative font-primaryFont">
+        NAV ELEMENTS
+      </h1>
       <Link to="/">Home</Link>
       <br />
       <Link to="/About">About</Link>
