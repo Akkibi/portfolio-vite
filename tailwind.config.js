@@ -21,10 +21,11 @@ export default {
       },
     },
     fontSize: {
-      '6xl': '25px',
-      '231xl': '250px',
-      mini: '15px',
-      '81xl': '100px',
+      l: '1vh',
+      xl: '2vh',
+      xxl: '4vh',
+      xxxl: '8vh',
+      xxxxl: '16vh',
     },
   },
   corePlugins: {

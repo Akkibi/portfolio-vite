@@ -1,5 +1,5 @@
 {
-  "dev": [
+  "Developer": [
     {
       "name": "african-proud",
       "date": "12/07/2023",
@@ -99,7 +99,7 @@
       "link": ["", ""]
     }
   ],
-  "2dProjects": [
+  "2DArtist": [
     {
       "name": "akkibi-chromatic",
       "date": "26/12/2022",
@@ -206,7 +206,7 @@
       "title": "Fond d'écran",
       "description": "Voici chaques étapes qui ont menés a mon fond d'écran actuel. Je suis parti d'une base simple, deux logos, Figma et Blender qui me passionnent (pas la place pour les multiples langages de code) les elements 3d ont été faits sur Blender et la composition sur figma.",
       "images": [
-        "background-new",
+        "background-new.png",
         "v05.png",
         "v04.png",
         "v03.png",
@@ -281,7 +281,7 @@
       "link": ["", ""]
     }
   ],
-  "3dProjects": [
+  "3DArtst": [
     {
       "name": "araignee-qui-marche",
       "date": "29/11/2022",
