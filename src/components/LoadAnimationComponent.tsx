@@ -12,7 +12,12 @@ function LoadAnimation({ anim }: { anim: Function }) {
   if (navigationType !== 'POP') {
     anim(1, 2)
   }
-  return <div>{navigationType}</div>
+  return (
+    <div>
+      <h1>{navigationType}</h1>
+      Pas de projet selectionné
+    </div>
+  )
 }
 
 export default LoadAnimation

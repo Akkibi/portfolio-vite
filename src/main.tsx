@@ -32,7 +32,7 @@ const generateProjectRoutes = (data: any) => {
             <LoadProject
               projectData={project}
               projectIndex={ProjectIndex}
-              index={index}
+              index={index + 1}
             />
           ),
         }

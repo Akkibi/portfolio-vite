@@ -1,6 +1,103 @@
+// import { FunctionComponent, useEffect, useRef } from 'react'
+// import projectData from '../data.json'
+// import { Link } from 'react-router-dom'
+// import { gsap } from 'gsap'
+// // import Draggable from 'gsap/src/Draggable'
+// // gsap.registerPlugin(Draggable)
+
+// const ThumbnailsComponent: FunctionComponent = () => {
+//   //onclick&drag
+//   // const slideTrackRef = useRef<HTMLDivElement | null>(null)
+
+//   // useEffect(() => {
+//   //   // Use GSAP Draggable to enable dragging for the slide track
+//   //   if (slideTrackRef.current) {
+//   //     Draggable.create(slideTrackRef.current, {
+//   //       type: 'x',
+//   //       delay: 0.5,
+//   //       // bounds: '#thumbnails',
+//   //       throwProps: true,
+//   //     })
+//   //   }
+//   // }, [])
+//   //onscroll
+
+//   const getFirstImageLink = (project: any, categoryName: string) => {
+//     const [projectName] = project.name.split('.')
+//     return {
+//       section: categoryName,
+//       name: projectName,
+//       image: `/assets/${projectName}/${project.images[0]}`,
+//     }
+//   }
+//   const getCategoryWithFirstImages = (data: any) => {
+//     const categoriesWithFirstImages = []
+//     for (const category in data) {
+//       const projects = data[category]
+//       const firstImages = projects.map((project: any) =>
+//         getFirstImageLink(project, category)
+//       )
+//       categoriesWithFirstImages.push({ category, firstImages })
+//     }
+//     return categoriesWithFirstImages
+//   }
+
+//   const projectsWithFirstImages = getCategoryWithFirstImages(projectData)
+//   return (
+//     <div
+//       id="thumbnails"
+//       className=" absolute left-1/2 top-1/2 h-[60vh] w-full -translate-x-1/2  -translate-y-1/2 select-none overflow-hidden"
+//     >
+//       <div
+//         id="slide-track"
+//         ref={slideTrackRef}
+//         className="absolute left-1/2 top-1/2 flex -translate-y-1/2 select-none flex-row gap-0 text-white ease-out"
+//       >
+//         {projectsWithFirstImages.map((categoryData, index) => (
+//           <div key={index} className="flex flex-row gap-0">
+//             <div className="track-title relative m-0 h-[4vh] w-[4vh] -rotate-90 p-0 sm:h-[8vh] sm:w-[8vh]">
+//               <h2 className="absolute bottom-0 right-0 m-0 h-full p-0 text-right text-xxl sm:text-xxxl">
+//                 {categoryData.category.toUpperCase()}
+//               </h2>
+//             </div>
+//             <div className="relative flex flex-row gap-4">
+//               {categoryData.firstImages.map(
+//                 (data: any, projectIndex: number) => (
+//                   <div
+//                     key={projectIndex}
+//                     className="track-image relative block h-[50vh] w-[10vh] overflow-hidden border-0 p-0 opacity-50 grayscale duration-200 hover:opacity-100 hover:grayscale-0"
+//                   >
+//                     <img
+//                       className="thumbnail absolute top-0 h-full w-full object-cover object-[center_100%] ease-out"
+//                       id={`imageBanner_${index}_${projectIndex}`}
+//                       src={data.image}
+//                       alt={`Banner_${index}_${projectIndex}`}
+//                     />
+//                     <Link
+//                       className=" absolute h-full w-full text-white no-underline"
+//                       to={data.name}
+//                     >
+//                       <p className="absolute left-1/2 top-1/2 m-0 -translate-x-1/2 -translate-y-1/2 p-0 text-xl">
+//                         +
+//                       </p>
+//                     </Link>
+//                   </div>
+//                 )
+//               )}
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   )
+// }
+
+// export default ThumbnailsComponent
+
 import { FunctionComponent, useEffect, useRef } from 'react'
 import projectData from '../data.json'
 import { Link } from 'react-router-dom'
+import { gsap } from 'gsap'
 const ThumbnailsComponent: FunctionComponent = () => {
   //onclick&drag
   const trackRef = useRef<HTMLDivElement>(null)
@@ -42,22 +139,7 @@ const ThumbnailsComponent: FunctionComponent = () => {
 
       trackRef.current.dataset.percentage = nextPercentage.toString()
 
-      trackRef.current.animate(
-        {
-          transform: `translate(${nextPercentage}%, -50%)`,
-        },
-        { duration: 1200, fill: 'forwards' }
-      )
-
-      const images = trackRef.current.getElementsByClassName('thumbnail')
-      for (const image of images) {
-        ;(image as HTMLElement).animate(
-          {
-            objectPosition: `${100 + nextPercentage}% center`,
-          },
-          { duration: 1200, fill: 'forwards' }
-        )
-      }
+      makeSliderAnimation(trackRef.current, nextPercentage)
     }
   }
 
@@ -77,35 +159,43 @@ const ThumbnailsComponent: FunctionComponent = () => {
         -100
       )
       trackRef.current.dataset.prevPercentage = nextPercentage.toString()
-      trackRef.current.dataset.percentage = nextPercentage.toString()
-
-      trackRef.current.animate(
-        {
-          transform: `translate(${nextPercentage}%, -50%)`,
-        },
-        { duration: 1200, fill: 'forwards' }
-      )
-      const images = trackRef.current.getElementsByClassName('thumbnail')
-      for (const image of images) {
-        ;(image as HTMLElement).animate(
-          {
-            objectPosition: `${100 + nextPercentage}% center`,
-          },
-          { duration: 1200, fill: 'forwards' }
-        )
-      }
+      makeSliderAnimation(trackRef.current, nextPercentage)
     }
   }
-  function throttle(callback: Function, wait: number) {
-    var timeout: any
-    return function (e: Event) {
-      if (timeout) return
-      timeout = setTimeout(() => (callback(e), (timeout = undefined)), wait)
+
+  function makeSliderAnimation(track: HTMLDivElement, nextValue: number) {
+    track.dataset.percentage = nextValue.toString()
+
+    // track.animate(
+    //   {
+    //     transform: `translate(${nextValue}%, -50%)`,
+    //   },
+    //   { duration: 1200, fill: 'forwards' }
+    // )
+    gsap.to(trackRef.current, {
+      duration: 1,
+      transform: `translate(${nextValue}%, -50%)`,
+      ease: 'power2',
+      overwrite: true,
+    })
+    const images = track.getElementsByClassName('thumbnail')
+    for (const image of images) {
+      // ;(image as HTMLElement).animate(
+      //   {
+      //     objectPosition: `${100 + nextValue}% center`,
+      //   },
+      //   { duration: 1200, fill: 'forwards' }
+      // )
+      gsap.to(image as HTMLElement, {
+        duration: 1,
+        objectPosition: `${100 + nextValue}% center`,
+        ease: 'power2',
+        overwrite: true,
+      })
     }
   }
 
   useEffect(() => {
-    //if trackref and pathname = '/'
     if (trackRef.current) {
       trackRef.current.dataset.mouseDownAt = '0'
       trackRef.current.dataset.prevPercentage = '0'
@@ -114,22 +204,16 @@ const ThumbnailsComponent: FunctionComponent = () => {
       window.addEventListener('touchstart', handleOnDown)
       window.addEventListener('mouseup', handleOnUp)
       window.addEventListener('touchend', handleOnUp)
-      window.addEventListener(
-        'mousemove',
-        throttle(function (e: MouseEvent | TouchEvent) {
-          handleOnMove
-        }, 100)
-      )
+      window.addEventListener('mousemove', handleOnMove)
       window.addEventListener('touchmove', handleOnMove)
       window.addEventListener('wheel', transformScroll)
       const images = trackRef.current.getElementsByClassName('thumbnail')
       for (const image of images) {
-        ;(image as HTMLElement).animate(
-          {
-            objectPosition: `100% center`,
-          },
-          { duration: 0, fill: 'forwards' }
-        )
+        gsap.to(image as HTMLElement, {
+          duration: 0,
+          objectPosition: `100% center`,
+          overwrite: true,
+        })
       }
     }
     return () => {
@@ -166,13 +250,13 @@ const ThumbnailsComponent: FunctionComponent = () => {
   const projectsWithFirstImages = getCategoryWithFirstImages(projectData)
   return (
     <div
-      id="image-track"
+      id="slide-track"
       ref={trackRef}
-      className="absolute left-1/2 top-1/2 flex -translate-y-1/2 select-none flex-row gap-2 text-white ease-out"
+      className="absolute left-1/2 top-1/2 flex -translate-y-1/2 select-none flex-row gap-4 text-white ease-out"
     >
       {projectsWithFirstImages.map((categoryData, index) => (
         <div key={index} className="flex flex-row gap-4">
-          <div className=" relative m-0 h-[4vh] w-[4vh] -rotate-90 p-0 sm:h-[8vh] sm:w-[8vh]">
+          <div className="track-title relative m-0 h-[8vh] w-[8vh] -rotate-90 p-0 sm:h-[16vh] sm:w-[16vh]">
             <h2 className="absolute bottom-0 right-0 m-0 h-full p-0 text-right text-xxl sm:text-xxxl">
               {categoryData.category.toUpperCase()}
             </h2>
@@ -181,7 +265,7 @@ const ThumbnailsComponent: FunctionComponent = () => {
             {categoryData.firstImages.map((data: any, projectIndex: number) => (
               <div
                 key={projectIndex}
-                className="relative block h-[50vh] w-[10vh] overflow-hidden border-0 p-0 opacity-50 grayscale duration-200 hover:opacity-100 hover:grayscale-0"
+                className="track-image relative block h-[50vh] w-[10vh] overflow-hidden border-0 p-0 opacity-50 grayscale duration-200 hover:opacity-100 hover:grayscale-0"
               >
                 <img
                   className="thumbnail absolute top-0 h-full w-full object-cover object-[center_100%] ease-out"
