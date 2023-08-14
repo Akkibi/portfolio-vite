@@ -6,12 +6,12 @@ function LoadAnimation({ anim }: { anim: Function }) {
 
   useEffect(() => {
     if (navigationType === 'POP') {
-      anim(1, 2)
+      anim()
       ColorsRender('#fff', '#111', 0.1)
     }
   })
   if (navigationType !== 'POP') {
-    anim(1, 2)
+    anim()
     ColorsRender('#fff', '#111', 0.1)
   }
   return (

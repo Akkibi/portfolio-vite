@@ -33,11 +33,18 @@ const ThumbnailsComponent: FunctionComponent = () => {
       title &&
       image
     ) {
-      const min = 1
-      // (title.getBoundingClientRect().width +
-      //   image.getBoundingClientRect().width / 2) /
-      // trackRef.current.getBoundingClientRect().width
-      console.log(min)
+      const min =
+        ((title.getBoundingClientRect().width +
+          16 +
+          image.getBoundingClientRect().width / 2) /
+          trackRef.current.getBoundingClientRect().width) *
+        -100
+
+      const max =
+        ((trackRef.current.getBoundingClientRect().width -
+          image.getBoundingClientRect().width / 2) /
+          trackRef.current.getBoundingClientRect().width) *
+        -100
       const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX
       const mouseDelta =
         parseFloat(trackRef.current.dataset.mouseDownAt) - clientX
@@ -47,7 +54,7 @@ const ThumbnailsComponent: FunctionComponent = () => {
         parseFloat(trackRef.current.dataset.prevPercentage) + percentage
       const nextPercentage = Math.max(
         Math.min(nextPercentageUnconstrained, min),
-        -100
+        max
       )
 
       trackRef.current.dataset.percentage = nextPercentage.toString()
@@ -69,19 +76,24 @@ const ThumbnailsComponent: FunctionComponent = () => {
       image
     ) {
       const min =
-        (title.getBoundingClientRect().width +
+        ((title.getBoundingClientRect().width +
+          16 +
           image.getBoundingClientRect().width / 2) /
-        trackRef.current.getBoundingClientRect().width
-      console.log(
-        title.getBoundingClientRect().width /
-          trackRef.current.getBoundingClientRect().width
-      )
+          trackRef.current.getBoundingClientRect().width) *
+        -100
+
+      const max =
+        ((trackRef.current.getBoundingClientRect().width -
+          image.getBoundingClientRect().width / 2) /
+          trackRef.current.getBoundingClientRect().width) *
+        -100
+
       const percentage =
         parseFloat(trackRef.current.dataset.percentage) + e.deltaY / 5
       const nextPercentageUnconstrained = percentage
       const nextPercentage = Math.max(
         Math.min(nextPercentageUnconstrained, min),
-        -100
+        max
       )
       trackRef.current.dataset.prevPercentage = nextPercentage.toString()
       makeSliderAnimation(trackRef.current, nextPercentage)
@@ -91,12 +103,6 @@ const ThumbnailsComponent: FunctionComponent = () => {
   function makeSliderAnimation(track: HTMLDivElement, nextValue: number) {
     track.dataset.percentage = nextValue.toString()
 
-    // track.animate(
-    //   {
-    //     transform: `translate(${nextValue}%, -50%)`,
-    //   },
-    //   { duration: 1200, fill: 'forwards' }
-    // )
     gsap.to(trackRef.current, {
       duration: 1,
       transform: `translate(${nextValue}%, -50%)`,
@@ -105,12 +111,6 @@ const ThumbnailsComponent: FunctionComponent = () => {
     })
     const images = track.getElementsByClassName('thumbnail')
     for (const image of images) {
-      // ;(image as HTMLElement).animate(
-      //   {
-      //     objectPosition: `${100 + nextValue}% center`,
-      //   },
-      //   { duration: 1200, fill: 'forwards' }
-      // )
       gsap.to(image as HTMLElement, {
         duration: 1,
         objectPosition: `${100 + nextValue}% center`,

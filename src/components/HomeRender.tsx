@@ -1,5 +1,5 @@
 import { gsap } from 'gsap'
-export const HomeComponent = (a: number, b: number): number => {
+export const HomeComponent = (): void => {
   console.log('HomeComponent')
   gsap.to('#nav', {
     duration: 0.5,
@@ -11,21 +11,4 @@ export const HomeComponent = (a: number, b: number): number => {
     ease: 'power2',
     width: window.innerHeight * 0.1,
   })
-  gsap.to('#slide-track', {
-    duration: 0.5,
-    transform: 'translate(0,-50%)',
-    overwrite: true,
-    ease: 'power2',
-  })
-  gsap.to('.thumbnails', {
-    duration: 0.5,
-    objectPosition: `100% center`,
-    overwrite: true,
-  })
-  // gsap.to('#slide-track', {
-  //   duration: 0.5,
-  //   ease: 'power2',
-  //   scale: 1,
-  // })
-  return a + b
 }
