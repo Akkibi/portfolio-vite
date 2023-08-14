@@ -1,8 +1,9 @@
 import { useNavigationType } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, useContext } from 'react'
 import { type } from 'os'
 import { ProjectRender } from './ProjectRender'
 import { gsap } from 'gsap'
+import { ColorsRender } from './changeColors'
 
 interface Project {
   name: string
@@ -12,6 +13,7 @@ interface Project {
   images: string[]
   videos: string[]
   link: string[]
+  colors: string[]
 }
 
 function LoadProjectComponent({
@@ -29,46 +31,45 @@ function LoadProjectComponent({
     const title: HTMLElement | null = document.querySelector('.track-title')
     if (track !== null && image !== null && title !== null) {
       const offset =
-        image.getBoundingClientRect().width * projectIndex +
+        window.innerHeight * 0.1 * (projectIndex - 1) +
         title.getBoundingClientRect().width * index +
-        (projectIndex + index - 1) * 16 -
-        image.getBoundingClientRect().width / 2
+        (projectIndex + index - 1) * 16 +
+        (window.innerHeight * 0.85) / 2
 
       const offsetPercent =
         (offset / track.getBoundingClientRect().width) * -100
-      console.log(offsetPercent)
-      console.log(offset)
-      console.log(index)
-      console.log(title.getBoundingClientRect().width)
-      console.log(image.getBoundingClientRect().width)
-      console.log(track.offsetWidth)
       gsap.to(track, {
         duration: 0.5,
         transform: `translate(${offsetPercent}%, -50%)`,
-        ease: 'power2',
-        overwrite: true,
+        ease: 'linear',
       })
     }
   }
   const navigationType: string | null = useNavigationType()
   const project = projectData
+
   useEffect(() => {
     if (navigationType === 'POP') {
-      //my function animate
       alignImage(projectIndex, index)
-      ProjectRender(projectIndex + index * 3)
+      ColorsRender(project.colors[0], project.colors[1], 0.5)
+      ProjectRender(projectIndex, index)
     }
   })
   if (navigationType !== 'POP') {
-    //my function animate
     alignImage(projectIndex, index)
-    ProjectRender(projectIndex + index * 3)
+    ColorsRender(project.colors[0], project.colors[1], 0.5)
+    ProjectRender(projectIndex, index)
   }
+
   return (
-    <div>
-      <h1>{projectIndex + ' ' + index + ' ' + project.title}</h1>
-      <p>{project.description}</p>
-    </div>
+    <>
+      <h1 className="text-primary">
+        {projectIndex + ' ' + index + ' ' + project.title}
+      </h1>
+      <div className="bg-[rgba(0,0,0,0.5)] p-5">
+        <p className="text-white">{project.description}</p>
+      </div>
+    </>
   )
 }
 

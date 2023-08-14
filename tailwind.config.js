@@ -12,7 +12,7 @@ export default {
         },
         white: '#fff',
         lightgray: '#d8ccc8',
-        darkslategray: '#494949',
+        darkgray: '#494949',
       },
       fontFamily: {
         primaryFont: 'Helvetica',

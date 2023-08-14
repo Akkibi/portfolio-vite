@@ -17,7 +17,8 @@
       "link": [
         "https://africanproud.org/",
         "Le site serà en ligne en septembre 2023"
-      ]
+      ],
+      "colors": ["#ffff00", "#002222"]
     },
     {
       "name": "SLAPPING",
@@ -33,7 +34,8 @@
         "before.png"
       ],
       "videos": ["vETp_zL0tFg.png"],
-      "link": ["https://slapping.fr/", "Lien vers le site de Slapping"]
+      "link": ["https://slapping.fr/", "Lien vers le site de Slapping"],
+      "colors": ["#00ff00", "#222200"]
     },
     {
       "name": "gallerie-des-reves",
@@ -45,7 +47,8 @@
       "link": [
         "https://akkibi.github.io/SAE-S4-dispositif-interactif/",
         "Lien du site du dispositif"
-      ]
+      ],
+      "colors": ["#FB623C", "#121112"]
     },
     {
       "name": "nuit-de-linfo",
@@ -66,7 +69,8 @@
       "link": [
         "http://meauxlotov.poisson.butmmi.o2switch.site/",
         "Lien du site de notre équipe meauxlotov."
-      ]
+      ],
+      "colors": ["#606EB5", "#000000"]
     },
     {
       "name": "portrait-chinois",
@@ -81,7 +85,11 @@
         "Frame17.png"
       ],
       "videos": [],
-      "link": ["https://akkibi.github.io/myfirstproject/", "Lien vers le site."]
+      "link": [
+        "https://akkibi.github.io/myfirstproject/",
+        "Lien vers le site."
+      ],
+      "colors": ["#110022", "#ffbbaa"]
     },
     {
       "name": "dataviz",
@@ -96,7 +104,8 @@
         "NiveauMois.png"
       ],
       "videos": [],
-      "link": ["", ""]
+      "link": ["", ""],
+      "colors": ["#ffeecc", "#110022"]
     }
   ],
   "2DArtist": [
@@ -107,7 +116,8 @@
       "description": "Ce projet m'a appris a faire des animations sur figma en utilisant un peut de créativité et de smart animation.",
       "images": ["carre.jpg", "stretch.jpg", "normal.jpg", "colors-break.jpg"],
       "videos": ["iulmVPjB35U.jpg"],
-      "link": ["", ""]
+      "link": ["", ""],
+      "colors": ["#ffff00", "#002222"]
     },
     {
       "name": "refonte-mmi",
@@ -126,7 +136,8 @@
       "link": [
         "https://www.instagram.com/mmind_mmi/",
         "Compte à l'origine de la refonte."
-      ]
+      ],
+      "colors": ["#ffff00", "#002222"]
     },
     {
       "name": "stable-diffusion",
@@ -135,7 +146,8 @@
       "description": "Ce projet consistait à aider un developpeur à trouver un design pour sa page d'acceuil pour de multiples projets autour de Stable diffusion.",
       "images": ["Frame1.png", "Frame341.png", "Frame343.png"],
       "videos": [],
-      "link": ["", ""]
+      "link": ["", ""],
+      "colors": ["#ffff00", "#002222"]
     },
     {
       "name": "allo-infirmier",
@@ -149,7 +161,8 @@
         "creeruncompteinfirmier.png"
       ],
       "videos": [],
-      "link": ["", ""]
+      "link": ["", ""],
+      "colors": ["#ffff00", "#002222"]
     },
     {
       "name": "petsitting",
@@ -165,7 +178,8 @@
         "ResultatRecherche.png"
       ],
       "videos": [],
-      "link": ["", ""]
+      "link": ["", ""],
+      "colors": ["#ffff00", "#002222"]
     },
     {
       "name": "wireframe-but-mmi",
@@ -181,7 +195,8 @@
         "Frame76.png"
       ],
       "videos": [],
-      "link": ["", ""]
+      "link": ["", ""],
+      "colors": ["#ffff00", "#002222"]
     },
     {
       "name": "leboncoin",
@@ -198,7 +213,8 @@
       "link": [
         "https://drive.google.com/file/d/1ZnBO2kTXkFXPy29Gp7WRxDrfUxAalJ6g/view?usp=sharing",
         "Voir l'analyse."
-      ]
+      ],
+      "colors": ["#ffff00", "#002222"]
     },
     {
       "name": "background",
@@ -216,7 +232,8 @@
         "akira-valade.png"
       ],
       "videos": [],
-      "link": ["", ""]
+      "link": ["", ""],
+      "colors": ["#ffff00", "#002222"]
     },
     {
       "name": "gatesnfences",
@@ -233,7 +250,8 @@
         "Frame33.png"
       ],
       "videos": [],
-      "link": ["http://www.gatesnfences.com/", "Le site de Gates N Fences."]
+      "link": ["http://www.gatesnfences.com/", "Le site de Gates N Fences."],
+      "colors": ["#ffff00", "#002222"]
     },
     {
       "name": "skvry",
@@ -242,7 +260,8 @@
       "description": "Ce projet à été réalisé pour la marque skvry dont les ventes n'ont pas commencé qui est sur le marché des masques d'horreur en série limitée.",
       "images": ["skvry.png", "maquette.png", "skvr2y.png", "skvr3y.png"],
       "videos": [],
-      "link": ["", ""]
+      "link": ["", ""],
+      "colors": ["#ffff00", "#002222"]
     },
     {
       "name": "polices",
@@ -251,7 +270,8 @@
       "description": "Voici ma première police d'écriture, basée sur des formes simples elle peut représenter une marque épurée, à formes rondes.",
       "images": ["true.jpg", "letters.jpg", "Frame14.jpg", "see-more.jpg"],
       "videos": [],
-      "link": ["", ""]
+      "link": ["", ""],
+      "colors": ["#ffff00", "#002222"]
     },
     {
       "name": "letters",
@@ -260,7 +280,8 @@
       "description": "Le but de cet exercice était de créer des illustrations à base uniquement de police d'ecriture, chaques courbe, chaque angle visibles sont donc une partie de lettre.",
       "images": ["Frame1.png", "original.png"],
       "videos": [],
-      "link": ["", ""]
+      "link": ["", ""],
+      "colors": ["#ffff00", "#002222"]
     },
     {
       "name": "kirby",
@@ -269,7 +290,8 @@
       "description": "Ce projet m'a appris à faire des effets 3d sur figma en jouant avec les lumières.",
       "images": ["kirby.png", "kirby-king.png"],
       "videos": [],
-      "link": ["", ""]
+      "link": ["", ""],
+      "colors": ["#ffff00", "#002222"]
     },
     {
       "name": "depression",
@@ -278,7 +300,8 @@
       "description": "Cette illustration est une partie d'un projet plus gros nommé le livre des sept mots dans lequel 7 mots forts ont été choisis pour les illustrer de façon créative.",
       "images": ["Page2.png", "Page1.png"],
       "videos": [],
-      "link": ["", ""]
+      "link": ["", ""],
+      "colors": ["#ffff00", "#002222"]
     }
   ],
   "3DArtst": [
@@ -289,7 +312,8 @@
       "description": "Ce projet m'a appris à créer une animation procédurale de marche pour une araignée.",
       "images": ["step4.png", "no-shader.png"],
       "videos": ["tTwpU5etMNE.png", "_X9301nrFYA.png", "XbXeqAd5QDg.png"],
-      "link": ["", ""]
+      "link": ["", ""],
+      "colors": ["#ffff00", "#002222"]
     },
     {
       "name": "cv-video",
@@ -306,7 +330,8 @@
         "cadre-dust.png"
       ],
       "videos": ["JpRU3J0zjig.png"],
-      "link": ["", ""]
+      "link": ["", ""],
+      "colors": ["#ffff00", "#002222"]
     },
     {
       "name": "video-eiffel",
@@ -321,7 +346,8 @@
         "image-eiffel-3.jpg"
       ],
       "videos": ["nm0cn8qMjdo.png"],
-      "link": ["", ""]
+      "link": ["", ""],
+      "colors": ["#ffff00", "#002222"]
     },
     {
       "name": "space-trou-noir",
@@ -330,7 +356,8 @@
       "description": "Ce projet m'a appris a utiliser du compositing pour accélerer la production d'un plan ainsi qu'à utiliser certains shaders et volumes",
       "images": ["miniature.png", "spaceship.png", "trou-noir.png"],
       "videos": ["NQF0whHEVkY.png", "Dt3rhUTB5qA.png"],
-      "link": ["", ""]
+      "link": ["", ""],
+      "colors": ["#ffff00", "#002222"]
     },
     {
       "name": "robot-rating",
@@ -339,7 +366,8 @@
       "description": "Une animations de robots humains dans un hangar, ce projet m'a appris a utiliser du compositing pour accélerer la production d'un plan ainsi que l'utilisation de certains shaders et volumes",
       "images": ["hangar.png", "hangar-with-man.png"],
       "videos": ["0j72j8q1Egg.png", "79bDVgpSPBc.png"],
-      "link": ["", ""]
+      "link": ["", ""],
+      "colors": ["#ffff00", "#002222"]
     },
     {
       "name": "firby",
@@ -352,7 +380,8 @@
         "firby-wireframe.jpg"
       ],
       "videos": [],
-      "link": ["", ""]
+      "link": ["", ""],
+      "colors": ["#ffff00", "#002222"]
     }
   ]
 }

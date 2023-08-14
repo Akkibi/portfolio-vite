@@ -18,6 +18,7 @@ interface Project {
   images: string[]
   videos: string[]
   link: string[]
+  colors: string[]
 }
 const generateProjectRoutes = (data: any) => {
   const categoryArrays = Object.values(data)
