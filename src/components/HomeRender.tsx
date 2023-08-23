@@ -9,6 +9,6 @@ export const HomeComponent = (): void => {
   gsap.to('.track-image', {
     duration: 1,
     ease: 'power2',
-    width: window.innerHeight * 0.1,
+    width: window.innerHeight * 0.15,
   })
 }

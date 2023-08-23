@@ -20,6 +20,7 @@ interface Project {
   link: string[]
   colors: string[]
 }
+
 const generateProjectRoutes = (data: any) => {
   const categoryArrays = Object.values(data)
   let ProjectIndex = 0

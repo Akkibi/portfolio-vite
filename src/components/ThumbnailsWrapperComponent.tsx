@@ -14,10 +14,32 @@ const ThumbnailsComponent: FunctionComponent = () => {
   }
 
   const handleOnUp = () => {
-    if (trackRef.current) {
+    if (
+      trackRef.current &&
+      window
+        .getComputedStyle(trackRef.current)
+        .transform.match(/matrix.*\((.+)\)/) !== null
+    ) {
       trackRef.current.dataset.mouseDownAt = '0'
-      trackRef.current.dataset.prevPercentage =
-        trackRef.current.dataset.percentage
+      if (navigationType === 'POP') {
+        trackRef.current.dataset.prevValue = (
+          (window
+            .getComputedStyle(trackRef.current)
+            .transform.match(/matrix.*\((.+)\)/)[1]
+            .split(', ')[4] /
+            trackRef.current.getBoundingClientRect().width) *
+          100
+        ).toString()
+      } else {
+        trackRef.current.dataset.prevValue = trackRef.current.dataset.percentage
+      }
+      // console.log(trackRef.current.dataset)
+      console.log(
+        window
+          .getComputedStyle(trackRef.current)
+          .transform.match(/matrix.*\((.+)\)/)[1]
+          .split(', ')[4]
+      )
     }
   }
 
@@ -28,7 +50,7 @@ const ThumbnailsComponent: FunctionComponent = () => {
       trackRef.current &&
       trackRef.current.dataset.mouseDownAt !== '0' &&
       trackRef.current.dataset.mouseDownAt !== undefined &&
-      trackRef.current.dataset.prevPercentage !== undefined &&
+      trackRef.current.dataset.prevValue !== undefined &&
       window.location.pathname === '/' &&
       title &&
       image
@@ -51,7 +73,7 @@ const ThumbnailsComponent: FunctionComponent = () => {
       const maxDelta = window.innerWidth * 1.5
       const percentage = (mouseDelta / maxDelta) * -100
       const nextPercentageUnconstrained =
-        parseFloat(trackRef.current.dataset.prevPercentage) + percentage
+        parseFloat(trackRef.current.dataset.prevValue) + percentage
       const nextPercentage = Math.max(
         Math.min(nextPercentageUnconstrained, min),
         max
@@ -95,7 +117,7 @@ const ThumbnailsComponent: FunctionComponent = () => {
         Math.min(nextPercentageUnconstrained, min),
         max
       )
-      trackRef.current.dataset.prevPercentage = nextPercentage.toString()
+      trackRef.current.dataset.prevValue = nextPercentage.toString()
       makeSliderAnimation(trackRef.current, nextPercentage)
     }
   }
@@ -121,9 +143,9 @@ const ThumbnailsComponent: FunctionComponent = () => {
   }
 
   useEffect(() => {
-    if (trackRef.current) {
+    if (trackRef.current && document.getElementById('slide-track') !== null) {
       trackRef.current.dataset.mouseDownAt = '0'
-      trackRef.current.dataset.prevPercentage = '0'
+      trackRef.current.dataset.prevValue = '-6.5'
       trackRef.current.dataset.percentage = '0'
       window.addEventListener('mousedown', handleOnDown)
       window.addEventListener('touchstart', handleOnDown)
@@ -173,7 +195,7 @@ const ThumbnailsComponent: FunctionComponent = () => {
     >
       {projectsWithFirstImages.map((categoryData, index) => (
         <div key={index} className="flex flex-row gap-4">
-          <div className="track-title relative m-0 h-[8vh] w-[8vh] -rotate-90 p-0 sm:h-[16vh] sm:w-[16vh]">
+          <div className="track-title relative m-0 h-[16vh] w-[16vh] -rotate-90 p-0 sm:h-[32vh] sm:w-[32vh]">
             <h2 className="text-primary absolute bottom-0 right-0 m-0 p-0 text-right text-xxl sm:text-xxxl">
               {categoryData.category.toUpperCase()}
             </h2>
@@ -182,7 +204,7 @@ const ThumbnailsComponent: FunctionComponent = () => {
             {categoryData.firstImages.map((data: any, projectIndex: number) => (
               <div
                 key={projectIndex}
-                className="track-image relative block h-[50vh] w-[10vh] overflow-hidden border-0 p-0 opacity-75 grayscale duration-100 hover:opacity-100 hover:grayscale-0"
+                className="track-image relative block h-[50vh] w-[15vh] overflow-hidden border-0 p-0 opacity-75 grayscale duration-100 hover:opacity-100 hover:grayscale-0"
               >
                 <img
                   className="thumbnail absolute top-0 h-full w-full object-cover object-[center_100%] ease-out"
