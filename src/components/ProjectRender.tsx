@@ -7,7 +7,7 @@ export const ProjectRender = (projectIndex: number, index: number): void => {
   const notSelectedImage = document.querySelectorAll('.track-image')
   const selectedImage =
     document.querySelectorAll('.track-image')[projectIndex - 1]
-
+  console.log(index)
   gsap.to(notSelectedImage, {
     duration: 0.5,
     width: window.innerHeight * 0.1,
