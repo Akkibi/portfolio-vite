@@ -43,6 +43,7 @@ function LoadProjectComponent({
         transform: `translate(${offsetPercent}%, -50%)`,
         ease: 'linear',
       })
+      console.log(offsetPercent)
     }
   }
   const navigationType: string | null = useNavigationType()
@@ -62,14 +63,14 @@ function LoadProjectComponent({
   }
 
   return (
-    <>
+    <div className="absolute left-1/2 top-1/2 h-full w-[80vw] -translate-x-1/2">
       <h1 className="text-primary">
         {projectIndex + ' ' + index + ' ' + project.title}
       </h1>
       <div className="bg-[rgba(0,0,0,0.5)] p-5">
         <p className="text-white">{project.description}</p>
       </div>
-    </>
+    </div>
   )
 }
 

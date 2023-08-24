@@ -2,11 +2,6 @@ import { gsap } from 'gsap'
 
 export const ProjectRender = (projectIndex: number, index: number): void => {
   console.log('HomeComponent')
-  gsap.to('#nav', {
-    duration: 0.5,
-    ease: 'power2',
-    x: 25 * projectIndex + index * 3,
-  })
 
   // Add a class to the selected .track-image element
   const notSelectedImage = document.querySelectorAll('.track-image')
@@ -17,15 +12,18 @@ export const ProjectRender = (projectIndex: number, index: number): void => {
     duration: 0.5,
     width: window.innerHeight * 0.1,
     ease: 'power2',
+    opacity: 0.75,
+
+    '-webkit-filter': 'grayscale(100%)',
+    filter: 'grayscale(100%)',
   })
   gsap.to(selectedImage, {
     duration: 0.5,
     width: window.innerHeight * 0.85,
     ease: 'power2',
+    opacity: 1,
+    grayScale: 0,
+    '-webkit-filter': 'grayscale(0)',
+    filter: 'grayscale(0)',
   })
-  // gsap.to('#slide-track', {
-  //   duration: 0.5,
-  //   ease: 'power2',
-  //   scale: 1.2,
-  // });
 }

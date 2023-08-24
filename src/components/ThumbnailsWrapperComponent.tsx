@@ -2,6 +2,7 @@ import { FunctionComponent, useEffect, useRef } from 'react'
 import projectData from '../data.json'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
+
 const ThumbnailsComponent: FunctionComponent = () => {
   //onclick&drag
   const trackRef = useRef<HTMLDivElement>(null)
@@ -21,25 +22,7 @@ const ThumbnailsComponent: FunctionComponent = () => {
         .transform.match(/matrix.*\((.+)\)/) !== null
     ) {
       trackRef.current.dataset.mouseDownAt = '0'
-      if (navigationType === 'POP') {
-        trackRef.current.dataset.prevValue = (
-          (window
-            .getComputedStyle(trackRef.current)
-            .transform.match(/matrix.*\((.+)\)/)[1]
-            .split(', ')[4] /
-            trackRef.current.getBoundingClientRect().width) *
-          100
-        ).toString()
-      } else {
-        trackRef.current.dataset.prevValue = trackRef.current.dataset.percentage
-      }
-      // console.log(trackRef.current.dataset)
-      console.log(
-        window
-          .getComputedStyle(trackRef.current)
-          .transform.match(/matrix.*\((.+)\)/)[1]
-          .split(', ')[4]
-      )
+      trackRef.current.dataset.prevValue = trackRef.current.dataset.percentage
     }
   }
 
@@ -146,7 +129,7 @@ const ThumbnailsComponent: FunctionComponent = () => {
     if (trackRef.current && document.getElementById('slide-track') !== null) {
       trackRef.current.dataset.mouseDownAt = '0'
       trackRef.current.dataset.prevValue = '-6.5'
-      trackRef.current.dataset.percentage = '0'
+      trackRef.current.dataset.percentage = '-6.5'
       window.addEventListener('mousedown', handleOnDown)
       window.addEventListener('touchstart', handleOnDown)
       window.addEventListener('mouseup', handleOnUp)
@@ -187,16 +170,17 @@ const ThumbnailsComponent: FunctionComponent = () => {
   }
 
   const projectsWithFirstImages = getCategoryWithFirstImages(projectData)
+
   return (
     <div
       id="slide-track"
       ref={trackRef}
-      className="absolute left-1/2 top-1/2 flex -translate-y-1/2 select-none flex-row gap-4 text-white ease-out"
+      className="transle absolute left-1/2 top-1/2 flex -translate-x-[6.5%] -translate-y-1/2 select-none flex-row gap-4 text-white ease-out"
     >
       {projectsWithFirstImages.map((categoryData, index) => (
         <div key={index} className="flex flex-row gap-4">
-          <div className="track-title relative m-0 h-[16vh] w-[16vh] -rotate-90 p-0 sm:h-[32vh] sm:w-[32vh]">
-            <h2 className="text-primary absolute bottom-0 right-0 m-0 p-0 text-right text-xxl sm:text-xxxl">
+          <div className="track-title relative m-0 h-[8vh] w-[8vh] -rotate-90 p-0 sm:h-[16vh] sm:w-[16vh]">
+            <h2 className=" text-primary absolute bottom-0 right-0 m-0 p-0 text-right text-xxl opacity-50 sm:text-xxxl">
               {categoryData.category.toUpperCase()}
             </h2>
           </div>
@@ -204,7 +188,7 @@ const ThumbnailsComponent: FunctionComponent = () => {
             {categoryData.firstImages.map((data: any, projectIndex: number) => (
               <div
                 key={projectIndex}
-                className="track-image relative block h-[50vh] w-[15vh] overflow-hidden border-0 p-0 opacity-75 grayscale duration-100 hover:opacity-100 hover:grayscale-0"
+                className="track-image relative block h-[50vh] w-[15vh] overflow-hidden border-0 p-0 duration-100 hover:opacity-100 hover:grayscale-0"
               >
                 <img
                   className="thumbnail absolute top-0 h-full w-full object-cover object-[center_100%] ease-out"

@@ -31,20 +31,7 @@ function App() {
       window.removeEventListener('keydown', handleKeyPress)
     }
   }, [navigate])
-  useEffect(() => {
-    if (navigationType === 'POP') {
-      gsap.to('#slide-track', {
-        duration: 1,
-        ease: 'power2',
-        x: -384.5,
-      })
-      gsap.to('.thumbnail', {
-        duration: 1,
-        ease: 'power2',
-        objectPosition: '92.2% center',
-      })
-    }
-  }, [])
+
   return (
     <div
       className="border-primary bg-secondary absolute left-0 top-0 h-full w-full overflow-hidden border border-solid p-0 font-secondaryFont"
@@ -52,11 +39,9 @@ function App() {
     >
       <div className="absolute left-1/2 top-1/2 h-[60vh] w-[1px] -translate-x-1/2 -translate-y-1/2 select-none bg-white"></div>
 
-      <div className="absolute h-full w-full p-2">
-        <Outlet />
-      </div>
       <Navbar />
       <ThumbnailsWrapperComponent />
+      <Outlet />
     </div>
   )
 }

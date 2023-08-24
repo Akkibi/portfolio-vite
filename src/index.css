@@ -56,4 +56,9 @@ input[type='reset'] {
 a {
   user-select: none;
   -webkit-user-drag: none;
+  text-decoration: none;
+  color: inherit;
+}
+a:visited {
+  color: inherit;
 }

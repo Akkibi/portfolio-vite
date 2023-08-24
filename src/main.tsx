@@ -2,7 +2,6 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import reportWebVitals from './reportWebVitals'
 import { AboutComponent } from './components/AboutRender'
-import { ContactComponent } from './components/ContactRender'
 import { HomeComponent } from './components/HomeRender'
 import LoadAnimation from './components/LoadAnimationComponent'
 import App from './App'
@@ -56,10 +55,6 @@ const router = createBrowserRouter([
       {
         path: 'about',
         element: <LoadAnimation anim={AboutComponent} />,
-      },
-      {
-        path: 'contact',
-        element: <LoadAnimation anim={ContactComponent} />,
       },
       ...generateProjectRoutes(projectData),
     ],
