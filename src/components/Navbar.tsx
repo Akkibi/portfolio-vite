@@ -1,5 +1,4 @@
-import { get } from 'http'
-import { FunctionComponent, useEffect, useState } from 'react'
+import { FunctionComponent, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 const Navbar: FunctionComponent = () => {

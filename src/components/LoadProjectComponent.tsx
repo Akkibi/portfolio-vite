@@ -1,6 +1,5 @@
 import { useNavigationType } from 'react-router-dom'
-import { useEffect, useContext } from 'react'
-import { type } from 'os'
+import { useEffect } from 'react'
 import { ProjectRender } from './ProjectRender'
 import { gsap } from 'gsap'
 import { ColorsRender } from './changeColors'

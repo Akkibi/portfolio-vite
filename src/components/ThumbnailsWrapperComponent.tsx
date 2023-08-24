@@ -3,7 +3,6 @@ import projectData from '../data.json'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { useNavigate } from 'react-router-dom'
-import { useNavigationType } from 'react-router-dom'
 
 const ThumbnailsComponent: FunctionComponent = () => {
   //onclick&drag
@@ -226,8 +225,6 @@ const ThumbnailsComponent: FunctionComponent = () => {
     }
   }, [])
 
-  const navigationType: string | null = useNavigationType()
-
   const navigate = useNavigate()
 
   // Adding event listeners for key press
@@ -241,8 +238,6 @@ const ThumbnailsComponent: FunctionComponent = () => {
             ease: 'power2',
             transform: `translate(${trackRef.current.dataset.prevValue}%, -50%)`,
           })
-        } else if (event.key === 'ArrowDown') {
-          navigate('/projectName')
         }
       }
     }

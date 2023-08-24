@@ -1,9 +1,6 @@
-import { useEffect } from 'react'
 import Navbar from './components/Navbar'
 import { Outlet } from 'react-router-dom'
 import ThumbnailsWrapperComponent from './components/ThumbnailsWrapperComponent'
-import { useState } from 'react'
-import { gsap } from 'gsap'
 
 function App() {
   return (
