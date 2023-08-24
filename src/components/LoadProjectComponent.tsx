@@ -75,18 +75,28 @@ function LoadProjectComponent({
   if (scrollableRef.current) {
     if (isAtTop) {
       gsap.to(scrollableRef.current, {
-        duration: 1,
+        duration: 0.5,
         ease: 'power2',
         transform: 'translate(-50% ,100%)',
+      })
+      gsap.to('#slide-track', {
+        duration: 0.5,
+        ease: 'power2',
+        y: '-50%',
       })
     }
     if (!isAtTop) {
       gsap.to(scrollableRef.current, {
-        duration: 1,
+        duration: 0.5,
         ease: 'power2',
         transform: 'translate(-50% ,0%)',
       })
-      scrollableRef.current.scrollTop = 10
+      gsap.to('#slide-track', {
+        duration: 0.5,
+        ease: 'power2',
+        y: '-250%',
+      })
+      scrollableRef.current.scrollTop = 20
     }
   }
   const handleWindowScroll = (e: WheelEvent) => {
@@ -99,7 +109,7 @@ function LoadProjectComponent({
   }, [])
   const handleScroll = () => {
     if (scrollableRef.current) {
-      setIsAtTop(scrollableRef.current.scrollTop <= 5)
+      setIsAtTop(scrollableRef.current.scrollTop <= 10)
     }
   }
 
@@ -222,7 +232,7 @@ function LoadProjectComponent({
 
       <div className="px-5 py-2">
         <h1 className="text-primary" id="projectTitle">
-          {projectIndex + ' ' + index + ' ' + project.title}
+          {project.title}
         </h1>
         <h2 className="text-primary">{project.date}</h2>
         <p className="text-white">{project.description}</p>

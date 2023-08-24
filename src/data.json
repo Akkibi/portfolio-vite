@@ -43,7 +43,7 @@
       "title": "Gallerie des Rêves",
       "description": "Ce site à été créé dans le cadre d'un projet scolaire dans lequel je me suis chargé de créer un dispositif interractif pour une exposition de notre agence d'expositions. Ce site a été fait avec Three Js et Tailwind,  en utilisant git ainsi que figma pour les designs.",
       "images": ["affiche.png", "affiche-vide.png"],
-      "videos": ["1VQM0jca-FQ.png"],
+      "videos": ["1VQM0jca-FQ"],
       "link": [
         "https://akkibi.github.io/SAE-S4-dispositif-interactif/",
         "Lien du site du dispositif"
