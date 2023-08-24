@@ -2,6 +2,7 @@ import { FunctionComponent, useEffect, useRef } from 'react'
 import projectData from '../data.json'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
+import { connect } from 'http2'
 
 const ThumbnailsComponent: FunctionComponent = () => {
   //onclick&drag
@@ -105,6 +106,65 @@ const ThumbnailsComponent: FunctionComponent = () => {
     }
   }
 
+  const alignDev = () => {
+    if (trackRef.current && trackRef.current.dataset.percentage) {
+      const time: number =
+        Math.abs(parseFloat(trackRef.current.dataset.percentage)) / 40 + 1
+      gsap.to('#slide-track', {
+        duration: time,
+        ease: 'power2',
+        x: -235.224,
+      })
+      gsap.to('.thumbnail', {
+        duration: time,
+        ease: 'power2',
+        objectPosition: '92.2% center',
+      })
+      trackRef.current.dataset.percentage = '-6.5'
+      trackRef.current.dataset.prevValue = '-6.5'
+    }
+  }
+  const align2d = () => {
+    if (trackRef.current && trackRef.current.dataset.percentage) {
+      const time: number =
+        Math.abs(parseFloat(trackRef.current.dataset.percentage) + 29.4715) /
+          40 +
+        1
+      gsap.to('#slide-track', {
+        duration: time,
+        ease: 'power2',
+        x: -1335.11,
+      })
+      gsap.to('.thumbnail', {
+        duration: time,
+        ease: 'power2',
+        objectPosition: '70.5285% center',
+      })
+
+      trackRef.current.dataset.percentage = '-29.4715'
+      trackRef.current.dataset.prevValue = '-29.4715'
+    }
+  }
+  const align3d = () => {
+    if (trackRef.current && trackRef.current.dataset.percentage) {
+      const time: number =
+        Math.abs(parseFloat(trackRef.current.dataset.percentage) + 81.2615) /
+          40 +
+        1
+      gsap.to('#slide-track', {
+        duration: time,
+        ease: 'power2',
+        x: -3685.21,
+      })
+      gsap.to('.thumbnail', {
+        duration: time,
+        ease: 'power2',
+        objectPosition: '18.7385% center',
+      })
+      trackRef.current.dataset.percentage = '-81.2615'
+      trackRef.current.dataset.prevValue = '-81.2615'
+    }
+  }
   function makeSliderAnimation(track: HTMLDivElement, nextValue: number) {
     track.dataset.percentage = nextValue.toString()
 
@@ -126,6 +186,16 @@ const ThumbnailsComponent: FunctionComponent = () => {
   }
 
   useEffect(() => {
+    gsap.to('#slide-track', {
+      duration: 1,
+      ease: 'power2',
+      x: -235.224,
+    })
+    gsap.to('.thumbnail', {
+      duration: 1,
+      ease: 'power2',
+      objectPosition: '92.2% center',
+    })
     if (trackRef.current && document.getElementById('slide-track') !== null) {
       trackRef.current.dataset.mouseDownAt = '0'
       trackRef.current.dataset.prevValue = '-6.5'
@@ -137,8 +207,14 @@ const ThumbnailsComponent: FunctionComponent = () => {
       window.addEventListener('mousemove', handleOnMove)
       window.addEventListener('touchmove', handleOnMove)
       window.addEventListener('wheel', transformScroll)
+      document.getElementById('dev')?.addEventListener('click', alignDev)
+      document.getElementById('2d')?.addEventListener('click', align2d)
+      document.getElementById('3d')?.addEventListener('click', align3d)
     }
     return () => {
+      document.getElementById('dev')?.removeEventListener('click', alignDev)
+      document.getElementById('2d')?.removeEventListener('click', align2d)
+      document.getElementById('3d')?.removeEventListener('click', align3d)
       window.removeEventListener('wheel', transformScroll)
       window.removeEventListener('mousedown', handleOnDown)
       window.removeEventListener('touchstart', handleOnDown)

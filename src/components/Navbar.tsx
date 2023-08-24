@@ -20,7 +20,7 @@ const Navbar: FunctionComponent = () => {
       </div>
       <div className="justify-betweens flex w-full flex-col justify-between">
         <div className="relative mx-auto inline-flex flex-row gap-4">
-          <div className="flex">
+          <div className="flex" id="dev">
             <NavLink
               to="/"
               onClick={() => {
@@ -48,7 +48,7 @@ const Navbar: FunctionComponent = () => {
               Developper
             </NavLink>
           </div>
-          <div className="flex">
+          <div className="flex" id="2d">
             <NavLink
               to="/"
               onClick={() => {
@@ -76,7 +76,7 @@ const Navbar: FunctionComponent = () => {
               2D Artist
             </NavLink>
           </div>
-          <div className="flex">
+          <div className="flex" id="3d">
             <NavLink
               to="/"
               onClick={() => {
