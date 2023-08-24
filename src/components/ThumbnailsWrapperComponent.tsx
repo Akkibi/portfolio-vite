@@ -2,7 +2,8 @@ import { FunctionComponent, useEffect, useRef } from 'react'
 import projectData from '../data.json'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
-import { connect } from 'http2'
+import { useNavigate } from 'react-router-dom'
+import { useNavigationType } from 'react-router-dom'
 
 const ThumbnailsComponent: FunctionComponent = () => {
   //onclick&drag
@@ -225,6 +226,35 @@ const ThumbnailsComponent: FunctionComponent = () => {
     }
   }, [])
 
+  const navigationType: string | null = useNavigationType()
+
+  const navigate = useNavigate()
+
+  // Adding event listeners for key press
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if (trackRef.current) {
+        if (event.key === 'Escape') {
+          navigate('/')
+          gsap.to('#slide-track', {
+            duration: 1,
+            ease: 'power2',
+            transform: `translate(${trackRef.current.dataset.prevValue}%, -50%)`,
+          })
+        } else if (event.key === 'ArrowDown') {
+          navigate('/projectName')
+        }
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyPress)
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('keydown', handleKeyPress)
+    }
+  }, [navigate])
+
   const getFirstImageLink = (project: any, categoryName: string) => {
     const [projectName] = project.name.split('.')
     return {
@@ -255,8 +285,8 @@ const ThumbnailsComponent: FunctionComponent = () => {
     >
       {projectsWithFirstImages.map((categoryData, index) => (
         <div key={index} className="flex flex-row gap-4">
-          <div className="track-title relative m-0 h-[8vh] w-[8vh] -rotate-90 p-0 sm:h-[16vh] sm:w-[16vh]">
-            <h2 className=" text-primary absolute bottom-0 right-0 m-0 p-0 text-right text-xxl opacity-50 sm:text-xxxl">
+          <div className="track-title relative m-0 h-[16vh] w-[16vh] -rotate-90 p-0">
+            <h2 className=" text-primary absolute bottom-0 right-0 m-0 p-0 text-right text-xxxl opacity-50">
               {categoryData.category.toUpperCase()}
             </h2>
           </div>

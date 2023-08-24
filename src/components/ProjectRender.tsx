@@ -26,4 +26,10 @@ export const ProjectRender = (projectIndex: number, index: number): void => {
     '-webkit-filter': 'grayscale(0)',
     filter: 'grayscale(0)',
   })
+  gsap.to('#scrollIcon', {
+    duration: 1,
+    ease: 'power2',
+    opacity: 1,
+    display: 'block',
+  })
 }

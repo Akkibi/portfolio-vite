@@ -14,12 +14,7 @@ function LoadAnimation({ anim }: { anim: Function }) {
     anim()
     ColorsRender('#fff', '#111', 0.1)
   }
-  return (
-    <div>
-      <h1>{navigationType}</h1>
-      Pas de projet selectionné
-    </div>
-  )
+  return <div></div>
 }
 
 export default LoadAnimation

@@ -13,7 +13,7 @@
         "affiche2.png",
         "affiche3.png"
       ],
-      "videos": ["V7kypRDQ1-Q.png"],
+      "videos": ["V7kypRDQ1-Q"],
       "link": [
         "https://africanproud.org/",
         "Le site serà en ligne en septembre 2023"
@@ -33,7 +33,7 @@
         "menu.png",
         "before.png"
       ],
-      "videos": ["vETp_zL0tFg.png"],
+      "videos": ["vETp_zL0tFg"],
       "link": ["https://slapping.fr/", "Lien vers le site de Slapping"],
       "colors": ["#00ff00", "#110500"]
     },
@@ -311,7 +311,7 @@
       "title": "Mr spider walkin'",
       "description": "Ce projet m'a appris à créer une animation procédurale de marche pour une araignée.",
       "images": ["step4.png", "no-shader.png"],
-      "videos": ["tTwpU5etMNE.png", "_X9301nrFYA.png", "XbXeqAd5QDg.png"],
+      "videos": ["tTwpU5etMNE", "_X9301nrFYA", "XbXeqAd5QDg"],
       "link": ["", ""],
       "colors": ["#ffff00", "#002222"]
     },
@@ -329,7 +329,7 @@
         "cadre.png",
         "cadre-dust.png"
       ],
-      "videos": ["JpRU3J0zjig.png"],
+      "videos": ["JpRU3J0zjig"],
       "link": ["", ""],
       "colors": ["#ffff00", "#002222"]
     },
@@ -355,7 +355,7 @@
       "title": "Black hole",
       "description": "Ce projet m'a appris a utiliser du compositing pour accélerer la production d'un plan ainsi qu'à utiliser certains shaders et volumes",
       "images": ["miniature.png", "spaceship.png", "trou-noir.png"],
-      "videos": ["NQF0whHEVkY.png", "Dt3rhUTB5qA.png"],
+      "videos": ["NQF0whHEVkY", "Dt3rhUTB5qA"],
       "link": ["", ""],
       "colors": ["#ffff00", "#002222"]
     },
@@ -365,7 +365,7 @@
       "title": "Chilling with the boys",
       "description": "Une animations de robots humains dans un hangar, ce projet m'a appris a utiliser du compositing pour accélerer la production d'un plan ainsi que l'utilisation de certains shaders et volumes",
       "images": ["hangar.png", "hangar-with-man.png"],
-      "videos": ["0j72j8q1Egg.png", "79bDVgpSPBc.png"],
+      "videos": ["0j72j8q1Egg", "79bDVgpSPBc"],
       "link": ["", ""],
       "colors": ["#ffff00", "#002222"]
     },

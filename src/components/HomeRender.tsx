@@ -9,4 +9,10 @@ export const HomeComponent = (): void => {
     '-webkit-filter': 'grayscale(100%)',
     filter: 'grayscale(100%)',
   })
+  gsap.to('#scrollIcon', {
+    duration: 1,
+    ease: 'power2',
+    opacity: 0,
+    display: 'hidden',
+  })
 }
