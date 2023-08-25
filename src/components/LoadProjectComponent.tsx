@@ -77,6 +77,7 @@ function LoadProjectComponent({
         duration: 0.5,
         ease: 'power2',
         transform: 'translate(-50% ,100%)',
+        scale: 1,
       })
       gsap.to('#slide-track', {
         duration: 0.5,
@@ -89,6 +90,7 @@ function LoadProjectComponent({
         duration: 0.5,
         ease: 'power2',
         transform: 'translate(-50% ,0%)',
+        scale: 4,
       })
       gsap.to('#slide-track', {
         duration: 0.5,
@@ -167,7 +169,7 @@ function LoadProjectComponent({
   return (
     <div
       ref={scrollableRef}
-      className="absolute left-1/2 h-full w-screen -translate-x-1/2 translate-y-full overflow-y-scroll bg-[rgba(0,0,0,0.75)] py-[7.5vh] md:w-[80vw]"
+      className="absolute left-1/2 h-full w-screen -translate-x-1/2 translate-y-full scale-100 overflow-y-scroll bg-[rgba(0,0,0,0.75)] py-[7.5vh] md:w-[80vw]"
     >
       <div className="mb-[7.5vh] w-full">
         <div className="mx-auto w-max" id="unScrollIcon">

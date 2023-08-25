@@ -106,65 +106,6 @@ const ThumbnailsComponent: FunctionComponent = () => {
     }
   }
 
-  const alignDev = () => {
-    if (trackRef.current && trackRef.current.dataset.percentage) {
-      const time: number =
-        Math.abs(parseFloat(trackRef.current.dataset.percentage)) / 40 + 1
-      gsap.to('#slide-track', {
-        duration: time,
-        ease: 'power2',
-        x: -235.224,
-      })
-      gsap.to('.thumbnail', {
-        duration: time,
-        ease: 'power2',
-        objectPosition: '92.2% center',
-      })
-      trackRef.current.dataset.percentage = '-6.5'
-      trackRef.current.dataset.prevValue = '-6.5'
-    }
-  }
-  const align2d = () => {
-    if (trackRef.current && trackRef.current.dataset.percentage) {
-      const time: number =
-        Math.abs(parseFloat(trackRef.current.dataset.percentage) + 29.4715) /
-          40 +
-        1
-      gsap.to('#slide-track', {
-        duration: time,
-        ease: 'power2',
-        x: -1335.11,
-      })
-      gsap.to('.thumbnail', {
-        duration: time,
-        ease: 'power2',
-        objectPosition: '70.5285% center',
-      })
-
-      trackRef.current.dataset.percentage = '-29.4715'
-      trackRef.current.dataset.prevValue = '-29.4715'
-    }
-  }
-  const align3d = () => {
-    if (trackRef.current && trackRef.current.dataset.percentage) {
-      const time: number =
-        Math.abs(parseFloat(trackRef.current.dataset.percentage) + 81.2615) /
-          40 +
-        1
-      gsap.to('#slide-track', {
-        duration: time,
-        ease: 'power2',
-        x: -3685.21,
-      })
-      gsap.to('.thumbnail', {
-        duration: time,
-        ease: 'power2',
-        objectPosition: '18.7385% center',
-      })
-      trackRef.current.dataset.percentage = '-81.2615'
-      trackRef.current.dataset.prevValue = '-81.2615'
-    }
-  }
   function makeSliderAnimation(track: HTMLDivElement, nextValue: number) {
     track.dataset.percentage = nextValue.toString()
 
@@ -184,18 +125,51 @@ const ThumbnailsComponent: FunctionComponent = () => {
       })
     }
   }
+  const alignCategory = (categoryName: string) => {
+    const title: HTMLElement | null = document.querySelector('.track-title')
+    const categoryTitle: HTMLElement | null =
+      document.getElementById(categoryName)
+    if (
+      trackRef.current &&
+      trackRef.current.dataset.percentage &&
+      categoryTitle &&
+      title
+    ) {
+      const min =
+        ((categoryTitle.getBoundingClientRect().x -
+          trackRef.current.getBoundingClientRect().x +
+          title.getBoundingClientRect().width +
+          16 +
+          (window.innerHeight * 0.15) / 2) /
+          trackRef.current.getBoundingClientRect().width) *
+        -100
+      console.log(min)
+      const time: number =
+        Math.abs(
+          parseFloat(trackRef.current.dataset.percentage) + Math.abs(min)
+        ) /
+          40 +
+        1
+
+      gsap.to('#slide-track', {
+        duration: time,
+        ease: 'power2',
+        transform: `translate(${min}%, -50%)`,
+        overwrite: true,
+      })
+      gsap.to('.thumbnail', {
+        duration: time,
+        ease: 'power2',
+        objectPosition: `${100 + min}% center`,
+        overwrite: true,
+      })
+      trackRef.current.dataset.categorie = categoryName
+      trackRef.current.dataset.percentage = min.toString()
+      trackRef.current.dataset.prevValue = min.toString()
+    }
+  }
 
   useEffect(() => {
-    gsap.to('#slide-track', {
-      duration: 1,
-      ease: 'power2',
-      x: -235.224,
-    })
-    gsap.to('.thumbnail', {
-      duration: 1,
-      ease: 'power2',
-      objectPosition: '92.2% center',
-    })
     if (trackRef.current && document.getElementById('slide-track') !== null) {
       trackRef.current.dataset.mouseDownAt = '0'
       trackRef.current.dataset.prevValue = '-6.5'
@@ -207,14 +181,26 @@ const ThumbnailsComponent: FunctionComponent = () => {
       window.addEventListener('mousemove', handleOnMove)
       window.addEventListener('touchmove', handleOnMove)
       window.addEventListener('wheel', transformScroll)
-      document.getElementById('dev')?.addEventListener('click', alignDev)
-      document.getElementById('2d')?.addEventListener('click', align2d)
-      document.getElementById('3d')?.addEventListener('click', align3d)
+      document
+        .getElementById('dev')
+        ?.addEventListener('click', () => alignCategory('Developer'))
+      document
+        .getElementById('2d')
+        ?.addEventListener('click', () => alignCategory('2DArtist'))
+      document
+        .getElementById('3d')
+        ?.addEventListener('click', () => alignCategory('3DArtist'))
     }
     return () => {
-      document.getElementById('dev')?.removeEventListener('click', alignDev)
-      document.getElementById('2d')?.removeEventListener('click', align2d)
-      document.getElementById('3d')?.removeEventListener('click', align3d)
+      document
+        .getElementById('dev')
+        ?.removeEventListener('click', () => alignCategory('Developer'))
+      document
+        .getElementById('2d')
+        ?.removeEventListener('click', () => alignCategory('2DArtist'))
+      document
+        .getElementById('3d')
+        ?.removeEventListener('click', () => alignCategory('3DArtist'))
       window.removeEventListener('wheel', transformScroll)
       window.removeEventListener('mousedown', handleOnDown)
       window.removeEventListener('touchstart', handleOnDown)
@@ -229,15 +215,14 @@ const ThumbnailsComponent: FunctionComponent = () => {
 
   // Adding event listeners for key press
   useEffect(() => {
+    if (trackRef.current) {
+      trackRef.current.dataset.categorie = 'Developer'
+    }
     const handleKeyPress = (event: KeyboardEvent) => {
-      if (trackRef.current) {
+      if (trackRef.current && trackRef.current.dataset.categorie) {
         if (event.key === 'Escape') {
           navigate('/')
-          gsap.to('#slide-track', {
-            duration: 1,
-            ease: 'power2',
-            transform: `translate(${trackRef.current.dataset.prevValue}%, -50%)`,
-          })
+          alignCategory(trackRef.current.dataset.categorie)
         }
       }
     }
@@ -276,11 +261,14 @@ const ThumbnailsComponent: FunctionComponent = () => {
     <div
       id="slide-track"
       ref={trackRef}
-      className="transle absolute left-1/2 top-1/2 flex -translate-x-[6.5%] -translate-y-1/2 select-none flex-row gap-4 text-white ease-out"
+      className="transle absolute left-1/2 top-1/2 flex -translate-x-[5.17%] -translate-y-1/2 select-none flex-row gap-4 text-white ease-out"
     >
       {projectsWithFirstImages.map((categoryData, index) => (
         <div key={index} className="flex flex-row gap-4">
-          <div className="track-title relative m-0 h-[16vh] w-[16vh] -rotate-90 p-0">
+          <div
+            id={`${categoryData.category}`}
+            className="track-title relative m-0 h-[16vh] w-[16vh] -rotate-90 p-0"
+          >
             <h2 className=" text-primary absolute bottom-0 right-0 m-0 p-0 text-right text-xxxl opacity-50">
               {categoryData.category.toUpperCase()}
             </h2>

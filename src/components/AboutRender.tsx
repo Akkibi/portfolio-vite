@@ -8,4 +8,10 @@ export const AboutComponent = (): void => {
     opacity: 0,
     display: 'hidden',
   })
+
+  gsap.to('.slide-track', {
+    duration: 0.5,
+    transform: `translateY(-50%)`,
+    ease: 'power2',
+  })
 }
