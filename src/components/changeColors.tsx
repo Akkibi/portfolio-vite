@@ -15,11 +15,13 @@ export const ColorsRender = (
     duration: speed,
     borderColor: primary,
     ease: 'power2',
+    overwrite: true,
   })
   gsap.to('.bg-primary', {
     duration: speed,
     backgroundColor: primary,
     ease: 'power2',
+    overwrite: true,
   })
   gsap.to('.text-secondary', {
     duration: speed,
@@ -30,11 +32,13 @@ export const ColorsRender = (
     duration: speed,
     borderColor: secondary,
     ease: 'power2',
+    overwrite: true,
   })
   gsap.to('.bg-secondary', {
     duration: speed,
     backgroundColor: secondary,
     ease: 'power2',
+    overwrite: true,
   })
   gsap.to('.secondary-shadow', {
     duration: speed,
@@ -45,5 +49,6 @@ export const ColorsRender = (
     duration: speed,
     backgroundColor: `${secondary}dd`,
     ease: 'power2',
+    overwrite: true,
   })
 }

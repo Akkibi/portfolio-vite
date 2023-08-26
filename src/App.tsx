@@ -14,6 +14,10 @@ function App({ countData }: { countData: Array<number> }): JSX.Element {
         y: '-50%',
         ease: 'power2',
       })
+      gsap.set('.title', {
+        x: 0,
+        y: '-200%',
+      })
     }
   }, [])
   if (navigationType !== 'POP') {

@@ -362,7 +362,7 @@ function LoadProjectComponent({
                 key={index}
                 src={`/assets/${project.name}/${image}`}
                 alt=""
-                className="aspect-square w-full bg-center object-cover md:aspect-video"
+                className="object-fit z-10 aspect-square w-full object-contain md:aspect-video"
               />
             )
           }

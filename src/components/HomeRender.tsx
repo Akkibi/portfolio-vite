@@ -16,11 +16,10 @@ export const HomeComponent = (): void => {
     display: 'hidden',
   })
   gsap.to('.title', {
-    duration: 1,
-    ease: 'power2',
+    duration: 0.5,
+    ease: 'power2.in',
     rotation: 0,
-    // transform: 'translate(0, -125%)',
     x: 0,
-    y: '-125%',
+    y: '-200%',
   })
 }

@@ -40,17 +40,15 @@ export const ProjectRender = (
     display: 'block',
   })
   gsap.to('.title', {
-    duration: 1,
-    ease: 'power2',
+    duration: 0.5,
+    ease: 'power2.in',
     x: 0,
-    y: '-125%',
-    rotation: -12,
+    y: '-200%',
   })
   gsap.to(`#title_${window.location.pathname.split('/').pop()}`, {
-    duration: 1,
-    ease: 'circular',
+    duration: 0.5,
+    ease: 'power3',
     x: 0,
     y: 0,
-    rotation: 0,
   })
 }

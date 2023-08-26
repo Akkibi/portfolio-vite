@@ -110,10 +110,9 @@ const ThumbnailsComponent = ({ countData }: { countData: Array<number> }) => {
 
     gsap.to(trackRef.current, {
       duration: 1,
-      // transform: `translate(${nextValue}%, -50%)`,
       x: nextValue + '%',
       y: '-50%',
-      ease: 'power2',
+      ease: 'expo.out',
       overwrite: true,
     })
     const images = track.getElementsByClassName('thumbnail')
@@ -121,7 +120,7 @@ const ThumbnailsComponent = ({ countData }: { countData: Array<number> }) => {
       gsap.to(image as HTMLElement, {
         duration: 1,
         objectPosition: `${100 + nextValue}% center`,
-        ease: 'power2',
+        ease: 'expo.out',
         overwrite: true,
       })
     }
@@ -168,20 +167,19 @@ const ThumbnailsComponent = ({ countData }: { countData: Array<number> }) => {
         Math.abs(
           parseFloat(trackRef.current.dataset.percentage) + Math.abs(min)
         ) /
-          40 +
-        1
+          50 +
+        0.5
 
       gsap.to('#slide-track', {
         duration: time,
-        ease: 'power2',
-        // transform: `translate(${min}%, -50%)`,
+        ease: 'circular',
         x: min + '%',
         y: '-50%',
         overwrite: true,
       })
       gsap.to('.thumbnail', {
         duration: time,
-        ease: 'power2',
+        ease: 'circular',
         objectPosition: `${100 + min}% center`,
         overwrite: true,
       })
@@ -257,7 +255,6 @@ const ThumbnailsComponent = ({ countData }: { countData: Array<number> }) => {
 
     window.addEventListener('keydown', handleKeyPress)
 
-    // Cleanup event listener on component unmount
     return () => {
       window.removeEventListener('keydown', handleKeyPress)
     }
@@ -311,15 +308,11 @@ const ThumbnailsComponent = ({ countData }: { countData: Array<number> }) => {
                     key={projectIndex}
                     className="track-image relative block h-[50vh] w-[15vh] overflow-hidden border-0 p-0 duration-100 hover:opacity-100 hover:grayscale-0"
                   >
-                    <picture
-                      className="thumbnail absolute top-0 h-full w-full object-cover object-[center_100%] ease-out"
-                      id={`imageBanner_${index}_${projectIndex}`}
-                    >
-                      <img
-                        className="thumbnail absolute top-0 h-full w-full object-cover object-[center_100%] ease-out"
+                    <picture id={`imageBanner_${index}_${projectIndex}`}>
+                      <source
+                        className="thumbnail absolute top-0 h-full w-full object-cover object-[100%_center] ease-out"
                         id={`imageBanner_${index}_${projectIndex}`}
-                        src={data.image}
-                        alt={`Banner_${index}_${projectIndex}`}
+                        src={data.webpImage}
                       />
                       <img
                         className="thumbnail absolute top-0 h-full w-full object-cover object-[center_100%] ease-out"
@@ -356,7 +349,7 @@ const ThumbnailsComponent = ({ countData }: { countData: Array<number> }) => {
                   <h1
                     key={projectIndex}
                     id={`title_${data.name}`}
-                    className="title text-primary secondary-shadow absolute left-0 top-0 my-0 origin-left -rotate-12 px-2 font-primaryFont text-xxxxl sm:px-[5vw] sm:text-xxxxxl"
+                    className="title text-primary secondary-shadow absolute left-0 top-0 my-0 origin-left px-2 font-primaryFont text-xxxxl sm:px-[5vw] sm:text-xxxxxl"
                   >
                     {data.title.toUpperCase()}
                   </h1>
