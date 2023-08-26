@@ -31,7 +31,11 @@ function LoadProjectComponent({
   countData: Array<number>
   projectList: Array<string>
 }) {
-  function alignImage(projectIndex: number, index: number) {
+  function alignImage(projectIndex: number, index: number, x: MediaQueryList) {
+    let selectedWidth: number = window.innerWidth
+    if (!x.matches) {
+      selectedWidth = window.innerWidth * 0.85
+    }
     const track = document.getElementById('slide-track')
     const image: HTMLElement | null = document.querySelector('.track-image')
     const title: HTMLElement | null = document.querySelector('.track-title')
@@ -40,18 +44,17 @@ function LoadProjectComponent({
         window.innerHeight * 0.1 * (projectIndex - 1) +
         title.getBoundingClientRect().width * index +
         (projectIndex + index - 1) * 16 +
-        (window.innerHeight * 0.85) / 2
+        selectedWidth / 2
 
       const trackWidth =
         window.innerHeight * 0.1 * (countData[3] - 1) +
         title.getBoundingClientRect().width * 3 +
         (countData[3] + 3 - 1) * 16 +
-        window.innerHeight * 0.85
+        selectedWidth
 
       const offsetPercent = (offset / trackWidth) * -100
       gsap.to(track, {
         duration: 0.5,
-        // transform: `translate(${offsetPercent}%, -50%)`,
         x: offsetPercent + '%',
         y: '-50%',
         ease: 'linear',
@@ -63,31 +66,33 @@ function LoadProjectComponent({
   const navigationType: string | null = useNavigationType()
   const project = projectData
 
+  var x: MediaQueryList = window.matchMedia('(max-width: 768px)')
+
   useEffect(() => {
     if (navigationType === 'POP') {
-      alignImage(projectIndex, index)
+      alignImage(projectIndex, index, x)
       ColorsRender(project.colors[0], project.colors[1], 1)
-      ProjectRender(projectIndex, index)
+      ProjectRender(projectIndex, index, x)
     }
-  })
+  }, [])
+
   if (navigationType !== 'POP') {
-    alignImage(projectIndex, index)
+    alignImage(projectIndex, index, x)
     ColorsRender(project.colors[0], project.colors[1], 1)
-    ProjectRender(projectIndex, index)
+    ProjectRender(projectIndex, index, x)
   }
   useEffect(() => {
     ColorsRender(project.colors[0], project.colors[1], 1)
   }, [document.getElementById('projectTitle')])
 
-  // scroll detect on project
-  const scrollableRef = useRef<HTMLDivElement>(null) // Ref to your scrollable element
+  const scrollableRef = useRef<HTMLDivElement>(null)
 
   const [isAtTop, setIsAtTop] = useState(true)
   console.log('set ISATTOP', isAtTop)
   useEffect(() => {
     console.log('state ISATTOP', isAtTop)
   }, [isAtTop])
-  //scroll animation
+
   if (scrollableRef.current) {
     if (isAtTop) {
       gsap.to(scrollableRef.current, {
