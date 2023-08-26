@@ -5,6 +5,7 @@ import { gsap } from 'gsap'
 import { ColorsRender } from './changeColors'
 import { useRef } from 'react'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 interface Project {
   name: string
@@ -21,10 +22,14 @@ function LoadProjectComponent({
   projectData,
   projectIndex,
   index,
+  countData,
+  projectList,
 }: {
   projectData: Project
   projectIndex: number
   index: number
+  countData: Array<number>
+  projectList: Array<string>
 }) {
   function alignImage(projectIndex: number, index: number) {
     const track = document.getElementById('slide-track')
@@ -37,12 +42,20 @@ function LoadProjectComponent({
         (projectIndex + index - 1) * 16 +
         (window.innerHeight * 0.85) / 2
 
-      const offsetPercent =
-        (offset / track.getBoundingClientRect().width) * -100
+      const trackWidth =
+        window.innerHeight * 0.1 * (countData[3] - 1) +
+        title.getBoundingClientRect().width * 3 +
+        (countData[3] + 3 - 1) * 16 +
+        window.innerHeight * 0.85
+
+      const offsetPercent = (offset / trackWidth) * -100
       gsap.to(track, {
         duration: 0.5,
-        transform: `translate(${offsetPercent}%, -50%)`,
+        // transform: `translate(${offsetPercent}%, -50%)`,
+        x: offsetPercent + '%',
+        y: '-50%',
         ease: 'linear',
+        overwrite: true,
       })
       console.log(offsetPercent)
     }
@@ -53,17 +66,17 @@ function LoadProjectComponent({
   useEffect(() => {
     if (navigationType === 'POP') {
       alignImage(projectIndex, index)
-      ColorsRender(project.colors[0], project.colors[1], 0.5)
+      ColorsRender(project.colors[0], project.colors[1], 1)
       ProjectRender(projectIndex, index)
     }
   })
   if (navigationType !== 'POP') {
     alignImage(projectIndex, index)
-    ColorsRender(project.colors[0], project.colors[1], 0.5)
+    ColorsRender(project.colors[0], project.colors[1], 1)
     ProjectRender(projectIndex, index)
   }
   useEffect(() => {
-    ColorsRender(project.colors[0], project.colors[1], 0.5)
+    ColorsRender(project.colors[0], project.colors[1], 1)
   }, [document.getElementById('projectTitle')])
 
   // scroll detect on project
@@ -76,8 +89,8 @@ function LoadProjectComponent({
       gsap.to(scrollableRef.current, {
         duration: 0.5,
         ease: 'power2',
-        transform: 'translate(-50% ,100%)',
-        scale: 1,
+        y: '150%',
+        scale: 2,
       })
       gsap.to('#slide-track', {
         duration: 0.5,
@@ -89,8 +102,8 @@ function LoadProjectComponent({
       gsap.to(scrollableRef.current, {
         duration: 0.5,
         ease: 'power2',
-        transform: 'translate(-50% ,0%)',
-        scale: 4,
+        y: '0%',
+        scale: 1,
       })
       gsap.to('#slide-track', {
         duration: 0.5,
@@ -116,19 +129,64 @@ function LoadProjectComponent({
 
   const handleWindowOnDown = (e: TouchEvent) => {
     const clientY = e.touches[0].clientY
+    const clientX = e.touches[0].clientX
     if (scrollableRef.current) {
-      scrollableRef.current.dataset.touchDownAt = clientY.toString()
+      scrollableRef.current.dataset.touchDownAtX = clientX.toString()
+      scrollableRef.current.dataset.touchDownAtY = clientY.toString()
     }
   }
   const handleWindowOnUp = (e: TouchEvent) => {
     // if the difference of movement is positive, setIsAtTop(true)
     if (
       scrollableRef.current &&
-      scrollableRef.current.dataset.touchDownAt &&
+      scrollableRef.current.dataset.touchDownAtY &&
+      scrollableRef.current.dataset.touchDownAtX &&
+      Math.abs(
+        e.changedTouches[0].clientY -
+          parseFloat(scrollableRef.current.dataset.touchDownAtY)
+      ) >
+        Math.abs(
+          e.changedTouches[0].clientX -
+            parseFloat(scrollableRef.current.dataset.touchDownAtX)
+        ) &&
       e.changedTouches[0].clientY <
-        parseFloat(scrollableRef.current.dataset.touchDownAt)
+        parseFloat(scrollableRef.current.dataset.touchDownAtY)
     ) {
       setIsAtTop(false)
+    }
+    if (
+      scrollableRef.current &&
+      scrollableRef.current.dataset.touchDownAtY &&
+      scrollableRef.current.dataset.touchDownAtX &&
+      Math.abs(
+        e.changedTouches[0].clientY -
+          parseFloat(scrollableRef.current.dataset.touchDownAtY)
+      ) <
+        Math.abs(
+          e.changedTouches[0].clientX -
+            parseFloat(scrollableRef.current.dataset.touchDownAtX)
+        ) &&
+      e.changedTouches[0].clientX <
+        parseFloat(scrollableRef.current.dataset.touchDownAtX)
+    ) {
+      navigate('/' + projectList[projectIndex])
+    }
+    if (
+      scrollableRef.current &&
+      scrollableRef.current.dataset.touchDownAtY &&
+      scrollableRef.current.dataset.touchDownAtX &&
+      Math.abs(
+        e.changedTouches[0].clientY -
+          parseFloat(scrollableRef.current.dataset.touchDownAtY)
+      ) <
+        Math.abs(
+          e.changedTouches[0].clientX -
+            parseFloat(scrollableRef.current.dataset.touchDownAtX)
+        ) &&
+      e.changedTouches[0].clientX >
+        parseFloat(scrollableRef.current.dataset.touchDownAtX)
+    ) {
+      navigate('/' + projectList[projectIndex - 2])
     }
   }
 
@@ -166,10 +224,28 @@ function LoadProjectComponent({
     }
   }, [])
 
+  const navigate = useNavigate()
+  const handleKeyPress = (event: KeyboardEvent) => {
+    if (event.key === 'ArrowLeft' && projectIndex > 1) {
+      navigate('/' + projectList[projectIndex - 2])
+    }
+    if (event.key === 'ArrowRight' && projectIndex < projectList.length) {
+      navigate('/' + projectList[projectIndex])
+    }
+  }
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyPress)
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('keydown', handleKeyPress)
+    }
+  }, [navigate])
+
   return (
     <div
       ref={scrollableRef}
-      className="absolute left-1/2 h-full w-screen -translate-x-1/2 translate-y-full scale-100 overflow-y-scroll bg-[rgba(0,0,0,0.75)] py-[7.5vh] md:w-[80vw]"
+      className="transparent-secondary absolute left-1/2 h-full w-screen -translate-x-1/2 translate-y-full scale-100 overflow-y-scroll py-[7.5vh] md:w-[80vw]"
     >
       <div className="mb-[7.5vh] w-full">
         <div className="mx-auto w-max" id="unScrollIcon">
@@ -226,17 +302,17 @@ function LoadProjectComponent({
         </div>
       </div>
       <img
-        src={`/assets/${project.name}/${project.images[1]}`}
+        src={`/assets/${project.name}/${project.images[0]}`}
         alt=""
         className="aspect-video w-full bg-center object-cover"
       />
 
-      <div className="px-5 py-2">
-        <h1 className="text-primary" id="projectTitle">
+      <div className="px-5 pb-10 pt-2">
+        <h1 className="text-primary m-0 text-xxxl" id="projectTitle">
           {project.title}
         </h1>
         <h2 className="text-primary">{project.date}</h2>
-        <p className="text-white">{project.description}</p>
+        <p className="text-primary">{project.description}</p>
       </div>
       {project.videos.map((video, index) => {
         return (
@@ -254,7 +330,7 @@ function LoadProjectComponent({
       })}
       <div className="grid grid-cols-2 gap-2">
         {project.images.map((image, index) => {
-          if (index > 2) {
+          if (index > 1) {
             return (
               <img
                 key={index}

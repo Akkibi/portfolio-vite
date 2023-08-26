@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { useNavigate } from 'react-router-dom'
 
-const ThumbnailsComponent: FunctionComponent = () => {
+const ThumbnailsComponent = ({ countData }: { countData: Array<number> }) => {
   //onclick&drag
   const trackRef = useRef<HTMLDivElement>(null)
-
   const handleOnDown = (e: MouseEvent | TouchEvent) => {
     const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX
     if (trackRef.current) {
@@ -111,7 +110,9 @@ const ThumbnailsComponent: FunctionComponent = () => {
 
     gsap.to(trackRef.current, {
       duration: 1,
-      transform: `translate(${nextValue}%, -50%)`,
+      // transform: `translate(${nextValue}%, -50%)`,
+      x: nextValue + '%',
+      y: '-50%',
       ease: 'power2',
       overwrite: true,
     })
@@ -125,7 +126,7 @@ const ThumbnailsComponent: FunctionComponent = () => {
       })
     }
   }
-  const alignCategory = (categoryName: string) => {
+  const alignCategory = (categoryName: string, countData: Array<number>) => {
     const title: HTMLElement | null = document.querySelector('.track-title')
     const categoryTitle: HTMLElement | null =
       document.getElementById(categoryName)
@@ -135,15 +136,34 @@ const ThumbnailsComponent: FunctionComponent = () => {
       categoryTitle &&
       title
     ) {
+      const trackWidth =
+        window.innerHeight * 0.15 * countData[3] +
+        title.getBoundingClientRect().width * 3 +
+        (countData[3] + 3 - 1) * 16
+      console.log(
+        'trackwidth',
+        trackWidth,
+        'old track width',
+        trackRef.current.getBoundingClientRect().width
+      )
+      let categoryWidth: number = 16 + title.getBoundingClientRect().width
+      console.log('categoryName', categoryName)
+      if (categoryName === '2DArtist') {
+        categoryWidth =
+          countData[0] * window.innerHeight * 0.15 +
+          countData[0] * 16 +
+          title.getBoundingClientRect().width * 2 +
+          16 * 2
+      } else if (categoryName === '3DArtist') {
+        categoryWidth =
+          (countData[0] + countData[1]) * window.innerHeight * 0.15 +
+          (countData[0] + countData[1]) * 16 +
+          title.getBoundingClientRect().width * 3 +
+          16 * 3
+      }
       const min =
-        ((categoryTitle.getBoundingClientRect().x -
-          trackRef.current.getBoundingClientRect().x +
-          title.getBoundingClientRect().width +
-          16 +
-          (window.innerHeight * 0.15) / 2) /
-          trackRef.current.getBoundingClientRect().width) *
-        -100
-      console.log(min)
+        ((categoryWidth + (window.innerHeight * 0.15) / 2) / trackWidth) * -100
+      console.log('min', min)
       const time: number =
         Math.abs(
           parseFloat(trackRef.current.dataset.percentage) + Math.abs(min)
@@ -154,7 +174,9 @@ const ThumbnailsComponent: FunctionComponent = () => {
       gsap.to('#slide-track', {
         duration: time,
         ease: 'power2',
-        transform: `translate(${min}%, -50%)`,
+        // transform: `translate(${min}%, -50%)`,
+        x: min + '%',
+        y: '-50%',
         overwrite: true,
       })
       gsap.to('.thumbnail', {
@@ -183,24 +205,30 @@ const ThumbnailsComponent: FunctionComponent = () => {
       window.addEventListener('wheel', transformScroll)
       document
         .getElementById('dev')
-        ?.addEventListener('click', () => alignCategory('Developer'))
+        ?.addEventListener('click', () => alignCategory('Developer', countData))
       document
         .getElementById('2d')
-        ?.addEventListener('click', () => alignCategory('2DArtist'))
+        ?.addEventListener('click', () => alignCategory('2DArtist', countData))
       document
         .getElementById('3d')
-        ?.addEventListener('click', () => alignCategory('3DArtist'))
+        ?.addEventListener('click', () => alignCategory('3DArtist', countData))
     }
     return () => {
       document
         .getElementById('dev')
-        ?.removeEventListener('click', () => alignCategory('Developer'))
+        ?.removeEventListener('click', () =>
+          alignCategory('Developer', countData)
+        )
       document
         .getElementById('2d')
-        ?.removeEventListener('click', () => alignCategory('2DArtist'))
+        ?.removeEventListener('click', () =>
+          alignCategory('2DArtist', countData)
+        )
       document
         .getElementById('3d')
-        ?.removeEventListener('click', () => alignCategory('3DArtist'))
+        ?.removeEventListener('click', () =>
+          alignCategory('3DArtist', countData)
+        )
       window.removeEventListener('wheel', transformScroll)
       window.removeEventListener('mousedown', handleOnDown)
       window.removeEventListener('touchstart', handleOnDown)
@@ -222,7 +250,7 @@ const ThumbnailsComponent: FunctionComponent = () => {
       if (trackRef.current && trackRef.current.dataset.categorie) {
         if (event.key === 'Escape') {
           navigate('/')
-          alignCategory(trackRef.current.dataset.categorie)
+          alignCategory(trackRef.current.dataset.categorie, countData)
         }
       }
     }
@@ -240,7 +268,9 @@ const ThumbnailsComponent: FunctionComponent = () => {
     return {
       section: categoryName,
       name: projectName,
+      title: project.title,
       image: `/assets/${projectName}/${project.images[0]}`,
+      webpImage: `/assets/${projectName}/${project.webpImages[0]}`,
     }
   }
   const getCategoryWithFirstImages = (data: any) => {
@@ -258,46 +288,84 @@ const ThumbnailsComponent: FunctionComponent = () => {
   const projectsWithFirstImages = getCategoryWithFirstImages(projectData)
 
   return (
-    <div
-      id="slide-track"
-      ref={trackRef}
-      className="transle absolute left-1/2 top-1/2 flex -translate-x-[5.17%] -translate-y-1/2 select-none flex-row gap-4 text-white ease-out"
-    >
-      {projectsWithFirstImages.map((categoryData, index) => (
-        <div key={index} className="flex flex-row gap-4">
-          <div
-            id={`${categoryData.category}`}
-            className="track-title relative m-0 h-[16vh] w-[16vh] -rotate-90 p-0"
-          >
-            <h2 className=" text-primary absolute bottom-0 right-0 m-0 p-0 text-right text-xxxl opacity-50">
-              {categoryData.category.toUpperCase()}
-            </h2>
+    <div className="absolute top-1/2 h-[60vh] w-full -translate-y-1/2">
+      <div
+        id="slide-track"
+        ref={trackRef}
+        className="absolute left-1/2 top-1/2 flex -translate-x-[5.17%] select-none flex-row gap-4 text-white ease-out"
+      >
+        {projectsWithFirstImages.map((categoryData, index) => (
+          <div key={index} className="flex flex-row gap-4">
+            <div
+              id={`${categoryData.category}`}
+              className="track-title relative m-0 h-[16vh] w-[16vh] -rotate-90 p-0"
+            >
+              <h2 className=" text-primary absolute bottom-0 right-0 m-0 p-0 text-right text-xxxl opacity-50">
+                {categoryData.category.toUpperCase()}
+              </h2>
+            </div>
+            <div className="relative flex flex-row gap-4">
+              {categoryData.firstImages.map(
+                (data: any, projectIndex: number) => (
+                  <div
+                    key={projectIndex}
+                    className="track-image relative block h-[50vh] w-[15vh] overflow-hidden border-0 p-0 duration-100 hover:opacity-100 hover:grayscale-0"
+                  >
+                    <picture
+                      className="thumbnail absolute top-0 h-full w-full object-cover object-[center_100%] ease-out"
+                      id={`imageBanner_${index}_${projectIndex}`}
+                    >
+                      <img
+                        className="thumbnail absolute top-0 h-full w-full object-cover object-[center_100%] ease-out"
+                        id={`imageBanner_${index}_${projectIndex}`}
+                        src={data.image}
+                        alt={`Banner_${index}_${projectIndex}`}
+                      />
+                      <img
+                        className="thumbnail absolute top-0 h-full w-full object-cover object-[center_100%] ease-out"
+                        id={`imageBanner_${index}_${projectIndex}`}
+                        src={data.image}
+                        alt={`Banner_${index}_${projectIndex}`}
+                      />
+                    </picture>
+                    <Link
+                      className=" absolute h-full w-full text-white no-underline"
+                      to={data.name}
+                    >
+                      <p className="absolute left-1/2 top-1/2 m-0 -translate-x-1/2 -translate-y-1/2 p-0 text-xl">
+                        |
+                      </p>
+                    </Link>
+                  </div>
+                )
+              )}
+            </div>
           </div>
-          <div className="relative flex flex-row gap-4">
-            {categoryData.firstImages.map((data: any, projectIndex: number) => (
-              <div
-                key={projectIndex}
-                className="track-image relative block h-[50vh] w-[15vh] overflow-hidden border-0 p-0 duration-100 hover:opacity-100 hover:grayscale-0"
-              >
-                <img
-                  className="thumbnail absolute top-0 h-full w-full object-cover object-[center_100%] ease-out"
-                  id={`imageBanner_${index}_${projectIndex}`}
-                  src={data.image}
-                  alt={`Banner_${index}_${projectIndex}`}
-                />
-                <Link
-                  className=" absolute h-full w-full text-white no-underline"
-                  to={data.name}
-                >
-                  <p className="absolute left-1/2 top-1/2 m-0 -translate-x-1/2 -translate-y-1/2 p-0 text-xl">
-                    |
-                  </p>
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
+      <div
+        className=" pointer-events-none absolute left-1/2 top-1/2 my-0 h-full w-full -translate-x-1/2 -translate-y-1/2 select-none overflow-clip py-0"
+        id="titles"
+      >
+        {
+          /*map all projects title*/
+          projectsWithFirstImages.map((categoryData, index) => (
+            <div key={index} className="allTitles" id={`titles_${index}`}>
+              {categoryData.firstImages.map(
+                (data: any, projectIndex: number) => (
+                  <h1
+                    key={projectIndex}
+                    id={`title_${data.name}`}
+                    className="title text-primary secondary-shadow absolute left-0 top-0 my-0 origin-left -rotate-12 px-2 font-primaryFont text-xxxxl sm:px-[5vw] sm:text-xxxxxl"
+                  >
+                    {data.title.toUpperCase()}
+                  </h1>
+                )
+              )}
+            </div>
+          ))
+        }
+      </div>
     </div>
   )
 }

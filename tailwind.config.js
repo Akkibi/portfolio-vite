@@ -25,7 +25,8 @@ export default {
       xl: '2vh',
       xxl: '4vh',
       xxxl: '8vh',
-      xxxxl: '16vh',
+      xxxxl: '10vh',
+      xxxxxl: '14vh',
     },
   },
   corePlugins: {

@@ -15,20 +15,12 @@ export const HomeComponent = (): void => {
     opacity: 0,
     display: 'hidden',
   })
-
-  function getTranslateX(element: HTMLElement) {
-    var style = window.getComputedStyle(element)
-    var matrix = new WebKitCSSMatrix(style.transform)
-    console.log('translateX: ', matrix.m41)
-  }
-
-  const slideTranslate: HTMLElement | null =
-    document.getElementById('slide-track')
-  if (slideTranslate) {
-    gsap.to('.slide-track', {
-      duration: 0.5,
-      transform: `translate(${getTranslateX(slideTranslate)}-50%)`,
-      ease: 'power2',
-    })
-  }
+  gsap.to('.title', {
+    duration: 1,
+    ease: 'power2',
+    rotation: 0,
+    // transform: 'translate(0, -125%)',
+    x: 0,
+    y: '-125%',
+  })
 }

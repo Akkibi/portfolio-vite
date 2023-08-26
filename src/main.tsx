@@ -20,6 +20,32 @@ interface Project {
   colors: string[]
 }
 
+let totalProjects: number = 1
+Object.keys(projectData).forEach((element) => {
+  totalProjects += Object.keys(element).length
+})
+const categorie0Projects = Object.keys(projectData['Developer']).length
+const categorie1Projects = Object.keys(projectData['2DArtist']).length
+const categorie2Projects = Object.keys(projectData['3DArtist']).length
+const countData: Array<number> = [
+  categorie0Projects,
+  categorie1Projects,
+  categorie2Projects,
+  totalProjects,
+]
+
+let categoryList: Array<string> = []
+
+projectData['Developer'].forEach((element) => {
+  categoryList.push(element.name)
+})
+projectData['2DArtist'].forEach((element) => {
+  categoryList.push(element.name)
+})
+projectData['3DArtist'].forEach((element) => {
+  categoryList.push(element.name)
+})
+
 const generateProjectRoutes = (data: any) => {
   const categoryArrays = Object.values(data)
   let ProjectIndex = 0
@@ -34,6 +60,8 @@ const generateProjectRoutes = (data: any) => {
               projectData={project}
               projectIndex={ProjectIndex}
               index={index + 1}
+              countData={countData}
+              projectList={categoryList}
             />
           ),
         }
@@ -46,7 +74,7 @@ const generateProjectRoutes = (data: any) => {
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: <App countData={countData} />,
     children: [
       {
         path: '/',

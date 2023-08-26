@@ -36,4 +36,14 @@ export const ColorsRender = (
     backgroundColor: secondary,
     ease: 'power2',
   })
+  gsap.to('.secondary-shadow', {
+    duration: speed,
+    textShadow: `0.5vh 0.5vh 0px ${secondary}, -0.5vh -0.5vh 0px ${secondary}, 0.5vh -0.5vh 0px ${secondary}, -0.5vh 0.5vh 0px ${secondary}`,
+    ease: 'power2',
+  })
+  gsap.to('.transparent-secondary', {
+    duration: speed,
+    backgroundColor: `${secondary}dd`,
+    ease: 'power2',
+  })
 }

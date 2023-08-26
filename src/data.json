@@ -3,7 +3,7 @@
     {
       "name": "african-proud",
       "date": "12/07/2023",
-      "title": "Création du site African Proud",
+      "title": "Création site African Proud",
       "description": "Ce projet à été réalisé dans le cadre d'un stage de deux mois dans l'entreprise PAY ME NOW Production. En temp que développeur full-stack, ma mission à été de créer la plateforme du concours avec une gestion de compte public et artistes, toutes les informations concernant l'evenement ainsi que des pages de post de video, plannings, et news autour de celui-ci. Le site à entièrement été créé par mes soins en NextJS, TailwindCSS, TypeScript et figma pour le front-end et Prisma et PosgresSQL pour le back-end sur OVH. Le site à été versioné sur GitHub et déalisé en moins d'un mois et demis.",
       "images": [
         "homepage.png",
@@ -13,12 +13,20 @@
         "affiche2.png",
         "affiche3.png"
       ],
+      "webpImages": [
+        "homepage.webp",
+        "register.webp",
+        "register-phone.webp",
+        "affiche1.webp",
+        "affiche2.webp",
+        "affiche3.webp"
+      ],
       "videos": ["V7kypRDQ1-Q"],
       "link": [
         "https://africanproud.org/",
         "Le site serà en ligne en septembre 2023"
       ],
-      "colors": ["#ffee00", "#000511"]
+      "colors": ["#f29f03", "#232323"]
     },
     {
       "name": "SLAPPING",
@@ -33,9 +41,17 @@
         "menu.png",
         "before.png"
       ],
+      "webpImages": [
+        "after.webp",
+        "homepage.webp",
+        "videos.webp",
+        "news.webp",
+        "menu.webp",
+        "before.webp"
+      ],
       "videos": ["vETp_zL0tFg"],
       "link": ["https://slapping.fr/", "Lien vers le site de Slapping"],
-      "colors": ["#00ff00", "#110500"]
+      "colors": ["#ffffff", "#171749"]
     },
     {
       "name": "gallerie-des-reves",
@@ -43,12 +59,13 @@
       "title": "Gallerie des Rêves",
       "description": "Ce site à été créé dans le cadre d'un projet scolaire dans lequel je me suis chargé de créer un dispositif interractif pour une exposition de notre agence d'expositions. Ce site a été fait avec Three Js et Tailwind,  en utilisant git ainsi que figma pour les designs.",
       "images": ["affiche.png", "affiche-vide.png"],
+      "webpImages": ["affiche.webp", "affiche-vide.webp"],
       "videos": ["1VQM0jca-FQ"],
       "link": [
         "https://akkibi.github.io/SAE-S4-dispositif-interactif/",
         "Lien du site du dispositif"
       ],
-      "colors": ["#FB623C", "#121112"]
+      "colors": ["#bae074", "#1a1a1a"]
     },
     {
       "name": "nuit-de-linfo",
@@ -65,12 +82,22 @@
         "salon.png",
         "window.png"
       ],
+      "webpImages": [
+        "pagedacceuil.webp",
+        "acceuil.webp",
+        "personnages.webp",
+        "LogoTitre.webp",
+        "festival.webp",
+        "background-party.webp",
+        "salon.webp",
+        "window.webp"
+      ],
       "videos": [],
       "link": [
         "http://meauxlotov.poisson.butmmi.o2switch.site/",
         "Lien du site de notre équipe meauxlotov."
       ],
-      "colors": ["#606EB5", "#000000"]
+      "colors": ["#110022", "#ffbe9d"]
     },
     {
       "name": "portrait-chinois",
@@ -84,12 +111,19 @@
         "Frame81.png",
         "Frame17.png"
       ],
+      "webpImages": [
+        "ecran.webp",
+        "Frame3.webp",
+        "Frame54.webp",
+        "Frame81.webp",
+        "Frame17.webp"
+      ],
       "videos": [],
       "link": [
         "https://akkibi.github.io/myfirstproject/",
         "Lien vers le site."
       ],
-      "colors": ["#110022", "#ffbbaa"]
+      "colors": ["#606EB5", "#000000"]
     },
     {
       "name": "dataviz",
@@ -103,9 +137,16 @@
         "NiveauTrimestre-responsive.png",
         "NiveauMois.png"
       ],
+      "webpImages": [
+        "Maquette-Resp-desktop-version-exportable-lisible.webp",
+        "Maquette-Resp-desktop-version-exportable-lisible-2.webp",
+        "Niveau-Annee-responsive.webp",
+        "NiveauTrimestre-responsive.webp",
+        "NiveauMois.webp"
+      ],
       "videos": [],
       "link": ["", ""],
-      "colors": ["#ffeecc", "#110022"]
+      "colors": ["#ff5555", "#110022"]
     }
   ],
   "2DArtist": [
@@ -115,14 +156,20 @@
       "title": "Animation logo Akkibi",
       "description": "Ce projet m'a appris a faire des animations sur figma en utilisant un peut de créativité et de smart animation.",
       "images": ["carre.jpg", "stretch.jpg", "normal.jpg", "colors-break.jpg"],
-      "videos": ["iulmVPjB35U.jpg"],
+      "webpImages": [
+        "carre.webp",
+        "stretch.webp",
+        "normal.webp",
+        "colors-break.webp"
+      ],
+      "videos": ["iulmVPjB35U"],
       "link": ["", ""],
-      "colors": ["#ffff00", "#002222"]
+      "colors": ["#ffffff", "#000000"]
     },
     {
       "name": "refonte-mmi",
       "date": "5/10/2022",
-      "title": "Refonte de la ligne éditoriale de MMind",
+      "title": "Refonte éditoriale de MMind",
       "description": "Voici la participation au concours de refonte de la ligne éditoriale de MMind de mon groupe de travail.",
       "images": [
         "Frame22.png",
@@ -132,12 +179,20 @@
         "Frame26.png",
         "Frame23.png"
       ],
+      "webpImages": [
+        "Frame22.webp",
+        "Frame17.webp",
+        "Frame24.webp",
+        "Frame25.webp",
+        "Frame26.webp",
+        "Frame23.webp"
+      ],
       "videos": [],
       "link": [
         "https://www.instagram.com/mmind_mmi/",
         "Compte à l'origine de la refonte."
       ],
-      "colors": ["#ffff00", "#002222"]
+      "colors": ["#1ed7a3", "#000000"]
     },
     {
       "name": "stable-diffusion",
@@ -145,9 +200,10 @@
       "title": "Stable diffusion",
       "description": "Ce projet consistait à aider un developpeur à trouver un design pour sa page d'acceuil pour de multiples projets autour de Stable diffusion.",
       "images": ["Frame1.png", "Frame341.png", "Frame343.png"],
+      "webpImages": ["Frame1.webp", "Frame341.webp", "Frame343.webp"],
       "videos": [],
       "link": ["", ""],
-      "colors": ["#ffff00", "#002222"]
+      "colors": ["#4853e2", "#dcdce6"]
     },
     {
       "name": "allo-infirmier",
@@ -160,9 +216,15 @@
         "Creeruncompte.png",
         "creeruncompteinfirmier.png"
       ],
+      "webpImages": [
+        "Frame59.webp",
+        "Connexion.webp",
+        "Creeruncompte.webp",
+        "creeruncompteinfirmier.webp"
+      ],
       "videos": [],
       "link": ["", ""],
-      "colors": ["#ffff00", "#002222"]
+      "colors": ["#0085ff", "#000000"]
     },
     {
       "name": "petsitting",
@@ -177,9 +239,17 @@
         "SousProfilAnimal.png",
         "ResultatRecherche.png"
       ],
+      "webpImages": [
+        "Logo.webp",
+        "Offres.webp",
+        "Profil.webp",
+        "Recherche.webp",
+        "SousProfilAnimal.webp",
+        "ResultatRecherche.webp"
+      ],
       "videos": [],
       "link": ["", ""],
-      "colors": ["#ffff00", "#002222"]
+      "colors": ["#dcb99a", "#231107"]
     },
     {
       "name": "wireframe-but-mmi",
@@ -194,9 +264,17 @@
         "Frame75.png",
         "Frame76.png"
       ],
+      "webpImages": [
+        "Frame38.webp",
+        "Frame37.webp",
+        "Frame60.webp",
+        "Frame61.webp",
+        "Frame75.webp",
+        "Frame76.webp"
+      ],
       "videos": [],
       "link": ["", ""],
-      "colors": ["#ffff00", "#002222"]
+      "colors": ["#ffffff", "#20102a"]
     },
     {
       "name": "leboncoin",
@@ -209,12 +287,18 @@
         "Pagemessage.png",
         "Pageproduit.png"
       ],
+      "webpImages": [
+        "Pagedacceuil.webp",
+        "Pagecompte.webp",
+        "Pagemessage.webp",
+        "Pageproduit.webp"
+      ],
       "videos": [],
       "link": [
         "https://drive.google.com/file/d/1ZnBO2kTXkFXPy29Gp7WRxDrfUxAalJ6g/view?usp=sharing",
         "Voir l'analyse."
       ],
-      "colors": ["#ffff00", "#002222"]
+      "colors": ["#ff6e14", "#ffffff"]
     },
     {
       "name": "background",
@@ -231,9 +315,19 @@
         "background.png",
         "akira-valade.png"
       ],
+      "webpImages": [
+        "background-new.webp",
+        "v05.webp",
+        "v04.webp",
+        "v03.webp",
+        "v02.webp",
+        "v01.webp",
+        "background.webp",
+        "akira-valade.webp"
+      ],
       "videos": [],
       "link": ["", ""],
-      "colors": ["#ffff00", "#002222"]
+      "colors": ["#e5a597", "#002046"]
     },
     {
       "name": "gatesnfences",
@@ -249,9 +343,18 @@
         "Frame24.png",
         "Frame33.png"
       ],
+      "webpImages": [
+        "logo.webp",
+        "Frame25.webp",
+        "Frame2.webp",
+        "Frame37.webp",
+        "Frame34.webp",
+        "Frame24.webp",
+        "Frame33.webp"
+      ],
       "videos": [],
       "link": ["http://www.gatesnfences.com/", "Le site de Gates N Fences."],
-      "colors": ["#ffff00", "#002222"]
+      "colors": ["#a4cbd8", "#2a2626"]
     },
     {
       "name": "skvry",
@@ -259,9 +362,15 @@
       "title": "Charte graphique skvry",
       "description": "Ce projet à été réalisé pour la marque skvry dont les ventes n'ont pas commencé qui est sur le marché des masques d'horreur en série limitée.",
       "images": ["skvry.png", "maquette.png", "skvr2y.png", "skvr3y.png"],
+      "webpImages": [
+        "skvry.webp",
+        "maquette.webp",
+        "skvr2y.webp",
+        "skvr3y.webp"
+      ],
       "videos": [],
       "link": ["", ""],
-      "colors": ["#ffff00", "#002222"]
+      "colors": ["#c9ebeb", "#172222"]
     },
     {
       "name": "polices",
@@ -269,9 +378,15 @@
       "title": "Police sans serif et serif",
       "description": "Voici ma première police d'écriture, basée sur des formes simples elle peut représenter une marque épurée, à formes rondes.",
       "images": ["true.jpg", "letters.jpg", "Frame14.jpg", "see-more.jpg"],
+      "webpImages": [
+        "true.webp",
+        "letters.webp",
+        "Frame14.webp",
+        "see-more.webp"
+      ],
       "videos": [],
       "link": ["", ""],
-      "colors": ["#ffff00", "#002222"]
+      "colors": ["#000000", "#ffffff"]
     },
     {
       "name": "letters",
@@ -279,9 +394,10 @@
       "title": "Illustration caractères",
       "description": "Le but de cet exercice était de créer des illustrations à base uniquement de police d'ecriture, chaques courbe, chaque angle visibles sont donc une partie de lettre.",
       "images": ["Frame1.png", "original.png"],
+      "webpImages": ["Frame1.webp", "original.webp"],
       "videos": [],
       "link": ["", ""],
-      "colors": ["#ffff00", "#002222"]
+      "colors": ["#ffffff", "#000000"]
     },
     {
       "name": "kirby",
@@ -289,9 +405,10 @@
       "title": "kirby design",
       "description": "Ce projet m'a appris à faire des effets 3d sur figma en jouant avec les lumières.",
       "images": ["kirby.png", "kirby-king.png"],
+      "webpImages": ["kirby.webp", "kirby-king.webp"],
       "videos": [],
       "link": ["", ""],
-      "colors": ["#ffff00", "#002222"]
+      "colors": ["#ffc8d9", "#2d3962"]
     },
     {
       "name": "depression",
@@ -299,9 +416,10 @@
       "title": "Illustration dépression",
       "description": "Cette illustration est une partie d'un projet plus gros nommé le livre des sept mots dans lequel 7 mots forts ont été choisis pour les illustrer de façon créative.",
       "images": ["Page2.png", "Page1.png"],
+      "webpImages": ["Page2.webp", "Page1.webp"],
       "videos": [],
       "link": ["", ""],
-      "colors": ["#ffff00", "#002222"]
+      "colors": ["#ffffff", "#000000"]
     }
   ],
   "3DArtist": [
@@ -311,9 +429,10 @@
       "title": "Mr spider walkin'",
       "description": "Ce projet m'a appris à créer une animation procédurale de marche pour une araignée.",
       "images": ["step4.png", "no-shader.png"],
+      "webpImages": ["step4.webp", "no-shader.webp"],
       "videos": ["tTwpU5etMNE", "_X9301nrFYA", "XbXeqAd5QDg"],
       "link": ["", ""],
-      "colors": ["#ffff00", "#002222"]
+      "colors": ["#00b986", "#221107"]
     },
     {
       "name": "cv-video",
@@ -329,9 +448,18 @@
         "cadre.png",
         "cadre-dust.png"
       ],
+      "webpImages": [
+        "miniature.webp",
+        "end-screen.webp",
+        "pinboard.webp",
+        "church.webp",
+        "depth.webp",
+        "cadre.webp",
+        "cadre-dust.webp"
+      ],
       "videos": ["JpRU3J0zjig"],
       "link": ["", ""],
-      "colors": ["#ffff00", "#002222"]
+      "colors": ["#ffffff", "#261613"]
     },
     {
       "name": "video-eiffel",
@@ -345,9 +473,16 @@
         "image-eiffel-2.jpg",
         "image-eiffel-3.jpg"
       ],
-      "videos": ["nm0cn8qMjdo.png"],
+      "webpImages": [
+        "3d-video.webp",
+        "image-eiffel-4.webp",
+        "image-eiffel-1.webp",
+        "image-eiffel-2.webp",
+        "image-eiffel-3.webp"
+      ],
+      "videos": ["nm0cn8qMjdo"],
       "link": ["", ""],
-      "colors": ["#ffff00", "#002222"]
+      "colors": ["#f4dfc0", "#37313f"]
     },
     {
       "name": "space-trou-noir",
@@ -355,9 +490,10 @@
       "title": "Black hole",
       "description": "Ce projet m'a appris a utiliser du compositing pour accélerer la production d'un plan ainsi qu'à utiliser certains shaders et volumes",
       "images": ["miniature.png", "spaceship.png", "trou-noir.png"],
+      "webpImages": ["miniature.webp", "spaceship.webp", "trou-noir.webp"],
       "videos": ["NQF0whHEVkY", "Dt3rhUTB5qA"],
       "link": ["", ""],
-      "colors": ["#ffff00", "#002222"]
+      "colors": ["#beb2c1", "#04070b"]
     },
     {
       "name": "robot-rating",
@@ -365,9 +501,10 @@
       "title": "Chilling with the boys",
       "description": "Une animations de robots humains dans un hangar, ce projet m'a appris a utiliser du compositing pour accélerer la production d'un plan ainsi que l'utilisation de certains shaders et volumes",
       "images": ["hangar.png", "hangar-with-man.png"],
+      "webpImages": ["hangar.webp", "hangar-with-man.webp"],
       "videos": ["0j72j8q1Egg", "79bDVgpSPBc"],
       "link": ["", ""],
-      "colors": ["#ffff00", "#002222"]
+      "colors": ["#9fa790", "#242316"]
     },
     {
       "name": "firby",
@@ -379,9 +516,14 @@
         "firby-large.jpg",
         "firby-wireframe.jpg"
       ],
+      "webpImages": [
+        "firby-close-128-lighten.webp",
+        "firby-large.webp",
+        "firby-wireframe.webp"
+      ],
       "videos": [],
       "link": ["", ""],
-      "colors": ["#ffff00", "#002222"]
+      "colors": ["#d4c9a9", "#34192b"]
     }
   ]
 }

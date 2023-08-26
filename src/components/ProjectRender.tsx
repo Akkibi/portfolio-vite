@@ -7,7 +7,7 @@ export const ProjectRender = (projectIndex: number, index: number): void => {
   const notSelectedImage = document.querySelectorAll('.track-image')
   const selectedImage =
     document.querySelectorAll('.track-image')[projectIndex - 1]
-  console.log(index)
+  console.log('Section', index)
   gsap.to(notSelectedImage, {
     duration: 0.5,
     width: window.innerHeight * 0.1,
@@ -27,9 +27,25 @@ export const ProjectRender = (projectIndex: number, index: number): void => {
     filter: 'grayscale(0)',
   })
   gsap.to('#scrollIcon', {
-    duration: 1,
+    duration: 0.75,
     ease: 'power2',
     opacity: 1,
     display: 'block',
+  })
+  gsap.to('.title', {
+    duration: 1,
+    ease: 'power2',
+    // transform: 'translate(0, -125%)',
+    x: 0,
+    y: '-125%',
+    rotation: -12,
+  })
+  gsap.to(`#title_${window.location.pathname.split('/').pop()}`, {
+    duration: 1,
+    ease: 'circular',
+    // transform: 'translate(0, 0)',
+    x: 0,
+    y: 0,
+    rotation: 0,
   })
 }
