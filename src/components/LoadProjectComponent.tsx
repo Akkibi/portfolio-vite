@@ -307,11 +307,17 @@ function LoadProjectComponent({
       />
 
       <div className="px-5 pb-10 pt-2">
-        <h1 className="text-primary m-0 text-xxxl" id="projectTitle">
+        <h1
+          className="text-primary m-0 font-primaryFont text-xxl sm:text-xxxl"
+          id="projectTitle"
+        >
           {project.title}
         </h1>
-        <h2 className="text-primary">{project.date}</h2>
-        <p className="text-primary">{project.description}</p>
+        <h2 className="text-primary text-xl sm:text-xxl">{project.date}</h2>
+        <p className="text-primary font-secondaryFont">{project.description}</p>
+        <a href={project.link[0]} className="text-primary underline">
+          {project.link[1]}
+        </a>
       </div>
       {project.videos.map((video, index) => {
         return (
