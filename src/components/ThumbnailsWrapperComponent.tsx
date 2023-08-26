@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import projectData from '../data.json'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
