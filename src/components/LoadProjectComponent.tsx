@@ -81,8 +81,12 @@ function LoadProjectComponent({
 
   // scroll detect on project
   const scrollableRef = useRef<HTMLDivElement>(null) // Ref to your scrollable element
-  const [isAtTop, setIsAtTop] = useState(true)
 
+  const [isAtTop, setIsAtTop] = useState(true)
+  console.log('set ISATTOP', isAtTop)
+  useEffect(() => {
+    console.log('state ISATTOP', isAtTop)
+  }, [isAtTop])
   //scroll animation
   if (scrollableRef.current) {
     if (isAtTop) {
@@ -113,6 +117,7 @@ function LoadProjectComponent({
       scrollableRef.current.scrollTop = 20
     }
   }
+
   const handleWindowScroll = (e: WheelEvent) => {
     if (e.deltaY > 0 && isAtTop) {
       setIsAtTop(false)
@@ -137,62 +142,61 @@ function LoadProjectComponent({
   }
   const navigate = useNavigate()
   const handleWindowOnUp = (e: TouchEvent) => {
-    // if the difference of movement is positive, setIsAtTop(true)
-    if (
-      scrollableRef.current &&
-      scrollableRef.current.dataset.touchDownAtY &&
-      scrollableRef.current.dataset.touchDownAtX &&
-      Math.abs(
-        e.changedTouches[0].clientY -
-          parseFloat(scrollableRef.current.dataset.touchDownAtY)
-      ) >
+    if (isAtTop) {
+      if (
+        scrollableRef.current &&
+        scrollableRef.current.dataset.touchDownAtY &&
+        scrollableRef.current.dataset.touchDownAtX &&
         Math.abs(
-          e.changedTouches[0].clientX -
-            parseFloat(scrollableRef.current.dataset.touchDownAtX)
-        ) &&
-      e.changedTouches[0].clientY <
-        parseFloat(scrollableRef.current.dataset.touchDownAtY)
-    ) {
-      setIsAtTop(false)
-    }
-    if (
-      scrollableRef.current &&
-      scrollableRef.current.dataset.touchDownAtY &&
-      scrollableRef.current.dataset.touchDownAtX &&
-      Math.abs(
-        e.changedTouches[0].clientY -
-          parseFloat(scrollableRef.current.dataset.touchDownAtY)
-      ) <
+          e.changedTouches[0].clientY -
+            parseFloat(scrollableRef.current.dataset.touchDownAtY)
+        ) <
+          Math.abs(
+            e.changedTouches[0].clientX -
+              parseFloat(scrollableRef.current.dataset.touchDownAtX)
+          ) &&
+        e.changedTouches[0].clientX <
+          parseFloat(scrollableRef.current.dataset.touchDownAtX) &&
+        projectIndex < projectList.length
+      ) {
+        navigate('/' + projectList[projectIndex])
+        return
+      }
+      if (
+        scrollableRef.current &&
+        scrollableRef.current.dataset.touchDownAtY &&
+        scrollableRef.current.dataset.touchDownAtX &&
         Math.abs(
-          e.changedTouches[0].clientX -
-            parseFloat(scrollableRef.current.dataset.touchDownAtX)
-        ) &&
-      e.changedTouches[0].clientX <
-        parseFloat(scrollableRef.current.dataset.touchDownAtX) &&
-      projectIndex < projectList.length
-    ) {
-      console.log('left projects')
-      navigate('/' + projectList[projectIndex])
-      return
-    }
-    if (
-      scrollableRef.current &&
-      scrollableRef.current.dataset.touchDownAtY &&
-      scrollableRef.current.dataset.touchDownAtX &&
-      Math.abs(
-        e.changedTouches[0].clientY -
-          parseFloat(scrollableRef.current.dataset.touchDownAtY)
-      ) <
+          e.changedTouches[0].clientY -
+            parseFloat(scrollableRef.current.dataset.touchDownAtY)
+        ) <
+          Math.abs(
+            e.changedTouches[0].clientX -
+              parseFloat(scrollableRef.current.dataset.touchDownAtX)
+          ) &&
+        e.changedTouches[0].clientX >
+          parseFloat(scrollableRef.current.dataset.touchDownAtX) &&
+        projectIndex > 1
+      ) {
+        navigate('/' + projectList[projectIndex - 2])
+      }
+      if (
+        scrollableRef.current &&
+        scrollableRef.current.dataset.touchDownAtY &&
+        scrollableRef.current.dataset.touchDownAtX &&
         Math.abs(
-          e.changedTouches[0].clientX -
-            parseFloat(scrollableRef.current.dataset.touchDownAtX)
-        ) &&
-      e.changedTouches[0].clientX >
-        parseFloat(scrollableRef.current.dataset.touchDownAtX) &&
-      projectIndex > 1
-    ) {
-      console.log('right projects')
-      navigate('/' + projectList[projectIndex - 2])
+          e.changedTouches[0].clientY -
+            parseFloat(scrollableRef.current.dataset.touchDownAtY)
+        ) >
+          Math.abs(
+            e.changedTouches[0].clientX -
+              parseFloat(scrollableRef.current.dataset.touchDownAtX)
+          ) &&
+        e.changedTouches[0].clientY <
+          parseFloat(scrollableRef.current.dataset.touchDownAtY)
+      ) {
+        setIsAtTop(false)
+      }
     }
   }
 
@@ -214,9 +218,16 @@ function LoadProjectComponent({
       document.getElementById('scrollIcon')!.addEventListener('click', () => {
         setIsAtTop(false)
       })
-      document.getElementById('unScrollIcon')!.addEventListener('click', () => {
-        setIsAtTop(true)
-      })
+      document
+        .querySelectorAll('.unScrollIcon')[0]
+        ?.addEventListener('click', () => {
+          setIsAtTop(true)
+        })
+      document
+        .querySelectorAll('.unScrollIcon')[1]
+        ?.addEventListener('click', () => {
+          setIsAtTop(true)
+        })
     }
 
     // Cleanup event listener on component unmount
@@ -233,13 +244,18 @@ function LoadProjectComponent({
             setIsAtTop(false)
           })
         document
-          .getElementById('unScrollIcon')!
-          .removeEventListener('click', () => {
+          .querySelectorAll('.unScrollIcon')[0]
+          ?.removeEventListener('click', () => {
+            setIsAtTop(true)
+          })
+        document
+          .querySelectorAll('.unScrollIcon')[1]
+          ?.removeEventListener('click', () => {
             setIsAtTop(true)
           })
       }
     }
-  }, [navigate])
+  }, [navigate, isAtTop])
 
   return (
     <div
@@ -247,7 +263,7 @@ function LoadProjectComponent({
       className="transparent-secondary absolute left-1/2 h-full w-screen -translate-x-1/2 translate-y-full scale-100 overflow-y-scroll py-[7.5vh] md:w-[80vw]"
     >
       <div className="mb-[7.5vh] w-full">
-        <div className="mx-auto w-max" id="unScrollIcon">
+        <div className="unScrollIcon mx-auto w-max">
           <p className="text-primary m-0 font-secondaryFont text-xxl uppercase underline">
             <svg
               className="mr-1 h-[4vh] w-[4vh]"
@@ -327,7 +343,7 @@ function LoadProjectComponent({
               height="100%"
               src={`https://www.youtube.com/embed/${video}`}
               title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share"
               allowFullScreen
             ></iframe>
           </div>
@@ -346,6 +362,60 @@ function LoadProjectComponent({
             )
           }
         })}
+      </div>
+      <div className="mt-[7.5vh] w-full">
+        <div className="unScrollIcon mx-auto w-max">
+          <p className="text-primary m-0 font-secondaryFont text-xxl uppercase underline">
+            <svg
+              className="mr-1 h-[4vh] w-[4vh]"
+              stroke="currentColor"
+              strokeWidth="1"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              viewBox="0 0 24 24"
+            >
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="4"></circle>
+            </svg>
+            <svg
+              className="mr-1 h-[4vh] w-[4vh] rotate-180"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M5 15C5 16.8565 5.73754 18.6371 7.05029 19.9498C8.36305 21.2626 10.1435 21.9999 12 21.9999C13.8565 21.9999 15.637 21.2626 16.9498 19.9498C18.2625 18.6371 19 16.8565 19 15V9C19 7.14348 18.2625 5.36305 16.9498 4.05029C15.637 2.73754 13.8565 2 12 2C10.1435 2 8.36305 2.73754 7.05029 4.05029C5.73754 5.36305 5 7.14348 5 9V15Z"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></path>
+                <path
+                  d="M12 6V14"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></path>
+                <path
+                  d="M15 11L12 14L9 11"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></path>
+              </g>
+            </svg>
+          </p>
+        </div>
       </div>
     </div>
   )
