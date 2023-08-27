@@ -160,9 +160,12 @@ const Navbar: FunctionComponent = () => {
       </div>
       <div className="flex w-[8vh] flex-col justify-between">
         <div className="text-primary decoration-none flex flex-col items-end font-secondaryFont text-xl uppercase underline visited:text-white">
-          <Link className="w-max" to="/About">
+          <a
+            className="w-max"
+            href="https://akkibi.github.io/portfolio/pages/About.html"
+          >
             About
-          </Link>
+          </a>
         </div>
         <div className=" text-primary decoration-none flex flex-col items-end font-secondaryFont text-xl uppercase underline visited:text-white">
           <a href="https://www.instagram.com/akkibi_/" className="w-max">
