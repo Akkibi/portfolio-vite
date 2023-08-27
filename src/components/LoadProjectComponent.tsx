@@ -324,7 +324,7 @@ function LoadProjectComponent({
       <img
         src={`/assets/${project.name}/${project.images[0]}`}
         alt=""
-        className="aspect-video w-full bg-center object-cover"
+        className="aspect-vidaeo w-full bg-center object-cover"
       />
 
       <div className="px-5 pb-10 pt-2">
@@ -356,7 +356,7 @@ function LoadProjectComponent({
       })}
       <div className="grid grid-cols-2 gap-2">
         {project.images.map((image, index) => {
-          if (index > 1) {
+          if (index > 0) {
             return (
               <img
                 key={index}

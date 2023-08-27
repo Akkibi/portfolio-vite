@@ -266,8 +266,8 @@ const ThumbnailsComponent = ({ countData }: { countData: Array<number> }) => {
       section: categoryName,
       name: projectName,
       title: project.title,
-      image: `/assets/${projectName}/${project.images[0]}`,
-      webpImage: `/assets/${projectName}/${project.webpImages[0]}`,
+      image: `/assets/${projectName}/thumbnail.png`,
+      webpImage: `/assets/${projectName}/thumbnail.webp`,
     }
   }
   const getCategoryWithFirstImages = (data: any) => {
