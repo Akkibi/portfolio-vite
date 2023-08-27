@@ -60,7 +60,6 @@ function LoadProjectComponent({
         ease: 'linear',
         overwrite: true,
       })
-      console.log(offsetPercent)
     }
   }
   const navigationType: string | null = useNavigationType()
@@ -86,12 +85,7 @@ function LoadProjectComponent({
   }, [document.getElementById('projectTitle')])
 
   const scrollableRef = useRef<HTMLDivElement>(null)
-
   const [isAtTop, setIsAtTop] = useState(true)
-  console.log('set ISATTOP', isAtTop)
-  useEffect(() => {
-    console.log('state ISATTOP', isAtTop)
-  }, [isAtTop])
 
   if (scrollableRef.current) {
     if (isAtTop) {
@@ -265,7 +259,7 @@ function LoadProjectComponent({
   return (
     <div
       ref={scrollableRef}
-      className="transparent-secondary absolute left-1/2 h-full w-screen -translate-x-1/2 translate-y-full scale-100 overflow-y-scroll py-[7.5vh] md:w-[80vw]"
+      className="transparent-secondary absolute left-1/2 z-50 h-full w-screen -translate-x-1/2 translate-y-full scale-100 overflow-y-scroll py-[7.5vh] md:w-[80vw]"
     >
       <div className="mb-[7.5vh] w-full">
         <div className="unScrollIcon mx-auto w-max">
@@ -354,16 +348,27 @@ function LoadProjectComponent({
           </div>
         )
       })}
-      <div className="grid grid-cols-2 gap-2">
+      <div className="my-2 grid grid-cols-2 gap-2">
         {project.images.map((image, index) => {
           if (index > 0) {
             return (
-              <img
+              <div
                 key={index}
-                src={`/assets/${project.name}/${image}`}
-                alt=""
-                className="object-fit z-10 aspect-square w-full object-contain md:aspect-video"
-              />
+                className="relative aspect-square w-full md:aspect-video"
+              >
+                <a
+                  className=" absolute left-0 top-0 h-full w-full"
+                  href={`/assets/${project.name}/${image}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                ></a>
+                <img
+                  key={index}
+                  src={`/assets/${project.name}/${image}`}
+                  alt=""
+                  className="object-fit absolute left-0 top-0 z-10 h-full w-full object-contain"
+                />
+              </div>
             )
           }
         })}

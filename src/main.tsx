@@ -20,10 +20,6 @@ interface Project {
   colors: string[]
 }
 
-let totalProjects: number = 1
-Object.keys(projectData).forEach((element) => {
-  totalProjects += Object.keys(element).length
-})
 const categorie0Projects = Object.keys(projectData['Developer']).length
 const categorie1Projects = Object.keys(projectData['2DArtist']).length
 const categorie2Projects = Object.keys(projectData['3DArtist']).length
@@ -31,7 +27,7 @@ const countData: Array<number> = [
   categorie0Projects,
   categorie1Projects,
   categorie2Projects,
-  totalProjects,
+  categorie0Projects + categorie1Projects + categorie2Projects,
 ]
 
 let categoryList: Array<string> = []
