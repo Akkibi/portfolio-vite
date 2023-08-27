@@ -309,13 +309,9 @@ const ThumbnailsComponent = ({ countData }: { countData: Array<number> }) => {
                     className="track-image relative block h-[50vh] w-[15vh] overflow-hidden border-0 p-0 duration-100 hover:opacity-100 hover:grayscale-0"
                   >
                     <picture id={`imageBanner_${index}_${projectIndex}`}>
-                      <source
-                        className="thumbnail absolute top-0 h-full w-full object-cover object-[100%_center] ease-out"
-                        id={`imageBanner_${index}_${projectIndex}`}
-                        src={data.webpImage}
-                      />
+                      <source srcSet={data.webpImage} type="image/webp" />
                       <img
-                        className="thumbnail absolute top-0 h-full w-full object-cover object-[center_100%] ease-out"
+                        className="thumbnail absolute top-0 h-full w-full object-cover object-[100%_center] ease-out"
                         id={`imageBanner_${index}_${projectIndex}`}
                         src={data.image}
                         alt={`Banner_${index}_${projectIndex}`}
