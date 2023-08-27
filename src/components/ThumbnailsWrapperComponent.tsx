@@ -94,7 +94,7 @@ const ThumbnailsComponent = ({ countData }: { countData: Array<number> }) => {
         -100
 
       const percentage =
-        parseFloat(trackRef.current.dataset.percentage) + e.deltaY / 5
+        parseFloat(trackRef.current.dataset.percentage) + e.deltaY / 15
       const nextPercentageUnconstrained = percentage
       const nextPercentage = Math.max(
         Math.min(nextPercentageUnconstrained, min),
@@ -109,18 +109,18 @@ const ThumbnailsComponent = ({ countData }: { countData: Array<number> }) => {
     track.dataset.percentage = nextValue.toString()
 
     gsap.to(trackRef.current, {
-      duration: 1,
+      duration: 0.5,
       x: nextValue + '%',
       y: '-50%',
-      ease: 'expo.out',
+      ease: 'power2.out',
       overwrite: true,
     })
     const images = track.getElementsByClassName('thumbnail')
     for (const image of images) {
       gsap.to(image as HTMLElement, {
-        duration: 1,
+        duration: 0.5,
         objectPosition: `${100 + nextValue}% center`,
-        ease: 'expo.out',
+        ease: 'power2.out',
         overwrite: true,
       })
     }
@@ -172,14 +172,14 @@ const ThumbnailsComponent = ({ countData }: { countData: Array<number> }) => {
 
       gsap.to('#slide-track', {
         duration: time,
-        ease: 'circular',
+        ease: 'circular.out',
         x: min + '%',
         y: '-50%',
         overwrite: true,
       })
       gsap.to('.thumbnail', {
         duration: time,
-        ease: 'circular',
+        ease: 'circular.out',
         objectPosition: `${100 + min}% center`,
         overwrite: true,
       })
