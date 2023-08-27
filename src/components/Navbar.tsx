@@ -1,5 +1,4 @@
 import { FunctionComponent, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 const Navbar: FunctionComponent = () => {
   const [categorie, setCategorie] = useState('dev')
