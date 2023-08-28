@@ -30,7 +30,7 @@ const Navbar: FunctionComponent = () => {
                   : ' bg-primary text-secondary hidden w-max px-4 py-2 uppercase'
               }
             >
-              Developper
+              Developer
             </NavLink>
             <NavLink
               to="/"
@@ -43,7 +43,7 @@ const Navbar: FunctionComponent = () => {
                   : 'text-primary w-max bg-transparent px-4 py-2 uppercase'
               }
             >
-              Developper
+              Developer
             </NavLink>
           </div>
           <div className="flex" id="2d">

@@ -82,3 +82,10 @@ a:visited {
 .track-image {
   will-change: width;
 }
+.track-image:hover .track-link {
+  opacity: 0;
+}
+
+.track-image .track-link {
+  backdrop-filter: grayscale(100%);
+}

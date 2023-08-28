@@ -6,8 +6,11 @@ export const HomeComponent = (): void => {
     ease: 'power2',
     width: window.innerHeight * 0.15,
     opacity: 0.75,
-    '-webkit-filter': 'grayscale(100%)',
-    filter: 'grayscale(100%)',
+    // '-webkit-filter': 'grayscale(100%)',
+    // filter: 'grayscale(100%)',
+  })
+  gsap.to('.track-link', {
+    clearProps: 'all',
   })
   gsap.to('#scrollIcon', {
     duration: 1,

@@ -21,8 +21,14 @@ export const ProjectRender = (
     ease: 'power2',
     opacity: 0.75,
 
-    '-webkit-filter': 'grayscale(100%)',
-    filter: 'grayscale(100%)',
+    // '-webkit-filter': 'grayscale(100%)',
+    // filter: 'grayscale(100%)',
+  })
+  gsap.to(document.querySelectorAll('.track-link'), {
+    clearProps: 'all',
+  })
+  gsap.to(document.querySelectorAll('.track-link')[projectIndex - 1], {
+    opacity: 0,
   })
   gsap.to(selectedImage, {
     duration: 0.5,
@@ -30,8 +36,8 @@ export const ProjectRender = (
     ease: 'power2',
     opacity: 1,
     grayScale: 0,
-    '-webkit-filter': 'grayscale(0)',
-    filter: 'grayscale(0)',
+    // '-webkit-filter': 'grayscale(0)',
+    // filter: 'grayscale(0)',
   })
   gsap.to(document.querySelectorAll('.thumbnail')[projectIndex - 1], {
     duration: 0.5,

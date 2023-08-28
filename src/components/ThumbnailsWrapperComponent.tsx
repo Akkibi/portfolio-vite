@@ -383,22 +383,22 @@ const ThumbnailsComponent = ({
                 (data: any, projectIndex: number) => (
                   <div
                     key={projectIndex}
-                    className="track-image relative block h-[50vh] w-[15vh] overflow-hidden border-0 p-0 duration-100 hover:opacity-100 hover:grayscale-0"
+                    className="track-image relative block h-[50vh] w-[15vh] overflow-hidden border-0 p-0 hover:opacity-100 hover:grayscale-0"
                   >
                     <picture id={`imageBanner_${index}_${projectIndex}`}>
                       <source srcSet={data.webpImage} type="image/webp" />
                       <img
-                        className="thumbnail absolute top-0 h-full w-full object-cover object-[center_center] ease-out"
+                        className="thumbnail absolute top-0 h-full w-full object-cover object-[center_center] duration-200 ease-out"
                         id={`imageBanner_${index}_${projectIndex}`}
                         src={data.image}
                         alt={`Banner_${index}_${projectIndex}`}
                       />
                     </picture>
                     <Link
-                      className=" absolute h-full w-full text-white no-underline"
+                      className="track-link absolute h-full w-full bg-[rgba(0,0,0,0.25)] text-white no-underline grayscale duration-200 hover:bg-[rgba(0,0,0,0)] hover:grayscale-0"
                       to={data.name}
                     >
-                      <p className="absolute left-1/2 top-1/2 m-0 -translate-x-1/2 -translate-y-1/2 p-0 text-xl">
+                      <p className="absolute left-1/2 top-1/2 m-0 -translate-x-1/2 -translate-y-1/2 p-0 text-xl ">
                         |
                       </p>
                     </Link>
