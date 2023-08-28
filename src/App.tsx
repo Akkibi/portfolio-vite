@@ -5,7 +5,13 @@ import { useNavigationType } from 'react-router-dom'
 import { useEffect } from 'react'
 import { gsap } from 'gsap'
 
-function App({ countData }: { countData: Array<number> }): JSX.Element {
+function App({
+  countData,
+  projectList,
+}: {
+  countData: Array<number>
+  projectList: Array<string>
+}): JSX.Element {
   const navigationType: string | null = useNavigationType()
   useEffect(() => {
     if (navigationType === 'POP') {
@@ -35,7 +41,10 @@ function App({ countData }: { countData: Array<number> }): JSX.Element {
       <div className="absolute left-1/2 top-1/2 h-[10vh] w-[1px] -translate-x-1/2 -translate-y-1/2 select-none bg-white"></div>
 
       <Navbar />
-      <ThumbnailsWrapperComponent countData={countData} />
+      <ThumbnailsWrapperComponent
+        countData={countData}
+        projectList={projectList}
+      />
       <Outlet />
     </div>
   )

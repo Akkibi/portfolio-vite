@@ -4,7 +4,13 @@ import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { useNavigate } from 'react-router-dom'
 
-const ThumbnailsComponent = ({ countData }: { countData: Array<number> }) => {
+const ThumbnailsComponent = ({
+  countData,
+  projectList,
+}: {
+  countData: Array<number>
+  projectList: Array<string>
+}) => {
   //onclick&drag
   const trackRef = useRef<HTMLDivElement>(null)
   const handleOnDown = (e: MouseEvent | TouchEvent) => {
@@ -105,6 +111,42 @@ const ThumbnailsComponent = ({ countData }: { countData: Array<number> }) => {
     }
   }
 
+  const transformArrow = (quantity: number) => {
+    const title: HTMLElement | null = document.querySelector('.track-title')
+    const image: HTMLElement | null = document.querySelector('.track-image')
+    if (
+      trackRef.current &&
+      quantity &&
+      trackRef.current.dataset.percentage &&
+      window.location.pathname === '/' &&
+      title &&
+      image
+    ) {
+      const min =
+        ((title.getBoundingClientRect().width +
+          16 +
+          image.getBoundingClientRect().width / 2) /
+          trackRef.current.getBoundingClientRect().width) *
+        -100
+
+      const max =
+        ((trackRef.current.getBoundingClientRect().width -
+          image.getBoundingClientRect().width / 2) /
+          trackRef.current.getBoundingClientRect().width) *
+        -100
+
+      const percentage =
+        parseFloat(trackRef.current.dataset.percentage) + quantity / 15
+      const nextPercentageUnconstrained = percentage
+      const nextPercentage = Math.max(
+        Math.min(nextPercentageUnconstrained, min),
+        max
+      )
+      trackRef.current.dataset.prevValue = nextPercentage.toString()
+      makeSliderAnimation(trackRef.current, nextPercentage)
+    }
+  }
+
   function makeSliderAnimation(track: HTMLDivElement, nextValue: number) {
     track.dataset.percentage = nextValue.toString()
 
@@ -189,11 +231,45 @@ const ThumbnailsComponent = ({ countData }: { countData: Array<number> }) => {
     }
   }
 
+  const handleKeyPress = (event: KeyboardEvent) => {
+    if (trackRef.current) {
+      if (event.key === 'ArrowLeft') {
+        transformArrow(50)
+      }
+      if (event.key === 'ArrowRight') {
+        transformArrow(-50)
+      }
+      if (event.key === 'ArrowUp') {
+        alignCategory('Developer', countData)
+      }
+      if (
+        (event.key === 'ArrowDown' && trackRef.current.dataset.percentage) ||
+        (event.key === 'Enter' && trackRef.current.dataset.percentage)
+      ) {
+        console.log('project to open')
+        console.log(projectList)
+        navigate(
+          '/' +
+            projectList[
+              Math.round(
+                Math.abs(
+                  (Math.round(parseFloat(trackRef.current.dataset.percentage)) /
+                    100) *
+                    countData[3]
+                )
+              ) - 1
+            ]
+        )
+      }
+    }
+  }
+
   useEffect(() => {
     if (trackRef.current && document.getElementById('slide-track') !== null) {
       trackRef.current.dataset.mouseDownAt = '0'
       trackRef.current.dataset.prevValue = '-6.5'
       trackRef.current.dataset.percentage = '-6.5'
+      window.addEventListener('keydown', handleKeyPress)
       window.addEventListener('mousedown', handleOnDown)
       window.addEventListener('touchstart', handleOnDown)
       window.addEventListener('mouseup', handleOnUp)
@@ -227,6 +303,7 @@ const ThumbnailsComponent = ({ countData }: { countData: Array<number> }) => {
         ?.removeEventListener('click', () =>
           alignCategory('3DArtist', countData)
         )
+      window.removeEventListener('keydown', handleKeyPress)
       window.removeEventListener('wheel', transformScroll)
       window.removeEventListener('mousedown', handleOnDown)
       window.removeEventListener('touchstart', handleOnDown)
@@ -311,7 +388,7 @@ const ThumbnailsComponent = ({ countData }: { countData: Array<number> }) => {
                     <picture id={`imageBanner_${index}_${projectIndex}`}>
                       <source srcSet={data.webpImage} type="image/webp" />
                       <img
-                        className="thumbnail absolute top-0 h-full w-full object-cover object-[100%_center] ease-out"
+                        className="thumbnail absolute top-0 h-full w-full object-cover object-[center_center] ease-out"
                         id={`imageBanner_${index}_${projectIndex}`}
                         src={data.image}
                         alt={`Banner_${index}_${projectIndex}`}
@@ -345,7 +422,7 @@ const ThumbnailsComponent = ({ countData }: { countData: Array<number> }) => {
                   <h1
                     key={projectIndex}
                     id={`title_${data.name}`}
-                    className="title text-primary secondary-shadow absolute left-0 top-0 my-0 origin-left px-2 font-primaryFont text-xxxxl sm:px-[5vw] sm:text-xxxxxl"
+                    className="title text-primary secondary-shadow absolute left-0 top-0 my-0 origin-left px-2 font-primaryFont text-xxxxl md:px-[5vw] md:text-xxxxxl"
                   >
                     {data.title.toUpperCase()}
                   </h1>

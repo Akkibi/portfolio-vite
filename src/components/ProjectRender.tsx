@@ -33,6 +33,12 @@ export const ProjectRender = (
     '-webkit-filter': 'grayscale(0)',
     filter: 'grayscale(0)',
   })
+  gsap.to(document.querySelectorAll('.thumbnail')[projectIndex - 1], {
+    duration: 0.5,
+    ease: 'power2',
+    opacity: 1,
+    objectPosition: `center center`,
+  })
   gsap.to('#scrollIcon', {
     duration: 0.75,
     ease: 'power2',

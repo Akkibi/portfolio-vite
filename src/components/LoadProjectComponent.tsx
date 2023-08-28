@@ -200,16 +200,24 @@ function LoadProjectComponent({
   }
 
   const handleKeyPress = (event: KeyboardEvent) => {
-    if (event.key === 'ArrowLeft' && projectIndex > 1) {
-      navigate('/' + projectList[projectIndex - 2])
-    }
-    if (event.key === 'ArrowRight' && projectIndex < projectList.length) {
-      navigate('/' + projectList[projectIndex])
+    if (scrollableRef.current) {
+      if (event.key === 'ArrowLeft' && projectIndex > 1) {
+        navigate('/' + projectList[projectIndex - 2])
+      }
+      if (event.key === 'ArrowRight' && projectIndex < projectList.length) {
+        navigate('/' + projectList[projectIndex])
+      }
+      if (event.key === 'ArrowUp') {
+        navigate('/')
+      }
+      if ((event.key === 'ArrowDown' && isAtTop) || event.key === 'Enter') {
+        setIsAtTop(false)
+      }
     }
   }
   useEffect(() => {
-    window.addEventListener('keydown', handleKeyPress)
     if (scrollableRef.current) {
+      window.addEventListener('keydown', handleKeyPress)
       scrollableRef.current.addEventListener('scroll', handleScroll)
       window.addEventListener('wheel', handleWindowScroll)
       window.addEventListener('touchstart', handleWindowOnDown)
@@ -231,8 +239,8 @@ function LoadProjectComponent({
 
     // Cleanup event listener on component unmount
     return () => {
-      window.removeEventListener('keydown', handleKeyPress)
       if (scrollableRef.current) {
+        window.removeEventListener('keydown', handleKeyPress)
         scrollableRef.current.removeEventListener('scroll', handleScroll)
         window.removeEventListener('wheel', handleWindowScroll)
         window.removeEventListener('touchstart', handleWindowOnDown)

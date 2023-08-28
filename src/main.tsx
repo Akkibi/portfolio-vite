@@ -70,7 +70,7 @@ const generateProjectRoutes = (data: any) => {
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App countData={countData} />,
+    element: <App countData={countData} projectList={categoryList} />,
     children: [
       {
         path: '/',

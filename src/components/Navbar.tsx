@@ -17,7 +17,7 @@ const Navbar: FunctionComponent = () => {
         </p>
       </div>
       <div className="justify-betweens flex w-full flex-col justify-between">
-        <div className="relative top-10 mx-auto inline-flex w-2 flex-row justify-center gap-4 md:top-0">
+        <div className="relative top-[70vh] mx-auto inline-flex w-2 flex-row justify-center gap-4 md:top-0">
           <div className="flex" id="dev">
             <NavLink
               to="/"
