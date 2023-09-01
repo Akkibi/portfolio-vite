@@ -8,4 +8,17 @@ export const AboutComponent = (): void => {
     opacity: 0,
     display: 'hidden',
   })
+  gsap.fromTo(
+    '#about',
+    {
+      x: 0,
+      y: '-100%',
+    },
+    {
+      duration: 0.5,
+      ease: 'power2.out',
+      y: 0,
+      x: 0,
+    }
+  )
 }

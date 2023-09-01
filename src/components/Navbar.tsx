@@ -1,5 +1,7 @@
+import { link } from 'fs'
 import { FunctionComponent, useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 const Navbar: FunctionComponent = () => {
   const [categorie, setCategorie] = useState('dev')
 
@@ -159,12 +161,9 @@ const Navbar: FunctionComponent = () => {
       </div>
       <div className="flex w-[8vh] flex-col justify-between">
         <div className="text-primary decoration-none flex flex-col items-end font-secondaryFont text-xl uppercase underline visited:text-white">
-          <a
-            className="w-max"
-            href="https://akkibi.github.io/portfolio/pages/About.html"
-          >
+          <Link className="w-max" to="/about">
             About
-          </a>
+          </Link>
         </div>
         <div className=" text-primary decoration-none flex flex-col items-end font-secondaryFont text-xl uppercase underline visited:text-white">
           <a href="https://www.instagram.com/akkibi_/" className="w-max">

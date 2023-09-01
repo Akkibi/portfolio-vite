@@ -103,7 +103,7 @@
       "name": "portrait-chinois",
       "date": "18/03/2022",
       "title": "Portrait Chinois",
-      "description": "Ce projet me représente (de 2021) en 8 chauses. Ce site à été créé dans le but d'en apprendre plus sur le code en js. C'est aussi le premier site avec lequel j'ai utilisé Git et Github.",
+      "description": "Ce projet me représente (de 2021) avec 8 elements. Ce site à été créé dans le but d'en apprendre plus sur le code en js. C'est aussi le premier site avec lequel j'ai utilisé Git et Github.",
       "images": [
         "ecran.png",
         "Frame3.png",
@@ -131,15 +131,15 @@
       "title": "Dataviz",
       "description": "Ce projet de groupe m'a appris à utiliser d3js pour faire de la visualisation de données. Le but de ce site est de comparer le courbe de croissance des utilisateurs de Netflix, des entrées de cinema et du covid pour y voir une corellation.",
       "images": [
-        "Maquette-Resp-desktop-version-exportable-lisible.png",
         "Maquette-Resp-desktop-version-exportable-lisible-2.png",
+        "Maquette-Resp-desktop-version-exportable-lisible.png",
         "Niveau-Annee-responsive.png",
         "NiveauTrimestre-responsive.png",
         "NiveauMois.png"
       ],
       "webpImages": [
-        "Maquette-Resp-desktop-version-exportable-lisible.webp",
         "Maquette-Resp-desktop-version-exportable-lisible-2.webp",
+        "Maquette-Resp-desktop-version-exportable-lisible.webp",
         "Niveau-Annee-responsive.webp",
         "NiveauTrimestre-responsive.webp",
         "NiveauMois.webp"
@@ -154,7 +154,7 @@
       "name": "akkibi-chromatic",
       "date": "26/12/2022",
       "title": "Animation logo Akkibi",
-      "description": "Ce projet m'a appris a faire des animations sur figma en utilisant un peut de créativité et de smart animation.",
+      "description": "Ce projet m'a appris à faire des animations sur figma en utilisant un peut de créativité et de smart animation.",
       "images": ["carre.jpg", "stretch.jpg", "normal.jpg", "colors-break.jpg"],
       "webpImages": [
         "carre.webp",
@@ -209,18 +209,22 @@
       "name": "allo-infirmier",
       "date": "10/11/2022",
       "title": "Maquettes Allo Infirmier",
-      "description": "Ce projet a été de créer des maquettes d'une application de mise en relation l'infirmier à patients en suivant les directives d'un product owner.",
+      "description": "Ce projet a été de créer des maquettes d'une application de mise en relation d'infirmier à des patients en suivant les directives d'un product owner.",
       "images": [
         "Frame59.png",
         "Connexion.png",
         "Creeruncompte.png",
-        "creeruncompteinfirmier.png"
+        "creeruncompteinfirmier.png",
+        "pagecompteutilisateur.png",
+        "Parametres.png"
       ],
       "webpImages": [
         "Frame59.webp",
         "Connexion.webp",
         "Creeruncompte.webp",
-        "creeruncompteinfirmier.webp"
+        "creeruncompteinfirmier.webp",
+        "pagecompteutilisateur.webp",
+        "Parametres.webp"
       ],
       "videos": [],
       "link": ["", ""],
@@ -304,7 +308,7 @@
       "name": "background",
       "date": "01/02/2023",
       "title": "Fond d'écran",
-      "description": "Voici chaques étapes qui ont menés a mon fond d'écran actuel. Je suis parti d'une base simple, deux logos, Figma et Blender qui me passionnent (pas la place pour les multiples langages de code) les elements 3d ont été faits sur Blender et la composition sur figma.",
+      "description": "Voici chaques étapes qui ont menés à mon fond d'écran actuel. Je suis parti d'une base simple, deux logos, Figma et Blender qui me passionnent (pas la place pour les multiples langages de code) les elements 3d ont été faits sur Blender et la composition sur figma.",
       "images": [
         "background-new.png",
         "v05.png",
@@ -487,7 +491,7 @@
       "name": "cv-video",
       "date": "11/01/2023",
       "title": "My ancestors",
-      "description": "Ce projet m'a appris a faire du montage vidéo sur blender il m'a aussi appris à utiliser stable diffusion ainsi que d'autres ia de génération d'images pour la création d'image, de depth map et autres éléments.",
+      "description": "Ce projet m'a appris à faire du montage vidéo sur blender il m'a aussi appris à utiliser stable diffusion ainsi que d'autres IA de génération d'images pour la création d'image, de depth map et autres éléments.",
       "images": [
         "miniature.png",
         "end-screen.png",
@@ -514,7 +518,7 @@
       "name": "video-eiffel",
       "date": "16/12/2022",
       "title": "L'histoire de Claire Eiffel",
-      "description": "Ce projet a été produit dans le cadre d'un travail à l'université Gustave Eiffel. L'objectif du projet est de faire un podcast sur le thème de la femme de Gustave Eiffel, pour ce faire j'ai du prendre rendez-vous avec Savun Yeatman Eiffel ainsi que faire des visuels en 3d pour l'illustrer. Ce projet m'a appris à créer des scènes blender complexes en utilisant des géometry nodes.",
+      "description": "Ce projet a été produit dans le cadre d'un travail à l'université Gustave Eiffel. L'objectif du projet est de faire un podcast sur le thème de la femme de Gustave Eiffel, pour ce faire j'ai du prendre rendez-vous avec Savun Yeatman Eiffel ainsi que faire des visuels en 3d pour l'illustrer. Ce projet m'a appris à créer des scènes Blender complexes en utilisant des géometry nodes.",
       "images": [
         "3d-video.png",
         "image-eiffel-4.jpg",
@@ -537,7 +541,7 @@
       "name": "space-trou-noir",
       "date": "16/12/2022",
       "title": "Black hole",
-      "description": "Ce projet m'a appris a utiliser du compositing pour accélerer la production d'un plan ainsi qu'à utiliser certains shaders et volumes",
+      "description": "Ce projet m'a appris à utiliser du compositing pour accélerer la production d'un plan ainsi qu'à utiliser certains shaders et volumes",
       "images": ["miniature.png", "spaceship.png", "trou-noir.png"],
       "webpImages": ["miniature.webp", "spaceship.webp", "trou-noir.webp"],
       "videos": ["NQF0whHEVkY", "Dt3rhUTB5qA"],
@@ -548,7 +552,7 @@
       "name": "robot-rating",
       "date": "10/11/2022",
       "title": "Chilling with the boys",
-      "description": "Une animations de robots humains dans un hangar, ce projet m'a appris a utiliser du compositing pour accélerer la production d'un plan ainsi que l'utilisation de certains shaders et volumes",
+      "description": "Une animations de robots humains dans un hangar, ce projet m'a appris à utiliser du compositing pour accélerer la production d'un plan ainsi que l'utilisation de certains shaders et volumes",
       "images": ["hangar.png", "hangar-with-man.png"],
       "webpImages": ["hangar.webp", "hangar-with-man.webp"],
       "videos": ["0j72j8q1Egg", "79bDVgpSPBc"],
@@ -559,7 +563,7 @@
       "name": "firby",
       "date": "25/02/2023",
       "title": "3D Cursed worm Firby",
-      "description": "C'est mon premier personnage 3D avec des poils, un Furby étrange. Je l'ai créé avec l'intention d'en apprendre plus sur la génération de particules sur blender.",
+      "description": "C'est mon premier personnage 3D avec des poils, un Furby étrange. Je l'ai créé avec l'intention d'en apprendre plus sur la génération de particules sur Blender.",
       "images": [
         "firby-close-128-lighten.jpg",
         "firby-large.jpg",

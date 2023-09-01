@@ -8,6 +8,7 @@ import App from './App'
 import './index.css'
 import projectData from './data.json'
 import LoadProject from './components/LoadProjectComponent'
+import LoadAbout from './components/LoadAboutComponent'
 
 interface Project {
   name: string
@@ -78,7 +79,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'about',
-        element: <LoadAnimation anim={AboutComponent} />,
+        element: <LoadAbout anim={AboutComponent} />,
       },
       ...generateProjectRoutes(projectData),
     ],
