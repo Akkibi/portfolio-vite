@@ -64,8 +64,21 @@ function LoadAbout({ anim }: { anim: Function }) {
               >
                 PAY ME NOW
               </a>
-              ou j'ai fais le redesign du site slapping et créé le site du
-              concours African Proud pour l'artiste
+              ou j'ai fais le redesign du site
+              <a
+                href="akiravalade.vercel.app/slapping"
+                className="rounded-md bg-[rgba(0,0,0,0.25)] p-1 px-2 underline"
+              >
+                Slapping
+              </a>
+              et créé le site du concours
+              <a
+                href=" akiravalade.vercel.app/africaproud"
+                className="rounded-md bg-[rgba(0,0,0,0.25)] p-1 px-2 underline"
+              >
+                African Proud
+              </a>
+              pour l'artiste
               <a
                 className="rounded-md bg-[rgba(0,0,0,0.25)] p-1 px-2 underline"
                 href="https://www.djmohgreen.com/"
@@ -89,7 +102,7 @@ function LoadAbout({ anim }: { anim: Function }) {
               >
                 créé un site web de e-commerce
               </a>
-              de a à z en groupe.
+              de a à z en équipe.
             </li>
           </ul>
           <br />
@@ -101,8 +114,8 @@ function LoadAbout({ anim }: { anim: Function }) {
           <br />
           <p>
             Mes compétences en développement web évoluent constamment, je suis
-            en cours d'aprentissage de Next.js et threejs. Ce portfolio est en
-            cours de création, restez à l'affut des changements!
+            en cours d'aprentissage de threejs. Ce portfolio est en cours de
+            création, restez à l'affut des changements!
           </p>
         </div>
       </div>

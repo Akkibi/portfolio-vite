@@ -413,24 +413,19 @@ const ThumbnailsComponent = ({
         className=" pointer-events-none absolute left-1/2 top-1/2 my-0 h-full w-full -translate-x-1/2 -translate-y-1/2 select-none overflow-clip py-0"
         id="titles"
       >
-        {
-          /*map all projects title*/
-          projectsWithFirstImages.map((categoryData, index) => (
-            <div key={index} className="allTitles" id={`titles_${index}`}>
-              {categoryData.firstImages.map(
-                (data: any, projectIndex: number) => (
-                  <h1
-                    key={projectIndex}
-                    id={`title_${data.name}`}
-                    className="title text-primary secondary-shadow absolute left-0 top-0 my-0 origin-left px-2 font-primaryFont text-xxxl md:px-[5vw] md:text-xxxxxl"
-                  >
-                    {data.title.toUpperCase()}
-                  </h1>
-                )
-              )}
-            </div>
-          ))
-        }
+        {projectsWithFirstImages.map((categoryData, index) => (
+          <div key={index} className="allTitles" id={`titles_${index}`}>
+            {categoryData.firstImages.map((data: any, projectIndex: number) => (
+              <h1
+                key={projectIndex}
+                id={`title_${data.name}`}
+                className="title text-primary secondary-shadow absolute left-0 top-0 my-0 origin-left px-2 font-primaryFont text-xxxl md:px-[5vw] md:text-xxxxxl"
+              >
+                {data.title.toUpperCase()}
+              </h1>
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   )
