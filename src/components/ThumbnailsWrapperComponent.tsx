@@ -422,7 +422,7 @@ const ThumbnailsComponent = ({
                   <h1
                     key={projectIndex}
                     id={`title_${data.name}`}
-                    className="title text-primary secondary-shadow absolute left-0 top-0 my-0 origin-left px-2 font-primaryFont text-xxxxl md:px-[5vw] md:text-xxxxxl"
+                    className="title text-primary secondary-shadow absolute left-0 top-0 my-0 origin-left px-2 font-primaryFont text-xxxl md:px-[5vw] md:text-xxxxxl"
                   >
                     {data.title.toUpperCase()}
                   </h1>
