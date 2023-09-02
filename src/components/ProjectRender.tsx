@@ -29,6 +29,7 @@ export const ProjectRender = (
   })
   gsap.to(document.querySelectorAll('.track-link')[projectIndex - 1], {
     opacity: 0,
+    display: 'none',
   })
   gsap.to(selectedImage, {
     duration: 0.5,

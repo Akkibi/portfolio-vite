@@ -4,7 +4,7 @@
 }
 @font-face {
   font-family: 'Helvetica';
-  src: url('/public/HelveticaInseratLTStd-Roman.otf');
+  src: url('/public/Helvetica-Ultra-Compressed.otf');
 }
 
 @tailwind base;

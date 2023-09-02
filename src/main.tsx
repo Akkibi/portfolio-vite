@@ -22,9 +22,9 @@ interface Project {
   colors: string[]
 }
 
-const categorie0Projects = Object.keys(projectData['Developer']).length
-const categorie1Projects = Object.keys(projectData['2DArtist']).length
-const categorie2Projects = Object.keys(projectData['3DArtist']).length
+const categorie0Projects = Object.keys(projectData['Developpeur']).length
+const categorie1Projects = Object.keys(projectData['Artiste2D']).length
+const categorie2Projects = Object.keys(projectData['Artiste3D']).length
 const countData: Array<number> = [
   categorie0Projects,
   categorie1Projects,
@@ -34,13 +34,13 @@ const countData: Array<number> = [
 
 let categoryList: Array<string> = []
 
-projectData['Developer'].forEach((element) => {
+projectData['Developpeur'].forEach((element) => {
   categoryList.push(element.name)
 })
-projectData['2DArtist'].forEach((element) => {
+projectData['Artiste2D'].forEach((element) => {
   categoryList.push(element.name)
 })
-projectData['3DArtist'].forEach((element) => {
+projectData['Artiste3D'].forEach((element) => {
   categoryList.push(element.name)
 })
 

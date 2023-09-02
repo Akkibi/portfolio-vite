@@ -21,4 +21,16 @@ export const AboutComponent = (): void => {
       x: 0,
     }
   )
+  gsap.fromTo(
+    '#about-title',
+    {
+      y: '100%',
+    },
+    {
+      delay: 0.25,
+      duration: 1,
+      ease: 'power2.out',
+      y: 0,
+    }
+  )
 }

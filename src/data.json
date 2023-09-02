@@ -1,5 +1,5 @@
 {
-  "Developer": [
+  "Developpeur": [
     {
       "name": "african-proud",
       "date": "12/07/2023",
@@ -149,7 +149,7 @@
       "colors": ["#ff5555", "#110022"]
     }
   ],
-  "2DArtist": [
+  "Artiste2D": [
     {
       "name": "akkibi-chromatic",
       "date": "26/12/2022",
@@ -475,7 +475,7 @@
       "colors": ["#ffffff", "#000000"]
     }
   ],
-  "3DArtist": [
+  "Artiste3D": [
     {
       "name": "araignee-qui-marche",
       "date": "29/11/2022",

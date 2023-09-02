@@ -189,13 +189,13 @@ const ThumbnailsComponent = ({
       )
       let categoryWidth: number = 16 + title.getBoundingClientRect().width
       console.log('categoryName', categoryName)
-      if (categoryName === '2DArtist') {
+      if (categoryName === 'Artiste2D') {
         categoryWidth =
           countData[0] * window.innerHeight * 0.15 +
           countData[0] * 16 +
           title.getBoundingClientRect().width * 2 +
           16 * 2
-      } else if (categoryName === '3DArtist') {
+      } else if (categoryName === 'Artiste3D') {
         categoryWidth =
           (countData[0] + countData[1]) * window.innerHeight * 0.15 +
           (countData[0] + countData[1]) * 16 +
@@ -240,7 +240,7 @@ const ThumbnailsComponent = ({
         transformArrow(-50)
       }
       if (event.key === 'ArrowUp') {
-        alignCategory('Developer', countData)
+        alignCategory('Developpeur', countData)
       }
       if (
         (event.key === 'ArrowDown' && trackRef.current.dataset.percentage) ||
@@ -279,29 +279,31 @@ const ThumbnailsComponent = ({
       window.addEventListener('wheel', transformScroll)
       document
         .getElementById('dev')
-        ?.addEventListener('click', () => alignCategory('Developer', countData))
+        ?.addEventListener('click', () =>
+          alignCategory('Developpeur', countData)
+        )
       document
         .getElementById('2d')
-        ?.addEventListener('click', () => alignCategory('2DArtist', countData))
+        ?.addEventListener('click', () => alignCategory('Artiste2D', countData))
       document
         .getElementById('3d')
-        ?.addEventListener('click', () => alignCategory('3DArtist', countData))
+        ?.addEventListener('click', () => alignCategory('Artiste3D', countData))
     }
     return () => {
       document
         .getElementById('dev')
         ?.removeEventListener('click', () =>
-          alignCategory('Developer', countData)
+          alignCategory('Developpeur', countData)
         )
       document
         .getElementById('2d')
         ?.removeEventListener('click', () =>
-          alignCategory('2DArtist', countData)
+          alignCategory('Artiste2D', countData)
         )
       document
         .getElementById('3d')
         ?.removeEventListener('click', () =>
-          alignCategory('3DArtist', countData)
+          alignCategory('Artiste3D', countData)
         )
       window.removeEventListener('keydown', handleKeyPress)
       window.removeEventListener('wheel', transformScroll)
@@ -319,7 +321,7 @@ const ThumbnailsComponent = ({
   // Adding event listeners for key press
   useEffect(() => {
     if (trackRef.current) {
-      trackRef.current.dataset.categorie = 'Developer'
+      trackRef.current.dataset.categorie = 'Developpeur'
     }
     const handleKeyPress = (event: KeyboardEvent) => {
       if (trackRef.current && trackRef.current.dataset.categorie) {
@@ -374,7 +376,7 @@ const ThumbnailsComponent = ({
               id={`${categoryData.category}`}
               className="track-title relative m-0 h-[16vh] w-[16vh] -rotate-90 p-0"
             >
-              <h2 className=" text-primary absolute bottom-0 right-0 m-0 p-0 text-right text-xxxl opacity-50">
+              <h2 className=" text-primary absolute bottom-0 right-0 m-0 p-0 text-right font-primaryFont text-xxxxl tracking-wider opacity-100">
                 {categoryData.category.toUpperCase()}
               </h2>
             </div>

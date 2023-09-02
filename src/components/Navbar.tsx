@@ -42,7 +42,7 @@ const Navbar: FunctionComponent = () => {
                   : 'text-primary m-0 w-max uppercase'
               }
             >
-              Developer
+              Developpeur
             </p>
           </NavLink>
           <NavLink
@@ -64,7 +64,7 @@ const Navbar: FunctionComponent = () => {
                   : 'text-primary m-0 w-max uppercase'
               }
             >
-              2D Artist
+              Artiste 2D
             </p>
           </NavLink>
           <NavLink
@@ -86,12 +86,12 @@ const Navbar: FunctionComponent = () => {
                   : 'text-primary m-0 w-max uppercase'
               }
             >
-              3D Artst
+              Artste 3D
             </p>
           </NavLink>
         </div>
         <div className="mx-auto" id="scrollIcon">
-          <p className="text-primary m-0 font-secondaryFont text-xxl uppercase underline">
+          <p className="text-primary relative m-0 animate-bounce font-secondaryFont text-xxl uppercase underline">
             <svg
               className="mr-1 h-[4vh] w-[4vh]"
               stroke="currentColor"
@@ -150,10 +150,10 @@ const Navbar: FunctionComponent = () => {
               className="mr-2 h-[1.5vh] w-[1.5vh] opacity-0 duration-150 group-hover:opacity-100"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              stroke-width="2"
+              strokeWidth="2"
               fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               <path d="M 1 23 L 23 1"></path>
               <path d="M 6 1 h 17 v 17"></path>
@@ -167,10 +167,10 @@ const Navbar: FunctionComponent = () => {
               className="mr-2 h-[1.5vh] w-[1.5vh] opacity-0 duration-150 group-hover:opacity-100"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              stroke-width="2"
+              strokeWidth="2"
               fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               <path d="M 1 23 L 23 1"></path>
               <path d="M 6 1 h 17 v 17"></path>
@@ -186,10 +186,10 @@ const Navbar: FunctionComponent = () => {
               className="mr-2 h-[1.5vh] w-[1.5vh] opacity-0  duration-150 group-hover:opacity-100"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              stroke-width="2"
+              strokeWidth="2"
               fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               <path d="M 1 23 L 23 1"></path>
               <path d="M 6 1 h 17 v 17"></path>
@@ -201,10 +201,10 @@ const Navbar: FunctionComponent = () => {
               className="mr-2 h-[1.5vh] w-[1.5vh] opacity-0 duration-150 group-hover:opacity-100"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              stroke-width="2"
+              strokeWidth="2"
               fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               <path d="M 1 23 L 23 1"></path>
               <path d="M 6 1 h 17 v 17"></path>

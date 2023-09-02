@@ -132,31 +132,30 @@ function LoadProjectComponent({
     }
   }
 
-  const handleWindowOnDown = (e: TouchEvent) => {
-    const clientY = e.touches[0].clientY
-    const clientX = e.touches[0].clientX
+  const handleWindowOnDown = (e: MouseEvent | TouchEvent) => {
+    const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY
+    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX
     if (scrollableRef.current) {
       scrollableRef.current.dataset.touchDownAtX = clientX.toString()
       scrollableRef.current.dataset.touchDownAtY = clientY.toString()
     }
   }
   const navigate = useNavigate()
-  const handleWindowOnUp = (e: TouchEvent) => {
+  const handleWindowOnUp = (e: TouchEvent | MouseEvent) => {
+    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX
+    const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY
     if (isAtTop) {
       if (
         scrollableRef.current &&
         scrollableRef.current.dataset.touchDownAtY &&
         scrollableRef.current.dataset.touchDownAtX &&
         Math.abs(
-          e.changedTouches[0].clientY -
-            parseFloat(scrollableRef.current.dataset.touchDownAtY)
+          clientY - parseFloat(scrollableRef.current.dataset.touchDownAtY)
         ) <
           Math.abs(
-            e.changedTouches[0].clientX -
-              parseFloat(scrollableRef.current.dataset.touchDownAtX)
+            clientX - parseFloat(scrollableRef.current.dataset.touchDownAtX)
           ) &&
-        e.changedTouches[0].clientX <
-          parseFloat(scrollableRef.current.dataset.touchDownAtX) &&
+        clientX < parseFloat(scrollableRef.current.dataset.touchDownAtX) &&
         projectIndex < projectList.length
       ) {
         navigate('/' + projectList[projectIndex])
@@ -167,15 +166,12 @@ function LoadProjectComponent({
         scrollableRef.current.dataset.touchDownAtY &&
         scrollableRef.current.dataset.touchDownAtX &&
         Math.abs(
-          e.changedTouches[0].clientY -
-            parseFloat(scrollableRef.current.dataset.touchDownAtY)
+          clientY - parseFloat(scrollableRef.current.dataset.touchDownAtY)
         ) <
           Math.abs(
-            e.changedTouches[0].clientX -
-              parseFloat(scrollableRef.current.dataset.touchDownAtX)
+            clientX - parseFloat(scrollableRef.current.dataset.touchDownAtX)
           ) &&
-        e.changedTouches[0].clientX >
-          parseFloat(scrollableRef.current.dataset.touchDownAtX) &&
+        clientX > parseFloat(scrollableRef.current.dataset.touchDownAtX) &&
         projectIndex > 1
       ) {
         navigate('/' + projectList[projectIndex - 2])
@@ -185,15 +181,12 @@ function LoadProjectComponent({
         scrollableRef.current.dataset.touchDownAtY &&
         scrollableRef.current.dataset.touchDownAtX &&
         Math.abs(
-          e.changedTouches[0].clientY -
-            parseFloat(scrollableRef.current.dataset.touchDownAtY)
+          clientY - parseFloat(scrollableRef.current.dataset.touchDownAtY)
         ) >
           Math.abs(
-            e.changedTouches[0].clientX -
-              parseFloat(scrollableRef.current.dataset.touchDownAtX)
+            clientX - parseFloat(scrollableRef.current.dataset.touchDownAtX)
           ) &&
-        e.changedTouches[0].clientY <
-          parseFloat(scrollableRef.current.dataset.touchDownAtY)
+        clientY < parseFloat(scrollableRef.current.dataset.touchDownAtY)
       ) {
         setIsAtTop(false)
       }
@@ -221,7 +214,9 @@ function LoadProjectComponent({
       window.addEventListener('keydown', handleKeyPress)
       scrollableRef.current.addEventListener('scroll', handleScroll)
       window.addEventListener('wheel', handleWindowScroll)
+      window.addEventListener('mousedown', handleWindowOnDown)
       window.addEventListener('touchstart', handleWindowOnDown)
+      window.addEventListener('mouseup', handleWindowOnUp)
       window.addEventListener('touchend', handleWindowOnUp)
       document.getElementById('scrollIcon')!.addEventListener('click', () => {
         setIsAtTop(false)
@@ -354,10 +349,10 @@ function LoadProjectComponent({
             className="ml-2 h-[1.5vh] w-[1.5vh] opacity-0 duration-150 group-hover:opacity-100"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            stroke-width="2"
+            strokeWidth="2"
             fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
             <path d="M 1 23 L 23 1"></path>
             <path d="M 6 1 h 17 v 17"></path>
