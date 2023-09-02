@@ -1,9 +1,12 @@
-import { link } from 'fs'
-import { FunctionComponent, useState } from 'react'
+import { FunctionComponent, useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import { ColorsRender } from './changeColors'
 const Navbar: FunctionComponent = () => {
   const [categorie, setCategorie] = useState('dev')
+  useEffect(() => {
+    ColorsRender('#fff', '#111', 0.5)
+  }, [categorie])
 
   return (
     <div className="absolute flex h-full w-full flex-row p-[4vh] transition-colors">
@@ -20,91 +23,72 @@ const Navbar: FunctionComponent = () => {
       </div>
       <div className="justify-betweens flex w-full flex-col justify-between">
         <div className="relative top-[70vh] mx-auto inline-flex w-2 flex-row justify-center gap-4 md:top-0">
-          <div className="flex" id="dev">
-            <NavLink
-              to="/"
-              onClick={() => {
-                setCategorie('dev')
-              }}
+          <NavLink
+            to="/"
+            onClick={() => {
+              setCategorie('dev')
+            }}
+            id="dev"
+            className={
+              categorie === 'dev'
+                ? ' bg-primary px-4 py-2 uppercase'
+                : 'bg-secondary px-4 py-2 uppercase'
+            }
+          >
+            <p
               className={
                 categorie === 'dev'
-                  ? ' bg-primary text-secondary w-max px-4 py-2 uppercase'
-                  : ' bg-primary text-secondary hidden w-max px-4 py-2 uppercase'
+                  ? 'text-secondary m-0 w-max uppercase'
+                  : 'text-primary m-0 w-max uppercase'
               }
             >
               Developer
-            </NavLink>
-            <NavLink
-              to="/"
-              onClick={() => {
-                setCategorie('dev')
-              }}
-              className={
-                categorie === 'dev'
-                  ? 'text-primary hidden w-max bg-transparent px-4 py-2 uppercase'
-                  : 'text-primary w-max bg-transparent px-4 py-2 uppercase'
-              }
-            >
-              Developer
-            </NavLink>
-          </div>
-          <div className="flex" id="2d">
-            <NavLink
-              to="/"
-              onClick={() => {
-                setCategorie('2d')
-              }}
+            </p>
+          </NavLink>
+          <NavLink
+            to="/"
+            onClick={() => {
+              setCategorie('2d')
+            }}
+            id="2d"
+            className={
+              categorie === '2d'
+                ? 'bg-primary px-4 py-2'
+                : 'bg-secondary px-4 py-2'
+            }
+          >
+            <p
               className={
                 categorie === '2d'
-                  ? 'bg-primary text-secondary w-max px-4 py-2 uppercase'
-                  : 'bg-primary text-secondary hidden w-max px-4 py-2 uppercase'
+                  ? 'text-secondary m-0 w-max uppercase'
+                  : 'text-primary m-0 w-max uppercase'
               }
             >
               2D Artist
-            </NavLink>
-            <NavLink
-              to="/"
-              onClick={() => {
-                setCategorie('2d')
-              }}
-              className={
-                categorie === '2d'
-                  ? 'text-primary hidden w-max bg-transparent px-4 py-2 uppercase'
-                  : 'text-primary w-max bg-transparent px-4 py-2 uppercase'
-              }
-            >
-              2D Artist
-            </NavLink>
-          </div>
-          <div className="flex" id="3d">
-            <NavLink
-              to="/"
-              onClick={() => {
-                setCategorie('3d')
-              }}
+            </p>
+          </NavLink>
+          <NavLink
+            to="/"
+            onClick={() => {
+              setCategorie('3d')
+            }}
+            id="3d"
+            className={
+              categorie === '3d'
+                ? 'bg-primary px-4 py-2 uppercase'
+                : 'bg-secondary px-4 py-2 uppercase'
+            }
+          >
+            <p
               className={
                 categorie === '3d'
-                  ? 'bg-primary text-secondary w-max px-4 py-2 uppercase'
-                  : 'bg-primary text-secondary hidden w-max px-4 py-2 uppercase'
+                  ? 'text-secondary m-0 w-max uppercase'
+                  : 'text-primary m-0 w-max uppercase'
               }
             >
               3D Artst
-            </NavLink>
-
-            <NavLink
-              to="/"
-              onClick={() => {
-                setCategorie('3d')
-              }}
-              className={
-                categorie === '3d'
-                  ? 'text-primary hidden w-max bg-transparent px-4 py-2 uppercase'
-                  : 'text-primary w-max bg-transparent px-4 py-2 uppercase'
-              }
-            >
-              3D Artst
-            </NavLink>
-          </div>
+            </p>
+          </NavLink>
         </div>
         <div className="mx-auto" id="scrollIcon">
           <p className="text-primary m-0 font-secondaryFont text-xxl uppercase underline">
@@ -161,22 +145,70 @@ const Navbar: FunctionComponent = () => {
       </div>
       <div className="flex w-[8vh] flex-col justify-between">
         <div className="text-primary decoration-none flex flex-col items-end font-secondaryFont text-xl uppercase underline visited:text-white">
-          <Link className="w-max" to="/about">
+          <Link className="group w-max" to="/about">
+            <svg
+              className="mr-2 h-[1.5vh] w-[1.5vh] opacity-0 duration-150 group-hover:opacity-100"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M 1 23 L 23 1"></path>
+              <path d="M 6 1 h 17 v 17"></path>
+            </svg>
             About
           </Link>
         </div>
-        <div className=" text-primary decoration-none flex flex-col items-end font-secondaryFont text-xl uppercase underline visited:text-white">
-          <a href="https://www.instagram.com/akkibi_/" className="w-max">
+        <div className=" text-primary decoration-none flex flex-col items-end font-secondaryFont text-xl uppercase underline visited:text-white ">
+          <a href="https://www.instagram.com/akkibi_/" className="group w-max">
+            <svg
+              className="mr-2 h-[1.5vh] w-[1.5vh] opacity-0 duration-150 group-hover:opacity-100"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M 1 23 L 23 1"></path>
+              <path d="M 6 1 h 17 v 17"></path>
+            </svg>
             Instagram
           </a>
           <a
             target="_top"
             href="mailto:akiravalade@gmail.com subject=Hello%20Akira"
-            className="w-max"
+            className="group w-max"
           >
+            <svg
+              className="mr-2 h-[1.5vh] w-[1.5vh] opacity-0  duration-150 group-hover:opacity-100"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M 1 23 L 23 1"></path>
+              <path d="M 6 1 h 17 v 17"></path>
+            </svg>
             Email
           </a>
-          <a href="https://github.com/Akkibi" className="w-max">
+          <a href="https://github.com/Akkibi" className="group w-max">
+            <svg
+              className="mr-2 h-[1.5vh] w-[1.5vh] opacity-0 duration-150 group-hover:opacity-100"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M 1 23 L 23 1"></path>
+              <path d="M 6 1 h 17 v 17"></path>
+            </svg>
             Github
           </a>
         </div>

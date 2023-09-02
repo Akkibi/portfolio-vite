@@ -345,8 +345,23 @@ function LoadProjectComponent({
         </h1>
         <h2 className="text-primary text-xl sm:text-xxl">{project.date}</h2>
         <p className="text-primary font-secondaryFont">{project.description}</p>
-        <a href={project.link[0]} className="text-primary underline">
+        <a
+          href={project.link[0]}
+          className="text-primary group uppercase underline"
+        >
           {project.link[1]}
+          <svg
+            className="ml-2 h-[1.5vh] w-[1.5vh] opacity-0 duration-150 group-hover:opacity-100"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M 1 23 L 23 1"></path>
+            <path d="M 6 1 h 17 v 17"></path>
+          </svg>
         </a>
       </div>
       {project.videos.map((video, index) => {

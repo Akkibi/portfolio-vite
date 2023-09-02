@@ -154,7 +154,7 @@ const ThumbnailsComponent = ({
       duration: 0.5,
       x: nextValue + '%',
       y: '-50%',
-      ease: 'power2.out',
+      ease: 'power2',
       overwrite: true,
     })
     const images = track.getElementsByClassName('thumbnail')
@@ -162,7 +162,7 @@ const ThumbnailsComponent = ({
       gsap.to(image as HTMLElement, {
         duration: 0.5,
         objectPosition: `${100 + nextValue}% center`,
-        ease: 'power2.out',
+        ease: 'power2',
         overwrite: true,
       })
     }
