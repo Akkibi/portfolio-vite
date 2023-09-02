@@ -13,6 +13,7 @@ interface Project {
   title: string
   description: string
   images: string[]
+  webpImages: string[]
   videos: string[]
   link: string[]
   colors: string[]
@@ -323,12 +324,18 @@ function LoadProjectComponent({
           </p>
         </div>
       </div>
-      <img
-        src={`/assets/${project.name}/${project.images[0]}`}
-        alt=""
-        className="aspect-vidaeo w-full bg-center object-cover"
-      />
-
+      <picture id={`image_${index}_${projectIndex}`}>
+        <source
+          srcSet={`/assets/${project.name}/${project.webpImages[0]}`}
+          type="image/webp"
+        />
+        <img
+          className="aspect-vidaeo w-full bg-center object-cover"
+          id={`image_${index}_${projectIndex}`}
+          src={`/assets/${project.name}/${project.images[0]}`}
+          alt={`${project.images[index]}`}
+        />
+      </picture>
       <div className="px-5 pb-10 pt-2">
         <h1
           className="text-primary m-0 font-primaryFont text-xxl sm:text-xxxl"
@@ -370,12 +377,18 @@ function LoadProjectComponent({
                   target="_blank"
                   rel="noopener noreferrer"
                 ></a>
-                <img
-                  key={index}
-                  src={`/assets/${project.name}/${image}`}
-                  alt=""
-                  className="object-fit absolute left-0 top-0 z-10 h-full w-full object-contain"
-                />
+                <picture id={`image_${index}_${projectIndex}`}>
+                  <source
+                    srcSet={`/assets/${project.name}/${project.webpImages[index]}`}
+                    type="image/webp"
+                  />
+                  <img
+                    className="object-fit absolute left-0 top-0 z-10 h-full w-full object-contain"
+                    id={`image_${index}_${projectIndex}`}
+                    src={`/assets/${project.name}/${project.images[index]}`}
+                    alt={`${project.images[index]}`}
+                  />
+                </picture>
               </div>
             )
           }
