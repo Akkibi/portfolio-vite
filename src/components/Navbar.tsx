@@ -15,7 +15,7 @@ const Navbar: FunctionComponent = () => {
           id="nav"
           className="text-primary relative m-0 w-max font-primaryFont text-xxl uppercase"
         >
-          Akira Valade
+          <Link to={'/'}>Akira Valade</Link>
         </h1>
         <p className="text-primary relative m-0 hidden w-max font-secondaryFont text-xl uppercase md:block">
           Développeur créatif front-end <br /> disponible à partir de septembre

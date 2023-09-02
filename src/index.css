@@ -88,3 +88,13 @@ a:visited {
 .track-image .track-link {
   backdrop-filter: grayscale(100%);
 }
+
+.grid-image {
+  background-image: linear-gradient(
+      rgba(64, 64, 64, 1) 0.3vh,
+      transparent 0.3vh
+    ),
+    linear-gradient(90deg, rgba(64, 64, 64, 1) 0.3vh, transparent 0.3vh);
+  background-size: 4vh 4vh;
+  background-repeat: repeat;
+}
