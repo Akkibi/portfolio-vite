@@ -138,12 +138,17 @@ function LoadProjectComponent({
     if (scrollableRef.current) {
       scrollableRef.current.dataset.touchDownAtX = clientX.toString()
       scrollableRef.current.dataset.touchDownAtY = clientY.toString()
+      console.log(
+        scrollableRef.current.dataset.touchDownAtX,
+        scrollableRef.current.dataset.touchDownAtY
+      )
     }
   }
   const navigate = useNavigate()
   const handleWindowOnUp = (e: TouchEvent | MouseEvent) => {
-    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX
-    const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY
+    const clientX = 'touches' in e ? e.changedTouches[0].clientX : e.clientX
+    const clientY = 'touches' in e ? e.changedTouches[0].clientY : e.clientY
+    console.log(clientX, clientY)
     if (isAtTop) {
       if (
         scrollableRef.current &&
