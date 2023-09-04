@@ -73,8 +73,8 @@ function LoadAbout({ anim }: { anim: Function }) {
                 href=" akiravalade.vercel.app/africaproud"
                 className="underline"
               >
-                African Proud{' '}
-              </a>
+                African Proud
+              </a>{' '}
               pour l'artiste{' '}
               <a className="underline" href="https://www.djmohgreen.com/">
                 DJ Moh Green
@@ -93,7 +93,7 @@ function LoadAbout({ anim }: { anim: Function }) {
               <a className="underline" href="https://kpopcafe.eu/">
                 créé un site web de e-commerce
               </a>{' '}
-              de a à z en équipe.{' '}
+              de A à Z en équipe.{' '}
             </li>
           </ul>
           <br />
