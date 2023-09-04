@@ -42,84 +42,71 @@ function LoadAbout({ anim }: { anim: Function }) {
         </h2>
         <div className="w-full px-[4vw] py-[3vw] text-[4vw] leading-[5vw] sm:px-[3vw] sm:py-[2vw] sm:text-[3vw] md:text-[2vw] md:leading-[3vw] lg:text-[1.5vw] lg:leading-[2vw]">
           <p>
-            Salut, je suis un développeur passionné de création 3D et de design
-            web ainsi qu'avide de code.
+            Salut, je suis un développeur passionné de web design féru de code
+            et de création 3D en autodidacte.{' '}
           </p>
           <br />
           <p>
-            19 ans et actuellement en
-            <b> fin de deuxième année </b>
-            de DUT
+            19 ans et actuellement en <b> fin de deuxième année </b>
+            de DUT{' '}
             <a
-              className="rounded-md bg-[rgba(0,0,0,0.25)] px-2 py-1 underline"
+              className="underline"
               href="https://iutmmi.fr/home/dut-mmi/dut-mmi-formation-pluridisciplinaire/"
             >
-              <b>MMI</b>
+              MMI
             </a>
-            , mes dernières experiences en entreprise sont:
+            , mes dernières experiences en entreprise sont:{' '}
           </p>
           <br />
           <ul className="list-disc pl-[4vw]">
             <li>
-              Un stage chez
-              <a
-                className="rounded-md bg-[rgba(0,0,0,0.25)] p-1 px-2 underline"
-                href="https://paymenowdigital.com/"
-              >
+              Un stage chez{' '}
+              <a className="underline" href="https://paymenowdigital.com/">
                 PAY ME NOW
-              </a>
-              ou j'ai fais le redesign du site
-              <a
-                href="akiravalade.vercel.app/slapping"
-                className="rounded-md bg-[rgba(0,0,0,0.25)] p-1 px-2 underline"
-              >
+              </a>{' '}
+              ou j'ai fais le redesign du site{' '}
+              <a href="akiravalade.vercel.app/slapping" className="underline">
                 Slapping
-              </a>
-              et créé le site du concours
+              </a>{' '}
+              et créé le site du concours{' '}
               <a
                 href=" akiravalade.vercel.app/africaproud"
-                className="rounded-md bg-[rgba(0,0,0,0.25)] p-1 px-2 underline"
+                className="underline"
               >
-                African Proud
+                African Proud{' '}
               </a>
-              pour l'artiste
-              <a
-                className="rounded-md bg-[rgba(0,0,0,0.25)] p-1 px-2 underline"
-                href="https://www.djmohgreen.com/"
-              >
+              pour l'artiste{' '}
+              <a className="underline" href="https://www.djmohgreen.com/">
                 DJ Moh Green
-              </a>
+              </a>{' '}
             </li>
             <br />
             <li>
-              Un CDD à
+              Un CDD à{' '}
               <a
-                className="rounded-md bg-[rgba(0,0,0,0.25)] px-2 py-1 underline"
+                className="py-1 underline"
                 href="https://www.asiaworldmusic.fr/"
               >
                 <b>Musica</b>
-              </a>
-              où j'ai
-              <a
-                className="rounded-md bg-[rgba(0,0,0,0.25)] p-1 px-2 underline"
-                href="https://kpopcafe.eu/"
-              >
+              </a>{' '}
+              où j'ai{' '}
+              <a className="underline" href="https://kpopcafe.eu/">
                 créé un site web de e-commerce
-              </a>
-              de a à z en équipe.
+              </a>{' '}
+              de a à z en équipe.{' '}
             </li>
           </ul>
           <br />
           <p>
             Ma passion pour la technologie et l'innovation me pousse à explorer
             les dernières avancées technologiques et à me tenir au courant des
-            dernières tendances en matière de design.
+            dernières tendances en matière de design.{' '}
           </p>
           <br />
           <p>
             Mes compétences en développement web évoluent constamment, je suis
             en cours d'aprentissage de threejs. Ce portfolio est en cours de
-            création, restez à l'affut des changements!
+            création, restez à l'affut des changements!{' '}
           </p>
           <ul className=" my-20  flex w-full list-none flex-row  flex-wrap justify-center gap-2 p-0 text-black sm:flex-nowrap">
             <li className="group relative aspect-square w-[30%] overflow-hidden rounded-full border-2 border-solid border-white bg-white sm:w-[20%]">
@@ -130,7 +117,7 @@ function LoadAbout({ anim }: { anim: Function }) {
               >
                 <div className="ease-inout absolute left-1/2 top-1/2 m-0 h-[25%] w-[25%] -translate-x-1/2 -translate-y-1/2 duration-500 group-hover:scale-125">
                   <svg
-                    className="h-full w-full"
+                    className="h-full w-full animate-bounce"
                     xmlns="http://www.w3.org/2000/svg"
                     width="100%"
                     height="100%"

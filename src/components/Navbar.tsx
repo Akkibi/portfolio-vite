@@ -158,7 +158,7 @@ const Navbar: FunctionComponent = () => {
               <path d="M 1 23 L 23 1"></path>
               <path d="M 6 1 h 17 v 17"></path>
             </svg>
-            About
+            À propos
           </Link>
         </div>
         <div className=" text-primary decoration-none flex flex-col items-end font-secondaryFont text-xl uppercase underline visited:text-white ">

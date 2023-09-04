@@ -64,4 +64,9 @@ export const ProjectRender = (
     x: 0,
     y: 0,
   })
+  gsap.to('#titles', {
+    duration: 0.5,
+    ease: 'power2',
+    y: 0,
+  })
 }

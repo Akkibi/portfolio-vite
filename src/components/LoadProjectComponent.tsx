@@ -101,6 +101,11 @@ function LoadProjectComponent({
         ease: 'power2',
         y: '-50%',
       })
+      gsap.to('#titles', {
+        duration: 0.5,
+        ease: 'power2',
+        y: 0,
+      })
     }
     if (!isAtTop) {
       gsap.to(scrollableRef.current, {
@@ -113,6 +118,11 @@ function LoadProjectComponent({
         duration: 0.5,
         ease: 'power2',
         y: '-250%',
+      })
+      gsap.to('#titles', {
+        duration: 0.5,
+        ease: 'power2',
+        y: window.innerHeight * -1.5,
       })
       scrollableRef.current.scrollTop = 20
     }
