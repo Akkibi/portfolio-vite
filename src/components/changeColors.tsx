@@ -5,12 +5,13 @@ export const ColorsRender = (
   speed: number
 ): void => {
   console.log('Change Colors')
-  var tl = gsap.timeline()
-  tl.to('.text-primary', {
-    duration: speed,
-    color: primary,
-    ease: 'power2',
-  })
+  var tlColors = gsap.timeline()
+  tlColors
+    .to('.text-primary', {
+      duration: speed,
+      color: primary,
+      ease: 'power2',
+    })
     .to(
       '.border-primary',
       {

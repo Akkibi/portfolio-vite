@@ -6,15 +6,15 @@ function LoadAnimation({ anim }: { anim: Function }) {
 
   useEffect(() => {
     if (navigationType === 'POP') {
-      anim()
       ColorsRender('#fff', '#111', 0.1)
+      anim()
     }
   })
   if (navigationType !== 'POP') {
-    anim()
     ColorsRender('#fff', '#111', 0.1)
+    anim()
   }
-  return <div></div>
+  return <></>
 }
 
 export default LoadAnimation
