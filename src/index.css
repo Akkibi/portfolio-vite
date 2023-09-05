@@ -80,7 +80,15 @@ a:visited {
 
 .track-image {
   will-change: width;
+  backface-visibility: hidden;
+  transform: translateZ(0px);
 }
+.slide-track {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0px);
+}
+
 .track-image:hover .track-link {
   opacity: 0;
 }
