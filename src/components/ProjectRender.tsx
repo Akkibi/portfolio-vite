@@ -17,7 +17,7 @@ export const ProjectRender = (
   console.log('Section', index)
   gsap.to(notSelectedImage, {
     duration: 0.5,
-    width: window.innerHeight * 0.1,
+    width: window.innerHeight * 0.15,
     ease: 'power2',
     opacity: 0.75,
 

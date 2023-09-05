@@ -42,13 +42,13 @@ function LoadProjectComponent({
     const title: HTMLElement | null = document.querySelector('.track-title')
     if (track !== null && image !== null && title !== null) {
       const offset =
-        window.innerHeight * 0.1 * (projectIndex - 1) +
+        window.innerHeight * 0.15 * (projectIndex - 1) +
         title.getBoundingClientRect().width * index +
         (projectIndex + index - 1) * 16 +
         selectedWidth / 2
 
       const trackWidth =
-        window.innerHeight * 0.1 * (countData[3] - 1) +
+        window.innerHeight * 0.15 * (countData[3] - 1) +
         title.getBoundingClientRect().width * 3 +
         (countData[3] + 3 - 1) * 16 +
         selectedWidth
