@@ -4,7 +4,7 @@
       "name": "african-proud",
       "date": "12/07/2023",
       "title": "Création site African Proud",
-      "description": "Ce projet à été réalisé dans le cadre d'un stage de deux mois dans l'entreprise PAY ME NOW Production. En temp que développeur full-stack, ma mission à été de créer la plateforme du concours avec une gestion de compte public et artistes, toutes les informations concernant l'evenement ainsi que des pages de post de video, plannings, et news autour de celui-ci. Le site à entièrement été créé par mes soins en NextJS, TailwindCSS, TypeScript et figma pour le front-end et Prisma et PosgresSQL pour le back-end sur OVH. Le site à été versioné sur GitHub et déalisé en moins d'un mois et demis.",
+      "description": "Ce projet à été réalisé dans le cadre d'un stage de deux mois dans l'entreprise PAY ME NOW Production. En temp que développeur full-stack, ma mission à été de créer la plateforme du concours avec une gestion de compte public et artistes, toutes les informations concernant l'evenement ainsi que des pages de post de video, plannings, et news autour de celui-ci. Le site à entièrement été créé par mes soins en Next.js, TailwindCSS, TypeScript et Figma pour le front-end et Prisma et PosgresSQL pour le back-end sur OVH. Le site a été versioné sur GitHub et réalisé en moins d'un mois et demis.",
       "images": [
         "homepage.png",
         "register.png",
@@ -22,17 +22,14 @@
         "affiche3.webp"
       ],
       "videos": ["V7kypRDQ1-Q"],
-      "link": [
-        "https://africanproud.org/",
-        "Le site serà en ligne en septembre 2023"
-      ],
+      "link": ["https://africanproud.org/", "Voir le site"],
       "colors": ["#f29f03", "#232323"]
     },
     {
       "name": "SLAPPING",
       "date": "12/06/2023",
       "title": "Redesign Media Slapping",
-      "description": "Ce projet à été réalisé dans le cadre d'un stage de deux mois dans l'entreprise PAY ME NOW Production. En temp que creatif developpeur, ma mission était de reprendre le développement du site pour l'adapter à la direction artistique déjà mise en place. La dernière image de cette page est le design du site avant que j'en propose un autre à l'équipe et que je le développe. La seconde image est le design final validé par le DJ Moh green et le reste sont des maquettes. Le site serà en ligne fin 2023",
+      "description": "Ce projet à été réalisé dans le cadre d'un stage de deux mois dans l'entreprise PAY ME NOW Production. En temp que creatif developpeur, ma mission était de reprendre le développement du site pour l'adapter à la direction artistique déjà mise en place. La dernière image est l'avant et les autres, l'après le redesign. Le site serà en ligne fin 2023",
       "images": [
         "after.png",
         "homepage.png",
@@ -57,7 +54,7 @@
       "name": "gallerie-des-reves",
       "date": "1-2/12/2022",
       "title": "Gallerie des Rêves",
-      "description": "Ce site à été créé dans le cadre d'un projet scolaire dans lequel je me suis chargé de créer un dispositif interractif pour une exposition de notre agence d'expositions. Ce site a été fait avec Three Js et Tailwind,  en utilisant git ainsi que figma pour les designs.",
+      "description": "Ce site à été créé dans le cadre d'un projet scolaire. Je me suis chargé de créer un dispositif interractif pour une exposition de notre agence d'expositions. Ce site a été fait avec Three.js et Tailwind,  en utilisant Git ainsi que Figma pour les designs.",
       "images": ["affiche.png", "affiche-vide.png"],
       "webpImages": ["affiche.webp", "affiche-vide.webp"],
       "videos": ["1VQM0jca-FQ"],
@@ -71,7 +68,7 @@
       "name": "nuit-de-linfo",
       "date": "1-2/12/2022",
       "title": "La Nuit de L'info",
-      "description": "Ce site à été créé lors de l'évènement de la nuit de l'info qui est un concours qui occure chaque année dans lequel on doit faire un site web en 24h dans un thème donné. Le thème de cette année était les MST. Ce site à été fait en JS, html, en utilisant nodeJs et git ainsi que figma pour les designs.",
+      "description": "Ce site à été créé lors de l'évènement de la Nuit De l'Info, concours qui a lieu chaque année dans lequel on doit faire un site web en 24h dans un thème donné. Le thème de cette année était les MST. Ce site à été fait en Javascript, HTML, en utilisant Node.js et Git ainsi que Figma pour les designs.",
       "images": [
         "pagedacceuil.png",
         "acceuil.png",
@@ -103,7 +100,7 @@
       "name": "portrait-chinois",
       "date": "18/03/2022",
       "title": "Portrait Chinois",
-      "description": "Ce projet me représente (de 2021) avec 8 elements. Ce site à été créé dans le but d'en apprendre plus sur le code en js. C'est aussi le premier site avec lequel j'ai utilisé Git et Github.",
+      "description": "Ce projet me représente (de 2021) avec 8 éléments. Ce site a été créé dans le but d'en apprendre plus sur le code en JavaScript. C'est aussi le premier site avec lequel j'ai utilisé Git et Github.",
       "images": [
         "ecran.png",
         "Frame3.png",
@@ -129,7 +126,7 @@
       "name": "dataviz",
       "date": "21/10/2022",
       "title": "Dataviz",
-      "description": "Ce projet de groupe m'a appris à utiliser d3js pour faire de la visualisation de données. Le but de ce site est de comparer le courbe de croissance des utilisateurs de Netflix, des entrées de cinema et du covid pour y voir une corellation.",
+      "description": "Ce projet de groupe m'a appris à utiliser d3js pour faire de la visualisation de données. Le but de ce site est de comparer les courbes de croissance des utilisateurs de Netflix, des entrées de cinéma et celle du Covid pour y voir une corellation.",
       "images": [
         "Maquette-Resp-desktop-version-exportable-lisible-2.png",
         "Maquette-Resp-desktop-version-exportable-lisible.png",
@@ -154,7 +151,7 @@
       "name": "akkibi-chromatic",
       "date": "26/12/2022",
       "title": "Animation logo Akkibi",
-      "description": "Ce projet m'a appris à faire des animations sur figma en utilisant un peut de créativité et de smart animation.",
+      "description": "Ce projet m'a appris à faire des animations sur Figma en utilisant un peu de créativité et de morphing avec Smart Animate.",
       "images": ["carre.jpg", "stretch.jpg", "normal.jpg", "colors-break.jpg"],
       "webpImages": [
         "carre.webp",
@@ -259,7 +256,7 @@
       "name": "wireframe-but-mmi",
       "date": "1/12/2022",
       "title": "Refonte But MMi",
-      "description": "Ce projet à été de refaire le site de mon université avec un design plus récent, la maquette à été réalisée sur figma. La première image est une référence pour les détails et les couleurs et les autres sont les wireframes.",
+      "description": "Ce projet à été de refaire le site de mon université avec un design plus récent, la maquette à été réalisée sur Figma. La première image est une référence pour les détails et les couleurs et les autres sont les wireframes.",
       "images": [
         "Frame38.png",
         "Frame37.png",
@@ -284,7 +281,7 @@
       "name": "leboncoin",
       "date": "14/03/2022",
       "title": "Redesign Leboncoin",
-      "description": "L'objectif de ce projet était de faire une analyse du site sur ordinateur de Leboncoin pour ajouter des fonctionalités utiles au site tout en mettant à jour ses visuels.",
+      "description": "L'objectif de ce projet était de faire une analyse du site de Leboncoin sur ordinateur pour ajouter des fonctionalités utiles au site tout en mettant à jour ses visuels.",
       "images": [
         "Pagedacceuil.png",
         "Pagecompte.png",
@@ -308,7 +305,7 @@
       "name": "background",
       "date": "01/02/2023",
       "title": "Fond d'écran",
-      "description": "Voici chaques étapes qui ont menés à mon fond d'écran actuel. Je suis parti d'une base simple, deux logos, Figma et Blender qui me passionnent (pas la place pour les multiples langages de code) les elements 3d ont été faits sur Blender et la composition sur figma.",
+      "description": "Voici les différentes étapes qui ont menés à mon fond d'écran actuel. Je suis parti d'une base simple, deux logos, Figma et Blender qui me passionnent (pas la place pour les multiples langages de code) que j'ai utilisé pour la composition et les éléments 3D.",
       "images": [
         "background-new.png",
         "v05.png",
@@ -428,7 +425,7 @@
     {
       "name": "polices",
       "date": "01/03/2022",
-      "title": "Police d'écriture",
+      "title": "Cloudy Round Serif et Cloudy Round Sans",
       "description": "Voici ma première police d'écriture, basée sur des formes simples elle peut représenter une marque épurée, à formes rondes.",
       "images": ["letters.jpg", "true.jpg", "Frame14.jpg", "see-more.jpg"],
       "webpImages": [
@@ -456,7 +453,7 @@
       "name": "kirby",
       "date": "16/10/2021",
       "title": "kirby design",
-      "description": "Ce projet m'a appris à faire des effets 3d sur figma en jouant avec les lumières.",
+      "description": "Ce projet m'a appris à faire des effets 3d sur Figma en jouant avec les lumières.",
       "images": ["kirby.png", "kirby-king.png"],
       "webpImages": ["kirby.webp", "kirby-king.webp"],
       "videos": [],
@@ -491,7 +488,7 @@
       "name": "cv-video",
       "date": "11/01/2023",
       "title": "My ancestors",
-      "description": "Ce projet m'a appris à faire du montage vidéo sur blender il m'a aussi appris à utiliser stable diffusion ainsi que d'autres IA de génération d'images pour la création d'image, de depth map et autres éléments.",
+      "description": "Ce projet m'a appris à faire du montage vidéo sur Blender, à utiliser Stable Diffusion ainsi que d'autres IA de génération d'images pour la création d'image, de depth map et autres éléments.",
       "images": [
         "miniature.png",
         "end-screen.png",
