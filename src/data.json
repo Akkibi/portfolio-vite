@@ -29,7 +29,7 @@
       "name": "SLAPPING",
       "date": "12/06/2023",
       "title": "Redesign Media Slapping",
-      "description": "Ce projet à été réalisé dans le cadre d'un stage de deux mois dans l'entreprise PAY ME NOW Production. En temp que creatif developpeur, ma mission était de reprendre le développement du site pour l'adapter à la direction artistique déjà mise en place. La dernière image est l'avant et les autres, l'après le redesign. Le site serà en ligne fin 2023",
+      "description": "Ce projet a été réalisé dans le cadre d'un stage de deux mois dans l'entreprise PAY ME NOW Production. En temp que creatif developpeur, ma mission était de reprendre le développement du site pour l'adapter à la direction artistique déjà mise en place. La dernière image est l'avant et les autres, l'après le redesign. Le site serà en ligne fin 2023",
       "images": [
         "after.png",
         "homepage.png",
@@ -54,7 +54,7 @@
       "name": "gallerie-des-reves",
       "date": "1-2/12/2022",
       "title": "Gallerie des Rêves",
-      "description": "Ce site à été créé dans le cadre d'un projet scolaire. Je me suis chargé de créer un dispositif interractif pour une exposition de notre agence d'expositions. Ce site a été fait avec Three.js et Tailwind,  en utilisant Git ainsi que Figma pour les designs.",
+      "description": "Ce site a été créé dans le cadre d'un projet scolaire. Je me suis chargé de créer un dispositif interractif pour une exposition de notre agence d'expositions. Ce site a été fait avec Three.js et Tailwind,  en utilisant Git ainsi que Figma pour les designs.",
       "images": ["affiche.png", "affiche-vide.png"],
       "webpImages": ["affiche.webp", "affiche-vide.webp"],
       "videos": ["1VQM0jca-FQ"],
@@ -68,7 +68,7 @@
       "name": "nuit-de-linfo",
       "date": "1-2/12/2022",
       "title": "La Nuit de L'info",
-      "description": "Ce site à été créé lors de l'évènement de la Nuit De l'Info, concours qui a lieu chaque année dans lequel on doit faire un site web en 24h dans un thème donné. Le thème de cette année était les MST. Ce site à été fait en Javascript, HTML, en utilisant Node.js et Git ainsi que Figma pour les designs.",
+      "description": "Ce site a été créé lors de l'évènement de la Nuit De l'Info, concours qui a lieu chaque année dans lequel on doit faire un site web en 24h dans un thème donné. Le thème de cette année était les MST. Ce site à été fait en Javascript, HTML, en utilisant Node.js et Git ainsi que Figma pour les designs.",
       "images": [
         "pagedacceuil.png",
         "acceuil.png",
@@ -256,7 +256,7 @@
       "name": "wireframe-but-mmi",
       "date": "1/12/2022",
       "title": "Refonte But MMi",
-      "description": "Ce projet à été de refaire le site de mon université avec un design plus récent, la maquette à été réalisée sur Figma. La première image est une référence pour les détails et les couleurs et les autres sont les wireframes.",
+      "description": "Ce projet a été de refaire le site de mon université avec un design plus récent, la maquette à été réalisée sur Figma. La première image est une référence pour les détails et les couleurs et les autres sont les wireframes.",
       "images": [
         "Frame38.png",
         "Frame37.png",
